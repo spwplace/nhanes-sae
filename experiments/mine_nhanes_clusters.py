@@ -12,7 +12,7 @@ from sklearn.metrics import silhouette_score
 from sklearn.preprocessing import StandardScaler
 from umap import UMAP
 
-from nhanes_phenome_sae import ANCHORS, prepare_matrix, train_sparse_autoencoder
+from nhanes_phenome_sae import ANCHORS, encode_sparse_autoencoder, prepare_matrix, train_sparse_autoencoder
 
 
 PRETTY_ANCHORS = {
@@ -90,8 +90,13 @@ def main():
     p.add_argument("--hidden", type=int, default=192)
     p.add_argument("--steps", type=int, default=3200)
     p.add_argument("--batch-size", type=int, default=768)
-    p.add_argument("--lr", type=float, default=0.012)
+    p.add_argument("--lr", type=float, default=0.003)
     p.add_argument("--l1", type=float, default=0.006)
+    p.add_argument("--optimizer", choices=["adamw", "muon"], default="adamw")
+    p.add_argument("--activation", choices=["relu_l1", "topk"], default="relu_l1")
+    p.add_argument("--topk", type=int, default=None)
+    p.add_argument("--weight-decay", type=float, default=1e-4)
+    p.add_argument("--device", default="auto")
     p.add_argument("--max-cols", type=int, default=1000)
     p.add_argument("--min-nonmissing", type=float, default=0.25)
     p.add_argument("--umap-sample", type=int, default=18000)
@@ -124,8 +129,21 @@ def main():
         raise SystemExit(f"Only {x_df.shape[1]} columns remain after filtering; relax prefix filters.")
     x = x_df.to_numpy(dtype=np.float32)
 
-    model = train_sparse_autoencoder(x, args.hidden, args.steps, args.batch_size, args.lr, args.l1, args.seed)
-    h = np.maximum(x @ model["w_enc"] + model["b_enc"], 0).astype(np.float32)
+    model = train_sparse_autoencoder(
+        x,
+        args.hidden,
+        args.steps,
+        args.batch_size,
+        args.lr,
+        args.l1,
+        args.seed,
+        optimizer=args.optimizer,
+        activation=args.activation,
+        topk=args.topk,
+        weight_decay=args.weight_decay,
+        device=args.device,
+    )
+    h = encode_sparse_autoencoder(x, model, args.activation, args.topk)
     active_rate = (h > 1e-3).mean(axis=0)
     live_units = active_rate > 0.003
     h_live = h[:, live_units]
@@ -228,6 +246,7 @@ def main():
         "n_participants": int(x_df.shape[0]),
         "n_features": int(x_df.shape[1]),
         "hidden": args.hidden,
+        "trainer": model.get("trainer", {}),
         "live_units": int(live_units.sum()),
         "mean_active_rate": float(active_rate.mean()),
         "cluster_k": int(best["k"]),

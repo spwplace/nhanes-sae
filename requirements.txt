@@ -7,4 +7,5 @@ pyarrow
 matplotlib
 pillow
 scikit-learn
+torch
 umap-learn

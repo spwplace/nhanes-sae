@@ -30,14 +30,14 @@ This uses CDC public-use NHANES files. Create the local venv once:
 
 ```bash
 python3 -m venv .venv
-.venv/bin/python -m pip install pandas beautifulsoup4 lxml pyreadstat requests pyarrow matplotlib
+.venv/bin/python -m pip install -r requirements.txt
 ```
 
 Then download and train:
 
 ```bash
 .venv/bin/python scripts/download_nhanes.py --cycles 2021-2023 2017-2018
-.venv/bin/python experiments/nhanes_phenome_sae.py --steps 2200 --hidden 128 --l1 0.006
+.venv/bin/python experiments/nhanes_phenome_sae.py --steps 2200 --hidden 128 --optimizer adamw --activation topk --topk 8
 .venv/bin/python scripts/build_report.py
 open site/index.html
 ```
@@ -51,12 +51,40 @@ to `data/nhanes/processed/nhanes_phenome_raw.parquet`, and the report inputs to
 After the NHANES data has been downloaded:
 
 ```bash
-.venv/bin/python -m pip install scikit-learn umap-learn
-.venv/bin/python experiments/mine_nhanes_clusters.py --hidden 256 --steps 4000 --l1 0.002 --out-dir outputs/nhanes_mining_clean
+.venv/bin/python experiments/mine_nhanes_clusters.py --hidden 256 --steps 4000 --optimizer adamw --activation topk --topk 16 --out-dir outputs/nhanes_mining_clean
 ```
 
 This writes tweetable maps and cluster summaries to
 `outputs/nhanes_mining_clean/`.
+
+## Blocking ablation
+
+The first block-balanced maps used hand-defined clinical blocks such as body
+size, blood pressure, lipids/glucose, and mood/sleep. That is a strong analyst
+prior, so it should not be treated as unsupervised discovery by itself.
+
+The stricter ablation compares the same columns and same SAE architecture under
+several blocking rules:
+
+- one monolithic SAE
+- hand-defined clinical blocks
+- NHANES source/prefix blocks
+- data-derived correlation blocks
+- matched random blocks
+
+```bash
+.venv/bin/python experiments/blocking_ablation.py \
+  --steps 1000 \
+  --optimizer adamw \
+  --activation topk \
+  --topk 4 \
+  --out-dir outputs/nhanes_blocking_ablation_adamw_topk
+```
+
+In the current run, data-derived correlation blocks have the strongest held-out
+cluster separation, while hand-defined clinical blocks do not beat the controls.
+That makes the safer claim: learn or ablate the view structure first, then use
+clinical names only for post-hoc interpretation.
 
 ## Scale-up idea
 

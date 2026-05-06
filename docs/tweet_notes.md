@@ -1,5 +1,43 @@
 # Tweet notes: phenome SAE mining pass
 
+## Revised framing after blocking ablation
+
+The hand-defined clinical block SAE is not the strongest claim. It injects a
+large analyst prior. The more defensible result is an ablation:
+
+- Same 95 curated NHANES phenotype columns.
+- Same PyTorch SAE architecture: AdamW, decoder normalization, TopK sparse
+  activations.
+- Compare monolithic, hand clinical blocks, NHANES prefix blocks,
+  data-derived correlation blocks, and matched random blocks.
+
+Current full ablation:
+
+- Correlation-derived blocks: held-out silhouette 0.363, archetype stability 0.884.
+- Monolithic SAE: held-out silhouette 0.136, but low KMeans seed stability 0.078.
+- Hand clinical blocks: held-out silhouette 0.064, archetype stability 0.860.
+- Matched random blocks: held-out silhouette mostly 0.04-0.09.
+- NHANES prefix blocks: held-out silhouette 0.090, archetype stability 0.987.
+
+Tweetable conclusion:
+
+> The hand-made clinical block split does *not* get to be the discovery. When I
+> ablate the blocking rule, data-derived correlation blocks beat clinical blocks
+> and random matched blocks on held-out separation. So the better experiment is:
+> learn the views, then interpret them clinically.
+
+Best current image:
+
+- `outputs/nhanes_blocking_ablation_adamw_topk/blocking_ablation_composite.png`
+
+Short reply to methodology critique:
+
+> Fair critique. The clinical blocks are a strong prior. I reran this as a
+> blocking ablation: monolithic vs clinical blocks vs NHANES-prefix blocks vs
+> correlation-derived blocks vs matched random blocks, all with the same AdamW
+> TopK SAE. Clinical blocks do not win; correlation-derived blocks do. That is
+> the more defensible direction.
+
 Suggested framing:
 
 > Tried the "discover sigma/skibidi/67 from first principles" joke literally,

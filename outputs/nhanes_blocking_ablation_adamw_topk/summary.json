@@ -1,0 +1,2620 @@
+{
+  "args": {
+    "input": "data/nhanes/processed/nhanes_phenome_raw.parquet",
+    "out_dir": "outputs/nhanes_blocking_ablation_adamw_topk",
+    "encoder": "sae",
+    "optimizer": "adamw",
+    "activation": "topk",
+    "topk": 4,
+    "hidden_per_block": 32,
+    "hidden_multiplier": 3,
+    "min_hidden": 4,
+    "steps": 1000,
+    "batch_size": 1024,
+    "lr": 0.003,
+    "l1": 0.002,
+    "weight_decay": 0.0001,
+    "device": "auto",
+    "live_threshold": 0.005,
+    "pca_per_block": 5,
+    "global_components": 32,
+    "min_k": 5,
+    "max_k": 12,
+    "kmeans_n_init": 25,
+    "silhouette_sample": 6000,
+    "stability_runs": 5,
+    "random_repeats": 5,
+    "train_frac": 0.7,
+    "max_participants": null,
+    "seed": 191
+  },
+  "results": [
+    {
+      "name": "monolithic",
+      "n_blocks": 1,
+      "n_columns": 95,
+      "embedding_dim": 32,
+      "cluster_k": 5,
+      "train_silhouette": 0.1351080004426765,
+      "test_silhouette": 0.13616600048367694,
+      "kmeans_ari_stability": 0.07782679820772716,
+      "archetype_stability": 0.82921302318573,
+      "blocks": [
+        {
+          "block": "all_curated_fields",
+          "n_columns": 95,
+          "embedding_dim": 32,
+          "live_units": 32,
+          "mean_active_rate": 0.125,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BMX__BMXBMI",
+            "BMX__BMXWT",
+            "BMX__BMXWAIST",
+            "BMX__BMXHIP",
+            "BMX__BMXARMC",
+            "BMX__BMXHT",
+            "BPX__BPXSY1",
+            "BPX__BPXSY2",
+            "BPX__BPXSY3",
+            "BPX__BPXDI1",
+            "BPX__BPXDI2",
+            "BPX__BPXDI3",
+            "BPXO__BPXOSY1",
+            "BPXO__BPXOSY2",
+            "BPXO__BPXOSY3",
+            "BPXO__BPXODI1",
+            "BPXO__BPXODI2",
+            "BPXO__BPXODI3",
+            "TCHOL__LBXTC",
+            "HDL__LBDHDD",
+            "TRIGLY__LBXTR",
+            "TRIGLY__LBDLDL",
+            "GLU__LBXGLU",
+            "GHB__LBXGH",
+            "BIOPRO__LBXSGL",
+            "BIOPRO__LBXSCR",
+            "BIOPRO__LBXSBU",
+            "BIOPRO__LBXSAL",
+            "BIOPRO__LBXSAPSI",
+            "BIOPRO__LBXSASSI",
+            "BIOPRO__LBXSATSI",
+            "BIOPRO__LBXSGTSI",
+            "BIOPRO__LBXSUA",
+            "CBC__LBXWBCSI",
+            "CBC__LBXRBCSI",
+            "CBC__LBXHGB",
+            "CBC__LBXHCT",
+            "CBC__LBXPLTSI",
+            "CBC__LBXRDW",
+            "CBC__LBXLYPCT",
+            "CBC__LBXNEPCT",
+            "DIQ__DIQ010",
+            "DIQ__DIQ050",
+            "DIQ__DIQ070",
+            "DIQ__DIQ160",
+            "DIQ__DIQ170",
+            "DIQ__DIQ180",
+            "BPQ__BPQ020",
+            "BPQ__BPQ030",
+            "BPQ__BPQ040A",
+            "BPQ__BPQ050A",
+            "MCQ__MCQ160B",
+            "MCQ__MCQ160C",
+            "MCQ__MCQ160D",
+            "MCQ__MCQ160E",
+            "MCQ__MCQ160F",
+            "SMQ__SMQ020",
+            "SMQ__SMQ040",
+            "SMQ__SMQ890",
+            "SMQ__SMQ900",
+            "SMQ__SMQ910",
+            "MCQ__MCQ010",
+            "MCQ__MCQ160G",
+            "MCQ__MCQ160K",
+            "MCQ__MCQ160O",
+            "DPQ__DPQ010",
+            "DPQ__DPQ020",
+            "DPQ__DPQ030",
+            "DPQ__DPQ040",
+            "DPQ__DPQ050",
+            "DPQ__DPQ060",
+            "DPQ__DPQ070",
+            "DPQ__DPQ080",
+            "DPQ__DPQ090",
+            "DPQ__DPQ100",
+            "SLQ__SLD012",
+            "SLQ__SLQ050",
+            "RXQ_RX__RXDUSE",
+            "RXQ_RX__RXDCOUNT",
+            "RXQ_RX__RXQSEEN",
+            "RXQ_RX__RXDDAYS",
+            "HSQ__HSD010",
+            "HSQ__HSQ500",
+            "HSQ__HSQ510",
+            "PAQ__PAQ605",
+            "PAQ__PAQ620",
+            "PAQ__PAQ635",
+            "PAQ__PAQ650",
+            "PAQ__PAQ665",
+            "PAQ__PAD680",
+            "ALQ__ALQ111",
+            "ALQ__ALQ130",
+            "ALQ__ALQ142",
+            "ALQ__ALQ151",
+            "ALQ__ALQ170"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "curated_clinical",
+      "n_blocks": 11,
+      "n_columns": 95,
+      "embedding_dim": 188,
+      "cluster_k": 12,
+      "train_silhouette": 0.060365070785700255,
+      "test_silhouette": 0.06366142712300359,
+      "kmeans_ari_stability": 0.5380362433086303,
+      "archetype_stability": 0.8602569699287415,
+      "blocks": [
+        {
+          "block": "body_size",
+          "n_columns": 6,
+          "embedding_dim": 10,
+          "live_units": 10,
+          "mean_active_rate": 0.22220235493569623,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BMX__BMXBMI",
+            "BMX__BMXWT",
+            "BMX__BMXWAIST",
+            "BMX__BMXHIP",
+            "BMX__BMXARMC",
+            "BMX__BMXHT"
+          ]
+        },
+        {
+          "block": "blood_pressure",
+          "n_columns": 12,
+          "embedding_dim": 19,
+          "live_units": 19,
+          "mean_active_rate": 0.125,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BPX__BPXSY1",
+            "BPX__BPXSY2",
+            "BPX__BPXSY3",
+            "BPX__BPXDI1",
+            "BPX__BPXDI2",
+            "BPX__BPXDI3",
+            "BPXO__BPXOSY1",
+            "BPXO__BPXOSY2",
+            "BPXO__BPXOSY3",
+            "BPXO__BPXODI1",
+            "BPXO__BPXODI2",
+            "BPXO__BPXODI3"
+          ]
+        },
+        {
+          "block": "lipids_glucose",
+          "n_columns": 7,
+          "embedding_dim": 13,
+          "live_units": 13,
+          "mean_active_rate": 0.19047619047619047,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "TCHOL__LBXTC",
+            "HDL__LBDHDD",
+            "TRIGLY__LBXTR",
+            "TRIGLY__LBDLDL",
+            "GLU__LBXGLU",
+            "GHB__LBXGH",
+            "BIOPRO__LBXSGL"
+          ]
+        },
+        {
+          "block": "renal_liver",
+          "n_columns": 8,
+          "embedding_dim": 18,
+          "live_units": 18,
+          "mean_active_rate": 0.16666666666666666,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BIOPRO__LBXSCR",
+            "BIOPRO__LBXSBU",
+            "BIOPRO__LBXSAL",
+            "BIOPRO__LBXSAPSI",
+            "BIOPRO__LBXSASSI",
+            "BIOPRO__LBXSATSI",
+            "BIOPRO__LBXSGTSI",
+            "BIOPRO__LBXSUA"
+          ]
+        },
+        {
+          "block": "blood_counts",
+          "n_columns": 8,
+          "embedding_dim": 13,
+          "live_units": 13,
+          "mean_active_rate": 0.16666666666666666,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "CBC__LBXWBCSI",
+            "CBC__LBXRBCSI",
+            "CBC__LBXHGB",
+            "CBC__LBXHCT",
+            "CBC__LBXPLTSI",
+            "CBC__LBXRDW",
+            "CBC__LBXLYPCT",
+            "CBC__LBXNEPCT"
+          ]
+        },
+        {
+          "block": "diabetes_history",
+          "n_columns": 6,
+          "embedding_dim": 15,
+          "live_units": 15,
+          "mean_active_rate": 0.2222222222222222,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "DIQ__DIQ010",
+            "DIQ__DIQ050",
+            "DIQ__DIQ070",
+            "DIQ__DIQ160",
+            "DIQ__DIQ170",
+            "DIQ__DIQ180"
+          ]
+        },
+        {
+          "block": "cardio_history",
+          "n_columns": 9,
+          "embedding_dim": 19,
+          "live_units": 19,
+          "mean_active_rate": 0.12448179494311334,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BPQ__BPQ020",
+            "BPQ__BPQ030",
+            "BPQ__BPQ040A",
+            "BPQ__BPQ050A",
+            "MCQ__MCQ160B",
+            "MCQ__MCQ160C",
+            "MCQ__MCQ160D",
+            "MCQ__MCQ160E",
+            "MCQ__MCQ160F"
+          ]
+        },
+        {
+          "block": "resp_smoking",
+          "n_columns": 9,
+          "embedding_dim": 18,
+          "live_units": 18,
+          "mean_active_rate": 0.14800466218990477,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "SMQ__SMQ020",
+            "SMQ__SMQ040",
+            "SMQ__SMQ890",
+            "SMQ__SMQ900",
+            "SMQ__SMQ910",
+            "MCQ__MCQ010",
+            "MCQ__MCQ160G",
+            "MCQ__MCQ160K",
+            "MCQ__MCQ160O"
+          ]
+        },
+        {
+          "block": "mood_sleep",
+          "n_columns": 12,
+          "embedding_dim": 22,
+          "live_units": 22,
+          "mean_active_rate": 0.125,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "DPQ__DPQ010",
+            "DPQ__DPQ020",
+            "DPQ__DPQ030",
+            "DPQ__DPQ040",
+            "DPQ__DPQ050",
+            "DPQ__DPQ060",
+            "DPQ__DPQ070",
+            "DPQ__DPQ080",
+            "DPQ__DPQ090",
+            "DPQ__DPQ100",
+            "SLQ__SLD012",
+            "SLQ__SLQ050"
+          ]
+        },
+        {
+          "block": "utilization_meds",
+          "n_columns": 7,
+          "embedding_dim": 18,
+          "live_units": 18,
+          "mean_active_rate": 0.1883872872071704,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "RXQ_RX__RXDUSE",
+            "RXQ_RX__RXDCOUNT",
+            "RXQ_RX__RXQSEEN",
+            "RXQ_RX__RXDDAYS",
+            "HSQ__HSD010",
+            "HSQ__HSQ500",
+            "HSQ__HSQ510"
+          ]
+        },
+        {
+          "block": "activity_alcohol",
+          "n_columns": 11,
+          "embedding_dim": 23,
+          "live_units": 23,
+          "mean_active_rate": 0.12382100071522233,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "PAQ__PAQ605",
+            "PAQ__PAQ620",
+            "PAQ__PAQ635",
+            "PAQ__PAQ650",
+            "PAQ__PAQ665",
+            "PAQ__PAD680",
+            "ALQ__ALQ111",
+            "ALQ__ALQ130",
+            "ALQ__ALQ142",
+            "ALQ__ALQ151",
+            "ALQ__ALQ170"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "nhanes_prefix",
+      "n_blocks": 17,
+      "n_columns": 95,
+      "embedding_dim": 206,
+      "cluster_k": 5,
+      "train_silhouette": 0.08838407009716485,
+      "test_silhouette": 0.08954250930741951,
+      "kmeans_ari_stability": 0.6884342588962128,
+      "archetype_stability": 0.987011730670929,
+      "blocks": [
+        {
+          "block": "prefix_BMX",
+          "n_columns": 6,
+          "embedding_dim": 12,
+          "live_units": 12,
+          "mean_active_rate": 0.2222222222222222,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BMX__BMXBMI",
+            "BMX__BMXWT",
+            "BMX__BMXWAIST",
+            "BMX__BMXHIP",
+            "BMX__BMXARMC",
+            "BMX__BMXHT"
+          ]
+        },
+        {
+          "block": "prefix_BPX",
+          "n_columns": 6,
+          "embedding_dim": 12,
+          "live_units": 12,
+          "mean_active_rate": 0.2222222222222222,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BPX__BPXSY1",
+            "BPX__BPXSY2",
+            "BPX__BPXSY3",
+            "BPX__BPXDI1",
+            "BPX__BPXDI2",
+            "BPX__BPXDI3"
+          ]
+        },
+        {
+          "block": "prefix_BPXO",
+          "n_columns": 6,
+          "embedding_dim": 11,
+          "live_units": 11,
+          "mean_active_rate": 0.2222222222222222,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BPXO__BPXOSY1",
+            "BPXO__BPXOSY2",
+            "BPXO__BPXOSY3",
+            "BPXO__BPXODI1",
+            "BPXO__BPXODI2",
+            "BPXO__BPXODI3"
+          ]
+        },
+        {
+          "block": "prefix_TRIGLY",
+          "n_columns": 2,
+          "embedding_dim": 6,
+          "live_units": 6,
+          "mean_active_rate": 0.5310823697699368,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "TRIGLY__LBXTR",
+            "TRIGLY__LBDLDL"
+          ]
+        },
+        {
+          "block": "prefix_BIOPRO",
+          "n_columns": 9,
+          "embedding_dim": 20,
+          "live_units": 20,
+          "mean_active_rate": 0.14814814814814814,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BIOPRO__LBXSGL",
+            "BIOPRO__LBXSCR",
+            "BIOPRO__LBXSBU",
+            "BIOPRO__LBXSAL",
+            "BIOPRO__LBXSAPSI",
+            "BIOPRO__LBXSASSI",
+            "BIOPRO__LBXSATSI",
+            "BIOPRO__LBXSGTSI",
+            "BIOPRO__LBXSUA"
+          ]
+        },
+        {
+          "block": "prefix_CBC",
+          "n_columns": 8,
+          "embedding_dim": 13,
+          "live_units": 13,
+          "mean_active_rate": 0.16666666666666666,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "CBC__LBXWBCSI",
+            "CBC__LBXRBCSI",
+            "CBC__LBXHGB",
+            "CBC__LBXHCT",
+            "CBC__LBXPLTSI",
+            "CBC__LBXRDW",
+            "CBC__LBXLYPCT",
+            "CBC__LBXNEPCT"
+          ]
+        },
+        {
+          "block": "prefix_DIQ",
+          "n_columns": 6,
+          "embedding_dim": 14,
+          "live_units": 14,
+          "mean_active_rate": 0.2220963960742242,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "DIQ__DIQ010",
+            "DIQ__DIQ050",
+            "DIQ__DIQ070",
+            "DIQ__DIQ160",
+            "DIQ__DIQ170",
+            "DIQ__DIQ180"
+          ]
+        },
+        {
+          "block": "prefix_BPQ",
+          "n_columns": 4,
+          "embedding_dim": 9,
+          "live_units": 9,
+          "mean_active_rate": 0.2917213017046132,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BPQ__BPQ020",
+            "BPQ__BPQ030",
+            "BPQ__BPQ040A",
+            "BPQ__BPQ050A"
+          ]
+        },
+        {
+          "block": "prefix_MCQ",
+          "n_columns": 9,
+          "embedding_dim": 21,
+          "live_units": 21,
+          "mean_active_rate": 0.14814814814814814,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "MCQ__MCQ160B",
+            "MCQ__MCQ160C",
+            "MCQ__MCQ160D",
+            "MCQ__MCQ160E",
+            "MCQ__MCQ160F",
+            "MCQ__MCQ010",
+            "MCQ__MCQ160G",
+            "MCQ__MCQ160K",
+            "MCQ__MCQ160O"
+          ]
+        },
+        {
+          "block": "prefix_SMQ",
+          "n_columns": 5,
+          "embedding_dim": 11,
+          "live_units": 11,
+          "mean_active_rate": 0.26371438788890217,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "SMQ__SMQ020",
+            "SMQ__SMQ040",
+            "SMQ__SMQ890",
+            "SMQ__SMQ900",
+            "SMQ__SMQ910"
+          ]
+        },
+        {
+          "block": "prefix_DPQ",
+          "n_columns": 10,
+          "embedding_dim": 22,
+          "live_units": 22,
+          "mean_active_rate": 0.13333333333333333,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "DPQ__DPQ010",
+            "DPQ__DPQ020",
+            "DPQ__DPQ030",
+            "DPQ__DPQ040",
+            "DPQ__DPQ050",
+            "DPQ__DPQ060",
+            "DPQ__DPQ070",
+            "DPQ__DPQ080",
+            "DPQ__DPQ090",
+            "DPQ__DPQ100"
+          ]
+        },
+        {
+          "block": "prefix_SLQ",
+          "n_columns": 2,
+          "embedding_dim": 5,
+          "live_units": 5,
+          "mean_active_rate": 0.49905630389001465,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "SLQ__SLD012",
+            "SLQ__SLQ050"
+          ]
+        },
+        {
+          "block": "prefix_RXQ_RX",
+          "n_columns": 4,
+          "embedding_dim": 9,
+          "live_units": 9,
+          "mean_active_rate": 0.33332339969007035,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "RXQ_RX__RXDUSE",
+            "RXQ_RX__RXDCOUNT",
+            "RXQ_RX__RXQSEEN",
+            "RXQ_RX__RXDDAYS"
+          ]
+        },
+        {
+          "block": "prefix_HSQ",
+          "n_columns": 3,
+          "embedding_dim": 8,
+          "live_units": 8,
+          "mean_active_rate": 0.4444444444444444,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "HSQ__HSD010",
+            "HSQ__HSQ500",
+            "HSQ__HSQ510"
+          ]
+        },
+        {
+          "block": "prefix_PAQ",
+          "n_columns": 6,
+          "embedding_dim": 13,
+          "live_units": 13,
+          "mean_active_rate": 0.2181030714824969,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "PAQ__PAQ605",
+            "PAQ__PAQ620",
+            "PAQ__PAQ635",
+            "PAQ__PAQ650",
+            "PAQ__PAQ665",
+            "PAQ__PAD680"
+          ]
+        },
+        {
+          "block": "prefix_ALQ",
+          "n_columns": 5,
+          "embedding_dim": 12,
+          "live_units": 12,
+          "mean_active_rate": 0.2610521714944173,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "ALQ__ALQ111",
+            "ALQ__ALQ130",
+            "ALQ__ALQ142",
+            "ALQ__ALQ151",
+            "ALQ__ALQ170"
+          ]
+        },
+        {
+          "block": "prefix_singletons",
+          "n_columns": 4,
+          "embedding_dim": 8,
+          "live_units": 8,
+          "mean_active_rate": 0.33307505860849523,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "TCHOL__LBXTC",
+            "HDL__LBDHDD",
+            "GLU__LBXGLU",
+            "GHB__LBXGH"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "correlation_blocks",
+      "n_blocks": 11,
+      "n_columns": 95,
+      "embedding_dim": 131,
+      "cluster_k": 5,
+      "train_silhouette": 0.3639662917960854,
+      "test_silhouette": 0.36298357710175416,
+      "kmeans_ari_stability": 0.4019556594554555,
+      "archetype_stability": 0.8841205835342407,
+      "blocks": [
+        {
+          "block": "corr_00",
+          "n_columns": 45,
+          "embedding_dim": 32,
+          "live_units": 32,
+          "mean_active_rate": 0.125,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BMX__BMXBMI",
+            "BMX__BMXWT",
+            "BMX__BMXWAIST",
+            "BMX__BMXHIP",
+            "BMX__BMXARMC",
+            "TCHOL__LBXTC",
+            "HDL__LBDHDD",
+            "TRIGLY__LBXTR",
+            "TRIGLY__LBDLDL",
+            "GLU__LBXGLU",
+            "GHB__LBXGH",
+            "BIOPRO__LBXSGL",
+            "BIOPRO__LBXSCR",
+            "BIOPRO__LBXSBU",
+            "BIOPRO__LBXSAL",
+            "BIOPRO__LBXSAPSI",
+            "BIOPRO__LBXSASSI",
+            "BIOPRO__LBXSATSI",
+            "BIOPRO__LBXSGTSI",
+            "BIOPRO__LBXSUA",
+            "CBC__LBXWBCSI",
+            "CBC__LBXRBCSI",
+            "CBC__LBXHGB",
+            "CBC__LBXHCT",
+            "CBC__LBXPLTSI",
+            "CBC__LBXRDW",
+            "CBC__LBXLYPCT",
+            "CBC__LBXNEPCT",
+            "DIQ__DIQ010",
+            "DIQ__DIQ050",
+            "DIQ__DIQ180",
+            "BPQ__BPQ020",
+            "MCQ__MCQ160B",
+            "MCQ__MCQ160C",
+            "MCQ__MCQ160D",
+            "MCQ__MCQ160E",
+            "MCQ__MCQ160F",
+            "MCQ__MCQ010",
+            "MCQ__MCQ160G",
+            "MCQ__MCQ160K",
+            "MCQ__MCQ160O",
+            "SLQ__SLQ050",
+            "RXQ_RX__RXDUSE",
+            "RXQ_RX__RXDCOUNT",
+            "HSQ__HSD010"
+          ]
+        },
+        {
+          "block": "corr_01",
+          "n_columns": 11,
+          "embedding_dim": 25,
+          "live_units": 25,
+          "mean_active_rate": 0.12486403325783765,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BMX__BMXHT",
+            "SMQ__SMQ020",
+            "SMQ__SMQ040",
+            "SMQ__SMQ890",
+            "SMQ__SMQ900",
+            "SMQ__SMQ910",
+            "ALQ__ALQ111",
+            "ALQ__ALQ130",
+            "ALQ__ALQ142",
+            "ALQ__ALQ151",
+            "ALQ__ALQ170"
+          ]
+        },
+        {
+          "block": "corr_02",
+          "n_columns": 2,
+          "embedding_dim": 3,
+          "live_units": 3,
+          "mean_active_rate": 0.49986092899431794,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "RXQ_RX__RXDDAYS",
+            "PAQ__PAD680"
+          ]
+        },
+        {
+          "block": "corr_03",
+          "n_columns": 3,
+          "embedding_dim": 8,
+          "live_units": 8,
+          "mean_active_rate": 0.36094223917564006,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "DIQ__DIQ070",
+            "DIQ__DIQ160",
+            "DIQ__DIQ170"
+          ]
+        },
+        {
+          "block": "corr_04",
+          "n_columns": 5,
+          "embedding_dim": 11,
+          "live_units": 11,
+          "mean_active_rate": 0.26666666666666666,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "PAQ__PAQ605",
+            "PAQ__PAQ620",
+            "PAQ__PAQ635",
+            "PAQ__PAQ650",
+            "PAQ__PAQ665"
+          ]
+        },
+        {
+          "block": "corr_05",
+          "n_columns": 12,
+          "embedding_dim": 23,
+          "live_units": 23,
+          "mean_active_rate": 0.125,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "DPQ__DPQ010",
+            "DPQ__DPQ020",
+            "DPQ__DPQ030",
+            "DPQ__DPQ040",
+            "DPQ__DPQ050",
+            "DPQ__DPQ060",
+            "DPQ__DPQ070",
+            "DPQ__DPQ080",
+            "DPQ__DPQ090",
+            "DPQ__DPQ100",
+            "HSQ__HSQ500",
+            "HSQ__HSQ510"
+          ]
+        },
+        {
+          "block": "corr_06",
+          "n_columns": 1,
+          "embedding_dim": 2,
+          "live_units": 2,
+          "mean_active_rate": 0.25,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "RXQ_RX__RXQSEEN"
+          ]
+        },
+        {
+          "block": "corr_07",
+          "n_columns": 1,
+          "embedding_dim": 2,
+          "live_units": 2,
+          "mean_active_rate": 0.25701811896531174,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BPQ__BPQ050A"
+          ]
+        },
+        {
+          "block": "corr_08",
+          "n_columns": 12,
+          "embedding_dim": 17,
+          "live_units": 17,
+          "mean_active_rate": 0.125,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BPX__BPXSY1",
+            "BPX__BPXSY2",
+            "BPX__BPXSY3",
+            "BPX__BPXDI1",
+            "BPX__BPXDI2",
+            "BPX__BPXDI3",
+            "BPXO__BPXOSY1",
+            "BPXO__BPXOSY2",
+            "BPXO__BPXOSY3",
+            "BPXO__BPXODI1",
+            "BPXO__BPXODI2",
+            "BPXO__BPXODI3"
+          ]
+        },
+        {
+          "block": "corr_09",
+          "n_columns": 2,
+          "embedding_dim": 4,
+          "live_units": 4,
+          "mean_active_rate": 0.4723844717288513,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BPQ__BPQ030",
+            "BPQ__BPQ040A"
+          ]
+        },
+        {
+          "block": "corr_10",
+          "n_columns": 1,
+          "embedding_dim": 4,
+          "live_units": 4,
+          "mean_active_rate": 0.6959262128978424,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "SLQ__SLD012"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "random_matched_0",
+      "n_blocks": 11,
+      "n_columns": 95,
+      "embedding_dim": 198,
+      "cluster_k": 7,
+      "train_silhouette": 0.0952606920970507,
+      "test_silhouette": 0.09256361720327648,
+      "kmeans_ari_stability": 0.5557268148436695,
+      "archetype_stability": 0.8717854619026184,
+      "blocks": [
+        {
+          "block": "random_00",
+          "n_columns": 6,
+          "embedding_dim": 11,
+          "live_units": 11,
+          "mean_active_rate": 0.2220864624309612,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "HSQ__HSQ500",
+            "SLQ__SLD012",
+            "BMX__BMXWAIST",
+            "CBC__LBXRBCSI",
+            "MCQ__MCQ160O",
+            "DPQ__DPQ040"
+          ]
+        },
+        {
+          "block": "random_01",
+          "n_columns": 12,
+          "embedding_dim": 26,
+          "live_units": 26,
+          "mean_active_rate": 0.125,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "MCQ__MCQ160F",
+            "HDL__LBDHDD",
+            "CBC__LBXLYPCT",
+            "BMX__BMXHT",
+            "GHB__LBXGH",
+            "BIOPRO__LBXSGL",
+            "MCQ__MCQ160E",
+            "BPXO__BPXODI2",
+            "DIQ__DIQ170",
+            "ALQ__ALQ130",
+            "BMX__BMXHIP",
+            "PAQ__PAQ635"
+          ]
+        },
+        {
+          "block": "random_02",
+          "n_columns": 7,
+          "embedding_dim": 11,
+          "live_units": 11,
+          "mean_active_rate": 0.1748179305099081,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "DPQ__DPQ080",
+            "DIQ__DIQ050",
+            "BPX__BPXDI2",
+            "CBC__LBXNEPCT",
+            "DPQ__DPQ060",
+            "RXQ_RX__RXQSEEN",
+            "BPXO__BPXOSY1"
+          ]
+        },
+        {
+          "block": "random_03",
+          "n_columns": 8,
+          "embedding_dim": 13,
+          "live_units": 13,
+          "mean_active_rate": 0.1664828942663011,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "MCQ__MCQ160K",
+            "TRIGLY__LBXTR",
+            "BIOPRO__LBXSCR",
+            "PAQ__PAQ650",
+            "DPQ__DPQ090",
+            "DPQ__DPQ010",
+            "BIOPRO__LBXSASSI",
+            "BIOPRO__LBXSATSI"
+          ]
+        },
+        {
+          "block": "random_04",
+          "n_columns": 8,
+          "embedding_dim": 14,
+          "live_units": 14,
+          "mean_active_rate": 0.16665673302340367,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "RXQ_RX__RXDDAYS",
+            "DPQ__DPQ070",
+            "BIOPRO__LBXSUA",
+            "BMX__BMXWT",
+            "BPQ__BPQ040A",
+            "DIQ__DIQ070",
+            "ALQ__ALQ142",
+            "BMX__BMXARMC"
+          ]
+        },
+        {
+          "block": "random_05",
+          "n_columns": 6,
+          "embedding_dim": 13,
+          "live_units": 13,
+          "mean_active_rate": 0.21344419279214846,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "MCQ__MCQ160G",
+            "SMQ__SMQ910",
+            "DPQ__DPQ050",
+            "SMQ__SMQ040",
+            "BPXO__BPXODI1",
+            "ALQ__ALQ170"
+          ]
+        },
+        {
+          "block": "random_06",
+          "n_columns": 9,
+          "embedding_dim": 20,
+          "live_units": 20,
+          "mean_active_rate": 0.14814594067186748,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "CBC__LBXHCT",
+            "ALQ__ALQ111",
+            "SLQ__SLQ050",
+            "DIQ__DIQ160",
+            "BPX__BPXSY2",
+            "SMQ__SMQ020",
+            "DIQ__DIQ010",
+            "PAQ__PAQ605",
+            "BPXO__BPXOSY3"
+          ]
+        },
+        {
+          "block": "random_07",
+          "n_columns": 9,
+          "embedding_dim": 20,
+          "live_units": 20,
+          "mean_active_rate": 0.14802011452386943,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BPX__BPXDI1",
+            "PAQ__PAQ620",
+            "BPQ__BPQ030",
+            "BPX__BPXSY1",
+            "BIOPRO__LBXSBU",
+            "MCQ__MCQ160D",
+            "DIQ__DIQ180",
+            "MCQ__MCQ010",
+            "HSQ__HSQ510"
+          ]
+        },
+        {
+          "block": "random_08",
+          "n_columns": 12,
+          "embedding_dim": 23,
+          "live_units": 23,
+          "mean_active_rate": 0.125,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "SMQ__SMQ890",
+            "DPQ__DPQ030",
+            "TRIGLY__LBDLDL",
+            "BIOPRO__LBXSAPSI",
+            "MCQ__MCQ160C",
+            "BPXO__BPXOSY2",
+            "CBC__LBXRDW",
+            "DPQ__DPQ100",
+            "BIOPRO__LBXSGTSI",
+            "BPX__BPXDI3",
+            "HSQ__HSD010",
+            "GLU__LBXGLU"
+          ]
+        },
+        {
+          "block": "random_09",
+          "n_columns": 7,
+          "embedding_dim": 19,
+          "live_units": 19,
+          "mean_active_rate": 0.19043645590313849,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BMX__BMXBMI",
+            "SMQ__SMQ900",
+            "RXQ_RX__RXDUSE",
+            "DPQ__DPQ020",
+            "RXQ_RX__RXDCOUNT",
+            "MCQ__MCQ160B",
+            "PAQ__PAD680"
+          ]
+        },
+        {
+          "block": "random_10",
+          "n_columns": 11,
+          "embedding_dim": 28,
+          "live_units": 28,
+          "mean_active_rate": 0.125,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BPQ__BPQ020",
+            "BPX__BPXSY3",
+            "TCHOL__LBXTC",
+            "PAQ__PAQ665",
+            "CBC__LBXHGB",
+            "BIOPRO__LBXSAL",
+            "CBC__LBXPLTSI",
+            "BPQ__BPQ050A",
+            "ALQ__ALQ151",
+            "CBC__LBXWBCSI",
+            "BPXO__BPXODI3"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "random_matched_1",
+      "n_blocks": 11,
+      "n_columns": 95,
+      "embedding_dim": 193,
+      "cluster_k": 5,
+      "train_silhouette": 0.03992356082800496,
+      "test_silhouette": 0.042523053335025034,
+      "kmeans_ari_stability": 0.7727380502551435,
+      "archetype_stability": 0.9828678965568542,
+      "blocks": [
+        {
+          "block": "random_00",
+          "n_columns": 6,
+          "embedding_dim": 12,
+          "live_units": 12,
+          "mean_active_rate": 0.22221228857895925,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BMX__BMXARMC",
+            "DPQ__DPQ050",
+            "TRIGLY__LBXTR",
+            "SLQ__SLD012",
+            "BPX__BPXSY1",
+            "HSQ__HSQ510"
+          ]
+        },
+        {
+          "block": "random_01",
+          "n_columns": 12,
+          "embedding_dim": 25,
+          "live_units": 25,
+          "mean_active_rate": 0.125,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "CBC__LBXRBCSI",
+            "GHB__LBXGH",
+            "RXQ_RX__RXDUSE",
+            "ALQ__ALQ170",
+            "CBC__LBXHCT",
+            "DPQ__DPQ020",
+            "BMX__BMXWT",
+            "MCQ__MCQ160F",
+            "PAQ__PAQ665",
+            "ALQ__ALQ151",
+            "DPQ__DPQ070",
+            "MCQ__MCQ160G"
+          ]
+        },
+        {
+          "block": "random_02",
+          "n_columns": 7,
+          "embedding_dim": 15,
+          "live_units": 15,
+          "mean_active_rate": 0.19047619047619047,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "MCQ__MCQ160K",
+            "BMX__BMXBMI",
+            "BMX__BMXWAIST",
+            "BPXO__BPXODI3",
+            "ALQ__ALQ142",
+            "DPQ__DPQ030",
+            "BPXO__BPXODI1"
+          ]
+        },
+        {
+          "block": "random_03",
+          "n_columns": 8,
+          "embedding_dim": 19,
+          "live_units": 19,
+          "mean_active_rate": 0.1664431596932491,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "SLQ__SLQ050",
+            "BPX__BPXSY3",
+            "DIQ__DIQ050",
+            "DIQ__DIQ160",
+            "DPQ__DPQ010",
+            "BIOPRO__LBXSAL",
+            "DIQ__DIQ170",
+            "BPXO__BPXOSY1"
+          ]
+        },
+        {
+          "block": "random_04",
+          "n_columns": 8,
+          "embedding_dim": 21,
+          "live_units": 21,
+          "mean_active_rate": 0.16559631660507806,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "HSQ__HSD010",
+            "DIQ__DIQ010",
+            "SMQ__SMQ040",
+            "BIOPRO__LBXSBU",
+            "PAQ__PAQ635",
+            "PAQ__PAQ650",
+            "PAQ__PAQ605",
+            "SMQ__SMQ890"
+          ]
+        },
+        {
+          "block": "random_05",
+          "n_columns": 6,
+          "embedding_dim": 11,
+          "live_units": 11,
+          "mean_active_rate": 0.2222089773645382,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "HDL__LBDHDD",
+            "RXQ_RX__RXDCOUNT",
+            "DPQ__DPQ040",
+            "DPQ__DPQ090",
+            "GLU__LBXGLU",
+            "TRIGLY__LBDLDL"
+          ]
+        },
+        {
+          "block": "random_06",
+          "n_columns": 9,
+          "embedding_dim": 15,
+          "live_units": 15,
+          "mean_active_rate": 0.14814814814814814,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BIOPRO__LBXSCR",
+            "MCQ__MCQ160B",
+            "BPX__BPXDI2",
+            "BIOPRO__LBXSGTSI",
+            "MCQ__MCQ160O",
+            "BIOPRO__LBXSUA",
+            "BIOPRO__LBXSASSI",
+            "DPQ__DPQ060",
+            "BMX__BMXHIP"
+          ]
+        },
+        {
+          "block": "random_07",
+          "n_columns": 9,
+          "embedding_dim": 16,
+          "live_units": 16,
+          "mean_active_rate": 0.14814594067186748,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "TCHOL__LBXTC",
+            "MCQ__MCQ160C",
+            "ALQ__ALQ111",
+            "BPX__BPXDI1",
+            "BPQ__BPQ050A",
+            "CBC__LBXWBCSI",
+            "MCQ__MCQ160D",
+            "BPXO__BPXOSY3",
+            "CBC__LBXLYPCT"
+          ]
+        },
+        {
+          "block": "random_08",
+          "n_columns": 12,
+          "embedding_dim": 21,
+          "live_units": 21,
+          "mean_active_rate": 0.125,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "PAQ__PAQ620",
+            "BPX__BPXSY2",
+            "HSQ__HSQ500",
+            "DPQ__DPQ100",
+            "BPQ__BPQ030",
+            "BIOPRO__LBXSAPSI",
+            "CBC__LBXNEPCT",
+            "BIOPRO__LBXSGL",
+            "CBC__LBXRDW",
+            "SMQ__SMQ900",
+            "CBC__LBXPLTSI",
+            "BPXO__BPXODI2"
+          ]
+        },
+        {
+          "block": "random_09",
+          "n_columns": 7,
+          "embedding_dim": 14,
+          "live_units": 14,
+          "mean_active_rate": 0.19042510316798075,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "MCQ__MCQ160E",
+            "DIQ__DIQ180",
+            "BMX__BMXHT",
+            "SMQ__SMQ020",
+            "CBC__LBXHGB",
+            "PAQ__PAD680",
+            "RXQ_RX__RXQSEEN"
+          ]
+        },
+        {
+          "block": "random_10",
+          "n_columns": 11,
+          "embedding_dim": 24,
+          "live_units": 24,
+          "mean_active_rate": 0.1249869620932173,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "MCQ__MCQ010",
+            "BPQ__BPQ020",
+            "SMQ__SMQ910",
+            "BPQ__BPQ040A",
+            "BPX__BPXDI3",
+            "BIOPRO__LBXSATSI",
+            "DIQ__DIQ070",
+            "RXQ_RX__RXDDAYS",
+            "ALQ__ALQ130",
+            "BPXO__BPXOSY2",
+            "DPQ__DPQ080"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "random_matched_2",
+      "n_blocks": 11,
+      "n_columns": 95,
+      "embedding_dim": 201,
+      "cluster_k": 10,
+      "train_silhouette": 0.059984665504824904,
+      "test_silhouette": 0.05889121324694502,
+      "kmeans_ari_stability": 0.5717519675302215,
+      "archetype_stability": 0.7712756991386414,
+      "blocks": [
+        {
+          "block": "random_00",
+          "n_columns": 6,
+          "embedding_dim": 15,
+          "live_units": 15,
+          "mean_active_rate": 0.2222222222222222,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BPQ__BPQ020",
+            "CBC__LBXHCT",
+            "DPQ__DPQ030",
+            "DPQ__DPQ010",
+            "RXQ_RX__RXDCOUNT",
+            "PAQ__PAD680"
+          ]
+        },
+        {
+          "block": "random_01",
+          "n_columns": 12,
+          "embedding_dim": 28,
+          "live_units": 28,
+          "mean_active_rate": 0.125,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "MCQ__MCQ160O",
+            "SLQ__SLD012",
+            "GHB__LBXGH",
+            "SLQ__SLQ050",
+            "PAQ__PAQ620",
+            "BIOPRO__LBXSATSI",
+            "ALQ__ALQ130",
+            "BIOPRO__LBXSUA",
+            "SMQ__SMQ900",
+            "SMQ__SMQ020",
+            "PAQ__PAQ665",
+            "BIOPRO__LBXSAPSI"
+          ]
+        },
+        {
+          "block": "random_02",
+          "n_columns": 7,
+          "embedding_dim": 12,
+          "live_units": 12,
+          "mean_active_rate": 0.19008168292945976,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "MCQ__MCQ010",
+            "BIOPRO__LBXSGTSI",
+            "BIOPRO__LBXSCR",
+            "ALQ__ALQ170",
+            "MCQ__MCQ160G",
+            "BMX__BMXWAIST",
+            "RXQ_RX__RXDDAYS"
+          ]
+        },
+        {
+          "block": "random_03",
+          "n_columns": 8,
+          "embedding_dim": 19,
+          "live_units": 19,
+          "mean_active_rate": 0.1666393491476934,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "SMQ__SMQ910",
+            "CBC__LBXHGB",
+            "BPQ__BPQ030",
+            "PAQ__PAQ650",
+            "CBC__LBXNEPCT",
+            "PAQ__PAQ635",
+            "DPQ__DPQ050",
+            "CBC__LBXLYPCT"
+          ]
+        },
+        {
+          "block": "random_04",
+          "n_columns": 8,
+          "embedding_dim": 15,
+          "live_units": 15,
+          "mean_active_rate": 0.16664183255850915,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "ALQ__ALQ111",
+            "BPXO__BPXODI3",
+            "DIQ__DIQ010",
+            "BPX__BPXSY2",
+            "BMX__BMXHT",
+            "CBC__LBXRDW",
+            "BPQ__BPQ050A",
+            "MCQ__MCQ160B"
+          ]
+        },
+        {
+          "block": "random_05",
+          "n_columns": 6,
+          "embedding_dim": 13,
+          "live_units": 13,
+          "mean_active_rate": 0.22216593157706518,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "DIQ__DIQ180",
+            "DPQ__DPQ100",
+            "BPXO__BPXODI2",
+            "RXQ_RX__RXQSEEN",
+            "BMX__BMXBMI",
+            "BMX__BMXARMC"
+          ]
+        },
+        {
+          "block": "random_06",
+          "n_columns": 9,
+          "embedding_dim": 22,
+          "live_units": 22,
+          "mean_active_rate": 0.14808633881228947,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "DPQ__DPQ020",
+            "DIQ__DIQ050",
+            "ALQ__ALQ151",
+            "PAQ__PAQ605",
+            "BPXO__BPXOSY2",
+            "BIOPRO__LBXSGL",
+            "MCQ__MCQ160C",
+            "BPQ__BPQ040A",
+            "DPQ__DPQ040"
+          ]
+        },
+        {
+          "block": "random_07",
+          "n_columns": 9,
+          "embedding_dim": 18,
+          "live_units": 18,
+          "mean_active_rate": 0.14571109433429139,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "ALQ__ALQ142",
+            "HSQ__HSQ500",
+            "DIQ__DIQ170",
+            "BIOPRO__LBXSBU",
+            "DIQ__DIQ070",
+            "HSQ__HSQ510",
+            "BMX__BMXWT",
+            "BPX__BPXDI3",
+            "MCQ__MCQ160F"
+          ]
+        },
+        {
+          "block": "random_08",
+          "n_columns": 12,
+          "embedding_dim": 22,
+          "live_units": 22,
+          "mean_active_rate": 0.125,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "TRIGLY__LBXTR",
+            "BPXO__BPXOSY1",
+            "TCHOL__LBXTC",
+            "CBC__LBXPLTSI",
+            "BMX__BMXHIP",
+            "MCQ__MCQ160E",
+            "CBC__LBXWBCSI",
+            "SMQ__SMQ040",
+            "BPXO__BPXOSY3",
+            "DPQ__DPQ070",
+            "MCQ__MCQ160K",
+            "TRIGLY__LBDLDL"
+          ]
+        },
+        {
+          "block": "random_09",
+          "n_columns": 7,
+          "embedding_dim": 16,
+          "live_units": 16,
+          "mean_active_rate": 0.19047619047619047,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BPX__BPXDI2",
+            "BPX__BPXSY1",
+            "BIOPRO__LBXSAL",
+            "CBC__LBXRBCSI",
+            "GLU__LBXGLU",
+            "BPX__BPXSY3",
+            "DIQ__DIQ160"
+          ]
+        },
+        {
+          "block": "random_10",
+          "n_columns": 11,
+          "embedding_dim": 21,
+          "live_units": 21,
+          "mean_active_rate": 0.125,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "HSQ__HSD010",
+            "BIOPRO__LBXSASSI",
+            "DPQ__DPQ090",
+            "RXQ_RX__RXDUSE",
+            "BPX__BPXDI1",
+            "HDL__LBDHDD",
+            "BPXO__BPXODI1",
+            "SMQ__SMQ890",
+            "DPQ__DPQ060",
+            "DPQ__DPQ080",
+            "MCQ__MCQ160D"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "random_matched_3",
+      "n_blocks": 11,
+      "n_columns": 95,
+      "embedding_dim": 192,
+      "cluster_k": 8,
+      "train_silhouette": 0.06880880735650766,
+      "test_silhouette": 0.06686536722915785,
+      "kmeans_ari_stability": 0.5626332498115213,
+      "archetype_stability": 0.9666751027107239,
+      "blocks": [
+        {
+          "block": "random_00",
+          "n_columns": 6,
+          "embedding_dim": 14,
+          "live_units": 14,
+          "mean_active_rate": 0.22221891100780122,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "CBC__LBXWBCSI",
+            "DPQ__DPQ020",
+            "BPXO__BPXODI3",
+            "MCQ__MCQ010",
+            "DPQ__DPQ100",
+            "DPQ__DPQ080"
+          ]
+        },
+        {
+          "block": "random_01",
+          "n_columns": 12,
+          "embedding_dim": 25,
+          "live_units": 25,
+          "mean_active_rate": 0.125,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "CBC__LBXNEPCT",
+            "CBC__LBXHCT",
+            "SMQ__SMQ900",
+            "CBC__LBXRBCSI",
+            "CBC__LBXPLTSI",
+            "MCQ__MCQ160D",
+            "MCQ__MCQ160O",
+            "ALQ__ALQ142",
+            "DIQ__DIQ010",
+            "SMQ__SMQ040",
+            "BPXO__BPXOSY3",
+            "DPQ__DPQ090"
+          ]
+        },
+        {
+          "block": "random_02",
+          "n_columns": 7,
+          "embedding_dim": 15,
+          "live_units": 15,
+          "mean_active_rate": 0.1888016620404271,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BIOPRO__LBXSASSI",
+            "BIOPRO__LBXSBU",
+            "ALQ__ALQ170",
+            "BMX__BMXWT",
+            "HSQ__HSQ510",
+            "RXQ_RX__RXQSEEN",
+            "DPQ__DPQ050"
+          ]
+        },
+        {
+          "block": "random_03",
+          "n_columns": 8,
+          "embedding_dim": 15,
+          "live_units": 15,
+          "mean_active_rate": 0.16666666666666666,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "MCQ__MCQ160F",
+            "BIOPRO__LBXSAPSI",
+            "BIOPRO__LBXSUA",
+            "BPX__BPXDI1",
+            "BIOPRO__LBXSGTSI",
+            "MCQ__MCQ160C",
+            "CBC__LBXHGB",
+            "BPXO__BPXOSY1"
+          ]
+        },
+        {
+          "block": "random_04",
+          "n_columns": 8,
+          "embedding_dim": 20,
+          "live_units": 20,
+          "mean_active_rate": 0.16666666666666666,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "DIQ__DIQ050",
+            "SMQ__SMQ910",
+            "ALQ__ALQ130",
+            "RXQ_RX__RXDDAYS",
+            "DPQ__DPQ040",
+            "BIOPRO__LBXSCR",
+            "DPQ__DPQ030",
+            "BPQ__BPQ020"
+          ]
+        },
+        {
+          "block": "random_05",
+          "n_columns": 6,
+          "embedding_dim": 9,
+          "live_units": 9,
+          "mean_active_rate": 0.2219473914252791,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BPX__BPXSY2",
+            "GHB__LBXGH",
+            "SLQ__SLD012",
+            "DPQ__DPQ010",
+            "MCQ__MCQ160G",
+            "DIQ__DIQ170"
+          ]
+        },
+        {
+          "block": "random_06",
+          "n_columns": 9,
+          "embedding_dim": 19,
+          "live_units": 19,
+          "mean_active_rate": 0.14814814814814814,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BPX__BPXSY3",
+            "BPXO__BPXODI2",
+            "SMQ__SMQ890",
+            "RXQ_RX__RXDCOUNT",
+            "SMQ__SMQ020",
+            "HSQ__HSD010",
+            "TRIGLY__LBXTR",
+            "BIOPRO__LBXSATSI",
+            "TRIGLY__LBDLDL"
+          ]
+        },
+        {
+          "block": "random_07",
+          "n_columns": 9,
+          "embedding_dim": 17,
+          "live_units": 17,
+          "mean_active_rate": 0.14814814814814814,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "PAQ__PAQ650",
+            "DIQ__DIQ180",
+            "BMX__BMXWAIST",
+            "BIOPRO__LBXSGL",
+            "BPQ__BPQ030",
+            "PAQ__PAD680",
+            "PAQ__PAQ605",
+            "CBC__LBXLYPCT",
+            "HDL__LBDHDD"
+          ]
+        },
+        {
+          "block": "random_08",
+          "n_columns": 12,
+          "embedding_dim": 22,
+          "live_units": 22,
+          "mean_active_rate": 0.125,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "PAQ__PAQ635",
+            "DPQ__DPQ070",
+            "BPQ__BPQ040A",
+            "BMX__BMXARMC",
+            "ALQ__ALQ111",
+            "MCQ__MCQ160E",
+            "BPX__BPXDI3",
+            "BPX__BPXDI2",
+            "BMX__BMXHIP",
+            "BPQ__BPQ050A",
+            "ALQ__ALQ151",
+            "BPXO__BPXOSY2"
+          ]
+        },
+        {
+          "block": "random_09",
+          "n_columns": 7,
+          "embedding_dim": 12,
+          "live_units": 12,
+          "mean_active_rate": 0.1904478086382962,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "MCQ__MCQ160B",
+            "BMX__BMXHT",
+            "BPXO__BPXODI1",
+            "MCQ__MCQ160K",
+            "BIOPRO__LBXSAL",
+            "BPX__BPXSY1",
+            "BMX__BMXBMI"
+          ]
+        },
+        {
+          "block": "random_10",
+          "n_columns": 11,
+          "embedding_dim": 24,
+          "live_units": 24,
+          "mean_active_rate": 0.12495529860531648,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "DIQ__DIQ070",
+            "RXQ_RX__RXDUSE",
+            "PAQ__PAQ665",
+            "DPQ__DPQ060",
+            "GLU__LBXGLU",
+            "SLQ__SLQ050",
+            "CBC__LBXRDW",
+            "PAQ__PAQ620",
+            "DIQ__DIQ160",
+            "TCHOL__LBXTC",
+            "HSQ__HSQ500"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "random_matched_4",
+      "n_blocks": 11,
+      "n_columns": 95,
+      "embedding_dim": 188,
+      "cluster_k": 5,
+      "train_silhouette": 0.09890601690466642,
+      "test_silhouette": 0.09143198409796631,
+      "kmeans_ari_stability": 0.6758342757223327,
+      "archetype_stability": 0.8721849322319031,
+      "blocks": [
+        {
+          "block": "random_00",
+          "n_columns": 6,
+          "embedding_dim": 13,
+          "live_units": 13,
+          "mean_active_rate": 0.1977755261519715,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "SLQ__SLQ050",
+            "BIOPRO__LBXSGL",
+            "PAQ__PAQ635",
+            "DPQ__DPQ070",
+            "BPQ__BPQ040A",
+            "ALQ__ALQ170"
+          ]
+        },
+        {
+          "block": "random_01",
+          "n_columns": 12,
+          "embedding_dim": 20,
+          "live_units": 20,
+          "mean_active_rate": 0.125,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "SMQ__SMQ020",
+            "BPX__BPXSY1",
+            "ALQ__ALQ142",
+            "CBC__LBXWBCSI",
+            "SMQ__SMQ890",
+            "BIOPRO__LBXSGTSI",
+            "BMX__BMXHT",
+            "DIQ__DIQ180",
+            "CBC__LBXNEPCT",
+            "MCQ__MCQ160K",
+            "TRIGLY__LBDLDL",
+            "BPX__BPXDI2"
+          ]
+        },
+        {
+          "block": "random_02",
+          "n_columns": 7,
+          "embedding_dim": 13,
+          "live_units": 13,
+          "mean_active_rate": 0.1874535247404481,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "HSQ__HSQ500",
+            "CBC__LBXRDW",
+            "BPQ__BPQ050A",
+            "DPQ__DPQ030",
+            "RXQ_RX__RXDDAYS",
+            "ALQ__ALQ151",
+            "DPQ__DPQ080"
+          ]
+        },
+        {
+          "block": "random_03",
+          "n_columns": 8,
+          "embedding_dim": 15,
+          "live_units": 15,
+          "mean_active_rate": 0.1659489609409147,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "ALQ__ALQ130",
+            "RXQ_RX__RXDCOUNT",
+            "DIQ__DIQ070",
+            "BIOPRO__LBXSAL",
+            "GLU__LBXGLU",
+            "RXQ_RX__RXDUSE",
+            "DPQ__DPQ090",
+            "CBC__LBXLYPCT"
+          ]
+        },
+        {
+          "block": "random_04",
+          "n_columns": 8,
+          "embedding_dim": 15,
+          "live_units": 15,
+          "mean_active_rate": 0.16666666666666666,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "SMQ__SMQ910",
+            "DIQ__DIQ010",
+            "BPQ__BPQ020",
+            "MCQ__MCQ160O",
+            "DPQ__DPQ020",
+            "SLQ__SLD012",
+            "CBC__LBXHGB",
+            "MCQ__MCQ160D"
+          ]
+        },
+        {
+          "block": "random_05",
+          "n_columns": 6,
+          "embedding_dim": 12,
+          "live_units": 12,
+          "mean_active_rate": 0.21920239467026925,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BMX__BMXWT",
+            "BMX__BMXWAIST",
+            "PAQ__PAQ650",
+            "RXQ_RX__RXQSEEN",
+            "DPQ__DPQ040",
+            "DIQ__DIQ160"
+          ]
+        },
+        {
+          "block": "random_06",
+          "n_columns": 9,
+          "embedding_dim": 17,
+          "live_units": 17,
+          "mean_active_rate": 0.14814814814814814,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "MCQ__MCQ160F",
+            "PAQ__PAD680",
+            "DPQ__DPQ100",
+            "BMX__BMXARMC",
+            "HSQ__HSD010",
+            "BMX__BMXBMI",
+            "BMX__BMXHIP",
+            "BPX__BPXDI1",
+            "BIOPRO__LBXSASSI"
+          ]
+        },
+        {
+          "block": "random_07",
+          "n_columns": 9,
+          "embedding_dim": 22,
+          "live_units": 22,
+          "mean_active_rate": 0.14814814814814814,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "MCQ__MCQ010",
+            "CBC__LBXHCT",
+            "BPXO__BPXOSY3",
+            "TCHOL__LBXTC",
+            "BPXO__BPXOSY1",
+            "DPQ__DPQ010",
+            "PAQ__PAQ620",
+            "DPQ__DPQ060",
+            "DIQ__DIQ170"
+          ]
+        },
+        {
+          "block": "random_08",
+          "n_columns": 12,
+          "embedding_dim": 23,
+          "live_units": 23,
+          "mean_active_rate": 0.125,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "HDL__LBDHDD",
+            "DIQ__DIQ050",
+            "TRIGLY__LBXTR",
+            "BPXO__BPXOSY2",
+            "MCQ__MCQ160G",
+            "BPXO__BPXODI1",
+            "CBC__LBXPLTSI",
+            "BPX__BPXSY2",
+            "MCQ__MCQ160E",
+            "BPX__BPXDI3",
+            "DPQ__DPQ050",
+            "BIOPRO__LBXSBU"
+          ]
+        },
+        {
+          "block": "random_09",
+          "n_columns": 7,
+          "embedding_dim": 15,
+          "live_units": 15,
+          "mean_active_rate": 0.19047051410861163,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "BIOPRO__LBXSCR",
+            "CBC__LBXRBCSI",
+            "GHB__LBXGH",
+            "BPXO__BPXODI2",
+            "BPXO__BPXODI3",
+            "ALQ__ALQ111",
+            "SMQ__SMQ900"
+          ]
+        },
+        {
+          "block": "random_10",
+          "n_columns": 11,
+          "embedding_dim": 23,
+          "live_units": 23,
+          "mean_active_rate": 0.12499254976755274,
+          "trainer": {
+            "backend": "torch",
+            "optimizer": "adamw",
+            "activation": "topk",
+            "topk": 4,
+            "device": "mps",
+            "weight_decay": 0.0001
+          },
+          "columns": [
+            "MCQ__MCQ160C",
+            "BPX__BPXSY3",
+            "BIOPRO__LBXSAPSI",
+            "BIOPRO__LBXSUA",
+            "PAQ__PAQ665",
+            "HSQ__HSQ510",
+            "SMQ__SMQ040",
+            "PAQ__PAQ605",
+            "BIOPRO__LBXSATSI",
+            "BPQ__BPQ030",
+            "MCQ__MCQ160B"
+          ]
+        }
+      ]
+    }
+  ]
+}

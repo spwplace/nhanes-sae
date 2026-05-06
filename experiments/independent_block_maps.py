@@ -15,12 +15,25 @@ from umap import UMAP
 
 sys.path.append(str(Path(__file__).resolve().parent))
 from multiview_nhanes_umap import BLOCKS, PRETTY, select_block_columns
-from nhanes_phenome_sae import prepare_matrix, train_sparse_autoencoder
+from nhanes_phenome_sae import encode_sparse_autoencoder, prepare_matrix, train_sparse_autoencoder
 
 
-def embed_block(x, hidden, steps, batch_size, lr, l1, seed):
-    model = train_sparse_autoencoder(x, hidden, steps, batch_size, lr, l1, seed)
-    h = np.maximum(x @ model["w_enc"] + model["b_enc"], 0).astype(np.float32)
+def embed_block(x, hidden, steps, batch_size, lr, l1, seed, optimizer, activation, topk, weight_decay, device):
+    model = train_sparse_autoencoder(
+        x,
+        hidden,
+        steps,
+        batch_size,
+        lr,
+        l1,
+        seed,
+        optimizer=optimizer,
+        activation=activation,
+        topk=topk,
+        weight_decay=weight_decay,
+        device=device,
+    )
+    h = encode_sparse_autoencoder(x, model, activation, topk)
     active = (h > 1e-3).mean(axis=0)
     live = active > 0.005
     if live.sum() >= 3:
@@ -30,7 +43,7 @@ def embed_block(x, hidden, steps, batch_size, lr, l1, seed):
         z = x
         source = "direct_fields"
     z = StandardScaler().fit_transform(z).astype(np.float32)
-    return z, source, int(live.sum()), float(active.mean())
+    return z, source, int(live.sum()), float(active.mean()), model.get("trainer", {})
 
 
 def choose_clusters(z_pca, seed):
@@ -87,8 +100,13 @@ def main():
     p.add_argument("--hidden", type=int, default=32)
     p.add_argument("--steps", type=int, default=1800)
     p.add_argument("--batch-size", type=int, default=768)
-    p.add_argument("--lr", type=float, default=0.012)
+    p.add_argument("--lr", type=float, default=0.003)
     p.add_argument("--l1", type=float, default=0.001)
+    p.add_argument("--optimizer", choices=["adamw", "muon"], default="adamw")
+    p.add_argument("--activation", choices=["relu_l1", "topk"], default="relu_l1")
+    p.add_argument("--topk", type=int, default=None)
+    p.add_argument("--weight-decay", type=float, default=1e-4)
+    p.add_argument("--device", default="auto")
     p.add_argument("--umap-sample", type=int, default=18000)
     p.add_argument("--seed", type=int, default=131)
     args = p.parse_args()
@@ -115,7 +133,20 @@ def main():
         xb_df = x_df[cols]
         xb = StandardScaler().fit_transform(xb_df.to_numpy(dtype=np.float32)).astype(np.float32)
         hidden = min(args.hidden, max(4, xb.shape[1] * 4))
-        z, source, live_units, active = embed_block(xb, hidden, args.steps, args.batch_size, args.lr, args.l1, args.seed + bi)
+        z, source, live_units, active, trainer = embed_block(
+            xb,
+            hidden,
+            args.steps,
+            args.batch_size,
+            args.lr,
+            args.l1,
+            args.seed + bi,
+            args.optimizer,
+            args.activation,
+            args.topk,
+            args.weight_decay,
+            args.device,
+        )
         z_sample = z[sample_idx]
         n_pca = min(12, z_sample.shape[1], z_sample.shape[0] - 1)
         z_pca = PCA(n_components=n_pca, random_state=args.seed).fit_transform(z_sample)
@@ -147,6 +178,7 @@ def main():
             "embedding_source": source,
             "live_units": live_units,
             "mean_active_rate": active,
+            "trainer": trainer,
             "cluster_k": int(best["k"]),
             "cluster_silhouette": float(best["score"]),
             "cards": cards,

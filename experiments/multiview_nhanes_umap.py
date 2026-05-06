@@ -14,7 +14,7 @@ from sklearn.preprocessing import StandardScaler
 from umap import UMAP
 
 sys.path.append(str(Path(__file__).resolve().parent))
-from nhanes_phenome_sae import prepare_matrix, train_sparse_autoencoder
+from nhanes_phenome_sae import encode_sparse_autoencoder, prepare_matrix, train_sparse_autoencoder
 
 
 BLOCKS = {
@@ -81,16 +81,29 @@ def block_scores(x_df, block_columns):
     return pd.DataFrame(scores, index=x_df.index)
 
 
-def fit_block_sae(x_block, hidden, steps, batch_size, lr, l1, seed):
-    model = train_sparse_autoencoder(x_block, hidden, steps, batch_size, lr, l1, seed)
-    h = np.maximum(x_block @ model["w_enc"] + model["b_enc"], 0).astype(np.float32)
+def fit_block_sae(x_block, hidden, steps, batch_size, lr, l1, seed, optimizer, activation, topk, weight_decay, device):
+    model = train_sparse_autoencoder(
+        x_block,
+        hidden,
+        steps,
+        batch_size,
+        lr,
+        l1,
+        seed,
+        optimizer=optimizer,
+        activation=activation,
+        topk=topk,
+        weight_decay=weight_decay,
+        device=device,
+    )
+    h = encode_sparse_autoencoder(x_block, model, activation, topk)
     active = (h > 1e-3).mean(axis=0)
     live = active > 0.005
     if live.sum() == 0:
         live[:] = True
     h = h[:, live]
     h = StandardScaler().fit_transform(h)
-    return h, int(live.sum()), float(active.mean())
+    return h, int(live.sum()), float(active.mean()), model.get("trainer", {})
 
 
 def make_panel(emb, scores, out):
@@ -128,8 +141,13 @@ def main():
     p.add_argument("--hidden-per-block", type=int, default=32)
     p.add_argument("--steps", type=int, default=2200)
     p.add_argument("--batch-size", type=int, default=768)
-    p.add_argument("--lr", type=float, default=0.012)
+    p.add_argument("--lr", type=float, default=0.003)
     p.add_argument("--l1", type=float, default=0.002)
+    p.add_argument("--optimizer", choices=["adamw", "muon"], default="adamw")
+    p.add_argument("--activation", choices=["relu_l1", "topk"], default="relu_l1")
+    p.add_argument("--topk", type=int, default=None)
+    p.add_argument("--weight-decay", type=float, default=1e-4)
+    p.add_argument("--device", default="auto")
     p.add_argument("--umap-sample", type=int, default=18000)
     p.add_argument("--seed", type=int, default=101)
     p.add_argument("--out-dir", default="outputs/nhanes_multiview")
@@ -151,11 +169,24 @@ def main():
         xb = x_df[cols].to_numpy(dtype=np.float32)
         xb = StandardScaler().fit_transform(xb).astype(np.float32)
         hidden = min(args.hidden_per_block, max(4, xb.shape[1] * 3))
-        h, live, active = fit_block_sae(xb, hidden, args.steps, args.batch_size, args.lr, args.l1, args.seed + i)
+        h, live, active, trainer = fit_block_sae(
+            xb,
+            hidden,
+            args.steps,
+            args.batch_size,
+            args.lr,
+            args.l1,
+            args.seed + i,
+            args.optimizer,
+            args.activation,
+            args.topk,
+            args.weight_decay,
+            args.device,
+        )
         # Equalize block contribution regardless of field count or SAE live units.
         h = h / np.sqrt(h.shape[1])
         embeddings.append(h)
-        block_meta.append({"block": name, "n_columns": len(cols), "hidden": hidden, "live_units": live, "mean_active_rate": active, "columns": cols})
+        block_meta.append({"block": name, "n_columns": len(cols), "hidden": hidden, "live_units": live, "mean_active_rate": active, "trainer": trainer, "columns": cols})
 
     z = np.concatenate(embeddings, axis=1).astype(np.float32)
     z = StandardScaler().fit_transform(z).astype(np.float32)
