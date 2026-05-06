@@ -1,0 +1,457 @@
+{
+  "args": {
+    "input": "data/nhanes/processed/nhanes_phenome_raw.parquet",
+    "hidden": 192,
+    "steps": 3000,
+    "batch_size": 768,
+    "lr": 0.012,
+    "l1": 0.002,
+    "max_cols": 1000,
+    "min_nonmissing": 0.25,
+    "umap_sample": 18000,
+    "keep_missingness": false,
+    "keep_demographics": false,
+    "include_prefixes": [
+      "BMX",
+      "BPX",
+      "BPXO",
+      "TCHOL",
+      "HDL",
+      "TRIGLY",
+      "GLU",
+      "GHB",
+      "BIOPRO",
+      "CBC",
+      "CRP"
+    ],
+    "exclude_prefixes": null,
+    "seed": 67,
+    "out_dir": "outputs/nhanes_quotient_lab_exam"
+  },
+  "n_participants": 23969,
+  "n_features": 110,
+  "hidden": 192,
+  "live_units": 70,
+  "mean_active_rate": 0.11460245525470399,
+  "cluster_k": 11,
+  "cluster_silhouette": 0.06305887550115585,
+  "cluster_cards": [
+    {
+      "cluster": 0,
+      "name": "Lipids/glucose + Adiposity",
+      "n": 737,
+      "pct": 0.04094444444444444,
+      "anchor_z": {
+        "adiposity_body_size": 0.6480168700218201,
+        "blood_pressure": -0.035188980400562286,
+        "lipids_glucose": 2.5824289321899414,
+        "renal_liver_biochem": 0.48473820090293884,
+        "blood_counts": 0.2828914523124695
+      },
+      "top_positive_fields": {
+        "BIOPRO__LBXSGL": 3.306257724761963,
+        "BIOPRO__LBDSGLSI": 3.302405834197998,
+        "GLU__LBXGLU": 3.2013449668884277,
+        "GLU__LBDGLUSI": 3.2008087635040283,
+        "GHB__LBXGH": 2.814424514770508,
+        "TRIGLY__LBDTRSI": 0.828428328037262,
+        "BIOPRO__LBXSOSSI": 0.8105370402336121,
+        "TRIGLY__LBXTR": 0.733437716960907,
+        "BIOPRO__LBXSTR": 0.7256686687469482,
+        "BIOPRO__LBDSTRSI": 0.7256123423576355
+      },
+      "top_negative_fields": {
+        "BIOPRO__LBXSCLSI": -0.8863052129745483,
+        "BIOPRO__LBXSNASI": -0.7186054587364197,
+        "HDL__LBDHDD": -0.5623754858970642,
+        "HDL__LBDHDDSI": -0.5608551502227783,
+        "BIOPRO__LBDSALSI": -0.4536319971084595,
+        "BIOPRO__LBXSAL": -0.4536319971084595,
+        "CBC__LBXLYPCT": -0.2966664731502533,
+        "TRIGLY__LBDLDL": -0.2728472948074341,
+        "TRIGLY__LBDLDLSI": -0.2727718651294708,
+        "TRIGLY__LBDLDNSI": -0.253948450088501
+      }
+    },
+    {
+      "cluster": 1,
+      "name": "Blood counts",
+      "n": 285,
+      "pct": 0.015833333333333335,
+      "anchor_z": {
+        "adiposity_body_size": 0.13460031151771545,
+        "blood_pressure": -0.040918994694948196,
+        "lipids_glucose": 0.12552426755428314,
+        "renal_liver_biochem": -0.2261718213558197,
+        "blood_counts": 0.4939429461956024
+      },
+      "top_positive_fields": {
+        "BPX__BPXPLS": 0.7351000905036926,
+        "BPX__BPXDI2": 0.6731309294700623,
+        "BPX__BPXDI3": 0.6613790988922119,
+        "BPXO__BPXOPLS3": 0.5003066658973694,
+        "CBC__LBXRBCSI": 0.44038015604019165,
+        "BPXO__BPXOPLS1": 0.41977015137672424,
+        "BPXO__BPXODI3": 0.4109751582145691,
+        "CBC__LBXHCT": 0.40717992186546326,
+        "BPXO__BPXOPLS2": 0.3383464813232422,
+        "CBC__LBXHGB": 0.32970374822616577
+      },
+      "top_negative_fields": {
+        "BPX__BPAEN3": -5.275125503540039,
+        "BPX__BPAEN2": -4.233287811279297,
+        "BPX__BPXML1": -0.46099653840065,
+        "BIOPRO__LBDSBUSI": -0.4048610031604767,
+        "BIOPRO__LBXSBU": -0.40446218848228455,
+        "BPX__BPXSY2": -0.38602200150489807,
+        "BPXO__BPXOSY1": -0.3704538941383362,
+        "BPX__BPXSY3": -0.3563447594642639,
+        "BPXO__BPXOSY2": -0.3285958468914032,
+        "BIOPRO__LBXSKSI": -0.3052924871444702
+      }
+    },
+    {
+      "cluster": 2,
+      "name": "Low blood pressure",
+      "n": 6035,
+      "pct": 0.3352777777777778,
+      "anchor_z": {
+        "adiposity_body_size": -0.3210966885089874,
+        "blood_pressure": -0.490405797958374,
+        "lipids_glucose": -0.3633972406387329,
+        "renal_liver_biochem": -0.21154120564460754,
+        "blood_counts": -0.19224290549755096
+      },
+      "top_positive_fields": {
+        "CBC__LBXMCHSI": 0.2483663260936737,
+        "CBC__LBXMCVSI": 0.24121834337711334,
+        "BIOPRO__LBDSALSI": 0.2166544795036316,
+        "BIOPRO__LBXSAL": 0.2166544795036316,
+        "BIOPRO__LBDSIRSI": 0.20323289930820465,
+        "BIOPRO__LBXSIR": 0.20255908370018005,
+        "BIOPRO__LBXSTB": 0.18075744807720184,
+        "BIOPRO__LBDSTBSI": 0.1759864240884781,
+        "BMX__BMXLEG": 0.1741935908794403,
+        "BIOPRO__LBXSCLSI": 0.17085900902748108
+      },
+      "top_negative_fields": {
+        "TCHOL__LBDTCSI": -0.47194376587867737,
+        "TCHOL__LBXTC": -0.47183525562286377,
+        "BIOPRO__LBXSCH": -0.46329832077026367,
+        "BIOPRO__LBDSCHSI": -0.4625958502292633,
+        "BPXO__BPXODI2": -0.43371349573135376,
+        "BPXO__BPXODI1": -0.429552286863327,
+        "BPXO__BPXODI3": -0.4271560311317444,
+        "CBC__LBDBANO": -0.3974749445915222,
+        "BPX__BPXSY2": -0.39040666818618774,
+        "BPX__BPXSY3": -0.38680702447891235
+      }
+    },
+    {
+      "cluster": 3,
+      "name": "Blood counts + Renal/liver",
+      "n": 3995,
+      "pct": 0.22194444444444444,
+      "anchor_z": {
+        "adiposity_body_size": 0.21494464576244354,
+        "blood_pressure": 0.20329579710960388,
+        "lipids_glucose": 0.3204762041568756,
+        "renal_liver_biochem": 0.3205292820930481,
+        "blood_counts": 0.5996857285499573
+      },
+      "top_positive_fields": {
+        "TCHOL__LBXTC": 0.932015061378479,
+        "TCHOL__LBDTCSI": 0.9318644404411316,
+        "BIOPRO__LBDSCHSI": 0.9308396577835083,
+        "BIOPRO__LBXSCH": 0.9304546117782593,
+        "TRIGLY__LBDLDLM": 0.8468396663665771,
+        "TRIGLY__LBDLDMSI": 0.8468272686004639,
+        "TRIGLY__LBDLDLN": 0.8357238173484802,
+        "TRIGLY__LBDLDNSI": 0.8356920480728149,
+        "TRIGLY__LBDLDLSI": 0.8208020925521851,
+        "TRIGLY__LBDLDL": 0.8207758665084839
+      },
+      "top_negative_fields": {
+        "CBC__LBXRDW": -0.19777891039848328,
+        "BMX__BMDSTATS": -0.1420861780643463,
+        "GLU__LBXGLU": -0.1373438835144043,
+        "GLU__LBDGLUSI": -0.13692839443683624,
+        "GHB__LBXGH": -0.13273176550865173,
+        "BIOPRO__LBXSGL": -0.12142492830753326,
+        "BIOPRO__LBDSGLSI": -0.11365965753793716,
+        "HDL__LBDHDD": -0.11220233887434006,
+        "HDL__LBDHDDSI": -0.11077404767274857,
+        "CBC__LBXMOPCT": -0.09364389628171921
+      }
+    },
+    {
+      "cluster": 4,
+      "name": "Low renal/liver",
+      "n": 3262,
+      "pct": 0.18122222222222223,
+      "anchor_z": {
+        "adiposity_body_size": -0.06396486610174179,
+        "blood_pressure": -0.04387150704860687,
+        "lipids_glucose": -0.29633602499961853,
+        "renal_liver_biochem": -0.3403768837451935,
+        "blood_counts": -0.04959535598754883
+      },
+      "top_positive_fields": {
+        "CBC__LBDBANO": 0.5909020304679871,
+        "BPXO__BPAOCSZ": 0.35644590854644775,
+        "CBC__LBXNRBC": 0.11344676464796066,
+        "BPX__BPACSZ": 0.11094240099191666,
+        "BPX__BPXDI3": 0.0972992479801178,
+        "BPX__BPAEN3": 0.09246569871902466,
+        "BPX__BPXDI1": 0.09123451262712479,
+        "BPX__BPXDI2": 0.08415161818265915,
+        "BIOPRO__LBXSCLSI": 0.08267920464277267,
+        "CBC__LBXMCHSI": 0.08227398246526718
+      },
+      "top_negative_fields": {
+        "BIOPRO__LBDSGLSI": -0.2732967734336853,
+        "GHB__LBXGH": -0.25247472524642944,
+        "BIOPRO__LBXSGL": -0.24080605804920197,
+        "BIOPRO__LBDSTBSI": -0.2227858304977417,
+        "CBC__LBXRDW": -0.21944209933280945,
+        "BIOPRO__LBXSTB": -0.216544046998024,
+        "BIOPRO__LBXSGTSI": -0.20938287675380707,
+        "BIOPRO__LBXSASSI": -0.20562021434307098,
+        "BIOPRO__LBXSBU": -0.20196272432804108,
+        "BIOPRO__LBXSATSI": -0.20110833644866943
+      }
+    },
+    {
+      "cluster": 5,
+      "name": "Blood pressure",
+      "n": 3356,
+      "pct": 0.18644444444444444,
+      "anchor_z": {
+        "adiposity_body_size": 0.23212864995002747,
+        "blood_pressure": 0.6967277526855469,
+        "lipids_glucose": -0.022915098816156387,
+        "renal_liver_biochem": 0.07126598805189133,
+        "blood_counts": -0.31615328788757324
+      },
+      "top_positive_fields": {
+        "BPX__BPXML1": 0.8063361048698425,
+        "BPX__BPXSY2": 0.7944192290306091,
+        "CBC__LBXRDW": 0.7859865427017212,
+        "BPX__BPXSY1": 0.7719897627830505,
+        "BPX__BPXSY3": 0.7706663608551025,
+        "BPXO__BPXOSY2": 0.6575345396995544,
+        "BPXO__BPXOSY1": 0.6540669798851013,
+        "BPXO__BPXOSY3": 0.6492400169372559,
+        "BIOPRO__LBDSGBSI": 0.5203933119773865,
+        "BIOPRO__LBXSGB": 0.5203933119773865
+      },
+      "top_negative_fields": {
+        "CBC__LBXHGB": -0.7508834004402161,
+        "CBC__LBXHCT": -0.6584981083869934,
+        "CBC__LBXMC": -0.6574190855026245,
+        "BIOPRO__LBXSAL": -0.6283087134361267,
+        "BIOPRO__LBDSALSI": -0.6283087134361267,
+        "CBC__LBXMCHSI": -0.626634418964386,
+        "BIOPRO__LBXSIR": -0.6034756898880005,
+        "BIOPRO__LBDSIRSI": -0.6031239628791809,
+        "CBC__LBXMCVSI": -0.4873083531856537,
+        "BMX__BMXHT": -0.45697668194770813
+      }
+    },
+    {
+      "cluster": 6,
+      "name": "Renal/liver + Lipids/glucose",
+      "n": 14,
+      "pct": 0.0007777777777777777,
+      "anchor_z": {
+        "adiposity_body_size": -0.48911207914352417,
+        "blood_pressure": -0.08483152091503143,
+        "lipids_glucose": 0.9958116412162781,
+        "renal_liver_biochem": 1.8312596082687378,
+        "blood_counts": -1.4545804262161255
+      },
+      "top_positive_fields": {
+        "BPX__BPXML1": 5.1351213455200195,
+        "BPX__BPXSY3": 4.204684734344482,
+        "BIOPRO__LBXSTR": 3.019778251647949,
+        "BIOPRO__LBDSTRSI": 3.0194613933563232,
+        "CBC__LBXMC": 2.631157636642456,
+        "TRIGLY__LBXTR": 2.5359373092651367,
+        "TRIGLY__LBDTRSI": 2.5132360458374023,
+        "CBC__LBXMCHSI": 2.131234645843506,
+        "BPX__BPXPULS": 2.093769073486328,
+        "BIOPRO__LBDSBUSI": 1.7105329036712646
+      },
+      "top_negative_fields": {
+        "BPX__BPXDI3": -3.4860751628875732,
+        "CBC__LBXRBCSI": -1.941043734550476,
+        "BMX__BMXHT": -1.6109049320220947,
+        "BMX__BMXLEG": -1.4945491552352905,
+        "BIOPRO__LBDSTPSI": -1.3853765726089478,
+        "BIOPRO__LBXSTP": -1.3853765726089478,
+        "CBC__LBXHCT": -1.3541697263717651,
+        "BMX__BMXARML": -1.3221263885498047,
+        "HDL__LBDHDDSI": -1.2611899375915527,
+        "HDL__LBDHDD": -1.2506799697875977
+      }
+    },
+    {
+      "cluster": 7,
+      "name": "Low renal/liver",
+      "n": 95,
+      "pct": 0.005277777777777778,
+      "anchor_z": {
+        "adiposity_body_size": -0.3333025574684143,
+        "blood_pressure": -0.03635290637612343,
+        "lipids_glucose": -0.0717535987496376,
+        "renal_liver_biochem": -0.4741450548171997,
+        "blood_counts": -0.2846511900424957
+      },
+      "top_positive_fields": {
+        "BIOPRO__LBDSTBLC": 6.039480209350586,
+        "CBC__LBXPLTSI": 0.963382363319397,
+        "BIOPRO__LBXSCLSI": 0.659845232963562,
+        "CBC__LBXRDW": 0.5419867038726807,
+        "BPX__BPXDI2": 0.3027704656124115,
+        "BPX__BPXDI1": 0.3026668131351471,
+        "BIOPRO__LBXSGB": 0.29895222187042236,
+        "BIOPRO__LBDSGBSI": 0.29895222187042236,
+        "BPX__BPXDI3": 0.2754906415939331,
+        "BPXO__BPXOPLS2": 0.2708531618118286
+      },
+      "top_negative_fields": {
+        "BIOPRO__LBXSTB": -1.2203233242034912,
+        "CBC__LBXHGB": -0.990872323513031,
+        "CBC__LBXHCT": -0.9692291021347046,
+        "BIOPRO__LBDSIRSI": -0.9692288041114807,
+        "BIOPRO__LBXSAL": -0.9675270915031433,
+        "BIOPRO__LBDSALSI": -0.9675270915031433,
+        "BIOPRO__LBXSIR": -0.9666652083396912,
+        "BIOPRO__LBDSUASI": -0.8900622129440308,
+        "BIOPRO__LBXSUA": -0.8900542855262756,
+        "BIOPRO__LBXSC3SI": -0.6431344747543335
+      }
+    },
+    {
+      "cluster": 8,
+      "name": "Blood counts",
+      "n": 8,
+      "pct": 0.00044444444444444447,
+      "anchor_z": {
+        "adiposity_body_size": 0.23056796193122864,
+        "blood_pressure": -1.5766912698745728,
+        "lipids_glucose": -0.9821484684944153,
+        "renal_liver_biochem": -0.5738837718963623,
+        "blood_counts": 1.0235320329666138
+      },
+      "top_positive_fields": {
+        "BPX__BPXPLS": 2.871746063232422,
+        "BIOPRO__LBDSUASI": 2.713574171066284,
+        "BIOPRO__LBXSUA": 2.7135393619537354,
+        "BIOPRO__LBXSGB": 2.279715061187744,
+        "BIOPRO__LBDSGBSI": 2.279715061187744,
+        "CBC__LBXBAPCT": 1.8404327630996704,
+        "BIOPRO__LBXSTP": 1.7641339302062988,
+        "BIOPRO__LBDSTPSI": 1.7641339302062988,
+        "CBC__LBXRDW": 1.7362273931503296,
+        "BPXO__BPXOPLS2": 1.6355984210968018
+      },
+      "top_negative_fields": {
+        "BPX__BPXSY2": -1.8843061923980713,
+        "BPX__BPXSY1": -1.8314611911773682,
+        "BPX__BPXSY3": -1.6829941272735596,
+        "BPXO__BPXOSY3": -1.5563215017318726,
+        "BPX__BPXML1": -1.4608190059661865,
+        "BPXO__BPXOSY1": -1.4291471242904663,
+        "BPXO__BPXOSY2": -1.3884142637252808,
+        "CBC__LBDEONO": -1.1927363872528076,
+        "CBC__LBXEOPCT": -1.1810188293457031,
+        "BIOPRO__LBDSCASI": -1.1488125324249268
+      }
+    },
+    {
+      "cluster": 9,
+      "name": "Adiposity",
+      "n": 45,
+      "pct": 0.0025,
+      "anchor_z": {
+        "adiposity_body_size": 0.27092957496643066,
+        "blood_pressure": -0.765595555305481,
+        "lipids_glucose": -0.13069510459899902,
+        "renal_liver_biochem": -0.10761691629886627,
+        "blood_counts": -0.4986882209777832
+      },
+      "top_positive_fields": {
+        "BMX__BMXHT": 1.147674322128296,
+        "BMX__BMXARML": 1.1000577211380005,
+        "CBC__LBDMONO": 0.9065213799476624,
+        "BMX__BMXLEG": 0.899387001991272,
+        "CBC__LBXMOPCT": 0.6240081787109375,
+        "BIOPRO__LBXSBU": 0.5656588673591614,
+        "BIOPRO__LBDSBUSI": 0.5654469132423401,
+        "CBC__LBXMCVSI": 0.5022763013839722,
+        "CBC__LBXMCHSI": 0.493230402469635,
+        "BMX__BMXWT": 0.4497184157371521
+      },
+      "top_negative_fields": {
+        "BPXO__BPAOMNTS": -6.0172905921936035,
+        "BPX__BPXDI3": -1.1001696586608887,
+        "BPX__BPXDI2": -1.083565354347229,
+        "BPX__BPXSY2": -0.90574049949646,
+        "BPX__BPXDI1": -0.80588299036026,
+        "BPXO__BPXODI2": -0.79841548204422,
+        "BPXO__BPXODI3": -0.7906140089035034,
+        "BIOPRO__LBXSCLSI": -0.7722793221473694,
+        "BIOPRO__LBXSKSI": -0.7108160853385925,
+        "BPX__BPXSY3": -0.6758309602737427
+      }
+    },
+    {
+      "cluster": 10,
+      "name": "Renal/liver",
+      "n": 168,
+      "pct": 0.009333333333333334,
+      "anchor_z": {
+        "adiposity_body_size": 0.10279633104801178,
+        "blood_pressure": 0.24776941537857056,
+        "lipids_glucose": 0.1425011307001114,
+        "renal_liver_biochem": 3.591215133666992,
+        "blood_counts": -1.7879425287246704
+      },
+      "top_positive_fields": {
+        "BIOPRO__LBDSCRSI": 4.597716808319092,
+        "BIOPRO__LBXSCR": 4.597713947296143,
+        "BIOPRO__LBXSBU": 3.77938175201416,
+        "BIOPRO__LBDSBUSI": 3.7793807983398438,
+        "BIOPRO__LBXSOSSI": 1.9167755842208862,
+        "BIOPRO__LBDSPHSI": 1.6961040496826172,
+        "BIOPRO__LBXSPH": 1.69319748878479,
+        "BIOPRO__LBXSKSI": 1.6159132719039917,
+        "BIOPRO__LBXSAPSI": 1.4354782104492188,
+        "BPX__BPXML1": 1.4200769662857056
+      },
+      "top_negative_fields": {
+        "CBC__LBXHCT": -1.7220171689987183,
+        "CBC__LBXRBCSI": -1.6952100992202759,
+        "CBC__LBXHGB": -1.6895769834518433,
+        "BIOPRO__LBDSALSI": -1.1578829288482666,
+        "BIOPRO__LBXSAL": -1.1578829288482666,
+        "BIOPRO__LBXSCLSI": -0.8599901795387268,
+        "BIOPRO__LBXSCA": -0.759364664554596,
+        "BIOPRO__LBDSCASI": -0.7593052387237549,
+        "CBC__LBXLYPCT": -0.6690384149551392,
+        "CBC__LBXPLTSI": -0.6045503616333008
+      }
+    }
+  ],
+  "plots": {
+    "umap_clusters": "outputs/nhanes_quotient_lab_exam/umap_clusters.png",
+    "cluster_archetypes": "outputs/nhanes_quotient_lab_exam/cluster_archetypes.png",
+    "tweetable_four_panel": "outputs/nhanes_quotient_lab_exam/tweetable_four_panel.png",
+    "umap_adiposity_body_size": "outputs/nhanes_quotient_lab_exam/umap_adiposity_body_size.png",
+    "umap_blood_pressure": "outputs/nhanes_quotient_lab_exam/umap_blood_pressure.png",
+    "umap_lipids_glucose": "outputs/nhanes_quotient_lab_exam/umap_lipids_glucose.png",
+    "umap_renal_liver_biochem": "outputs/nhanes_quotient_lab_exam/umap_renal_liver_biochem.png",
+    "umap_blood_counts": "outputs/nhanes_quotient_lab_exam/umap_blood_counts.png"
+  }
+}

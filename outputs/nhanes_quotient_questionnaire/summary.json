@@ -1,0 +1,430 @@
+{
+  "args": {
+    "input": "data/nhanes/processed/nhanes_phenome_raw.parquet",
+    "hidden": 192,
+    "steps": 3000,
+    "batch_size": 768,
+    "lr": 0.012,
+    "l1": 0.002,
+    "max_cols": 1000,
+    "min_nonmissing": 0.25,
+    "umap_sample": 18000,
+    "keep_missingness": false,
+    "keep_demographics": false,
+    "include_prefixes": [
+      "DIQ",
+      "BPQ",
+      "MCQ",
+      "SMQ",
+      "ALQ",
+      "PAQ",
+      "SLQ",
+      "DPQ",
+      "HSQ",
+      "RXQ_RX"
+    ],
+    "exclude_prefixes": null,
+    "seed": 67,
+    "out_dir": "outputs/nhanes_quotient_questionnaire"
+  },
+  "n_participants": 23969,
+  "n_features": 105,
+  "hidden": 192,
+  "live_units": 101,
+  "mean_active_rate": 0.13669196844535303,
+  "cluster_k": 10,
+  "cluster_silhouette": 0.12989728152751923,
+  "cluster_cards": [
+    {
+      "cluster": 0,
+      "name": "Cardio history + Blood pressure",
+      "n": 343,
+      "pct": 0.019055555555555555,
+      "anchor_z": {
+        "blood_pressure": 0.27469155192375183,
+        "diabetes": 0.22009216248989105,
+        "cardio_history": 0.28877243399620056,
+        "respiratory_smoking": -0.12489877641201019,
+        "mental_health_sleep": 0.2685793340206146,
+        "general_health_utilization": -0.47779443860054016
+      },
+      "top_positive_fields": {
+        "ALQ__ALQ170": 3.69968318939209,
+        "ALQ__ALQ130": 3.1507952213287354,
+        "ALQ__ALQ142": 0.7294606566429138,
+        "BPQ__BPQ060": 0.4327220618724823,
+        "RXQ_RX__RXDUSE": 0.3882957398891449,
+        "DPQ__DPQ060": 0.36720022559165955,
+        "DIQ__DIQ180": 0.35581743717193604,
+        "MCQ__MCQ371C": 0.34539473056793213,
+        "DPQ__DPQ020": 0.32859310507774353,
+        "DPQ__DPQ100": 0.3273051381111145
+      },
+      "top_negative_fields": {
+        "ALQ__ALQ151": -0.9193434715270996,
+        "SMQ__SMQ040": -0.7025832533836365,
+        "SMQ__SMQ900": -0.6045712828636169,
+        "SMQ__SMQ020": -0.5254465937614441,
+        "PAQ__PAQ605": -0.36029526591300964,
+        "RXQ_RX__RXDCOUNT": -0.3598332405090332,
+        "SMQ__SMQ910": -0.3201198875904083,
+        "ALQ__ALQ111": -0.29021239280700684,
+        "HSQ__HSQ500": -0.2519282400608063,
+        "HSQ__HSD010": -0.24447815120220184
+      }
+    },
+    {
+      "cluster": 1,
+      "name": "Blood pressure + Cardio history",
+      "n": 5794,
+      "pct": 0.3218888888888889,
+      "anchor_z": {
+        "blood_pressure": 0.32159850001335144,
+        "diabetes": 0.1883249431848526,
+        "cardio_history": 0.2883070707321167,
+        "respiratory_smoking": 0.25197604298591614,
+        "mental_health_sleep": -0.2244589924812317,
+        "general_health_utilization": -0.0024726204574108124
+      },
+      "top_positive_fields": {
+        "RXQ_RX__RXQ033": 0.703094482421875,
+        "MCQ__MCQ080": 0.6437759399414062,
+        "SLQ__SLQ050": 0.6007065176963806,
+        "MCQ__MCQ366D": 0.5982758402824402,
+        "MCQ__MCQ366C": 0.5981041193008423,
+        "PAQ__PAQ620": 0.5685746669769287,
+        "SMQ__SMQ890": 0.558739423751831,
+        "MCQ__MCQ366A": 0.529729962348938,
+        "PAQ__PAQ665": 0.4999309480190277,
+        "MCQ__MCQ520": 0.4798557162284851
+      },
+      "top_negative_fields": {
+        "MCQ__MCQ300C": -0.5971365571022034,
+        "MCQ__MCQ366B": -0.5896112322807312,
+        "MCQ__MCQ371B": -0.5784681439399719,
+        "BPQ__BPQ090D": -0.5420442223548889,
+        "MCQ__MCQ371D": -0.5290367007255554,
+        "MCQ__MCQ371C": -0.5278119444847107,
+        "MCQ__MCQ371A": -0.48785024881362915,
+        "BPQ__BPQ101D": -0.47614315152168274,
+        "SLQ__SLQ040": -0.4047832190990448,
+        "BPQ__BPQ070": -0.36184293031692505
+      }
+    },
+    {
+      "cluster": 2,
+      "name": "Mood/sleep + Health/utilization",
+      "n": 1193,
+      "pct": 0.06627777777777778,
+      "anchor_z": {
+        "blood_pressure": -0.3107510507106781,
+        "diabetes": -0.19388817250728607,
+        "cardio_history": -0.2312925010919571,
+        "respiratory_smoking": -0.28927794098854065,
+        "mental_health_sleep": 1.7906231880187988,
+        "general_health_utilization": 0.7443230748176575
+      },
+      "top_positive_fields": {
+        "DPQ__DPQ080": 2.396541118621826,
+        "DPQ__DPQ070": 1.8933488130569458,
+        "DPQ__DPQ020": 1.8728282451629639,
+        "DPQ__DPQ100": 1.7140467166900635,
+        "DPQ__DPQ010": 1.5553983449935913,
+        "DPQ__DPQ060": 1.4679216146469116,
+        "DPQ__DPQ030": 1.3927286863327026,
+        "DPQ__DPQ050": 1.326544165611267,
+        "DPQ__DPQ090": 1.3004109859466553,
+        "DPQ__DPQ040": 1.284027338027954
+      },
+      "top_negative_fields": {
+        "SLQ__SLQ050": -0.9317194819450378,
+        "MCQ__MCQ520": -0.7760844826698303,
+        "HSQ__HSQ510": -0.7155648469924927,
+        "MCQ__MCQ366C": -0.5771102905273438,
+        "MCQ__MCQ366D": -0.566368043422699,
+        "MCQ__MCQ300A": -0.5592337250709534,
+        "DIQ__DIQ172": -0.549994707107544,
+        "HSQ__HSQ500": -0.47475242614746094,
+        "MCQ__MCQ160A": -0.4736584722995758,
+        "ALQ__ALQ151": -0.45923492312431335
+      }
+    },
+    {
+      "cluster": 3,
+      "name": "Blood pressure",
+      "n": 32,
+      "pct": 0.0017777777777777779,
+      "anchor_z": {
+        "blood_pressure": 0.2943894863128662,
+        "diabetes": 0.16706694662570953,
+        "cardio_history": 0.12584900856018066,
+        "respiratory_smoking": 0.18828022480010986,
+        "mental_health_sleep": 0.17753520607948303,
+        "general_health_utilization": 0.01785784773528576
+      },
+      "top_positive_fields": {
+        "PAQ__PAD810Q": 6.030052185058594,
+        "PAQ__PAD790Q": 2.443887948989868,
+        "PAQ__PAD680": 1.1876190900802612,
+        "MCQ__MCQ080": 0.6772057414054871,
+        "MCQ__MCQ366D": 0.6521467566490173,
+        "MCQ__MCQ366C": 0.6482639312744141,
+        "RXQ_RX__RXQ033": 0.6322862505912781,
+        "SLQ__SLQ050": 0.6080797910690308,
+        "PAQ__PAQ620": 0.5809027552604675,
+        "SMQ__SMQ890": 0.572343111038208
+      },
+      "top_negative_fields": {
+        "MCQ__AGQ030": -1.110093355178833,
+        "BPQ__BPQ101D": -0.7800476551055908,
+        "MCQ__MCQ366B": -0.6322799324989319,
+        "MCQ__MCQ300C": -0.6217319965362549,
+        "MCQ__MCQ371B": -0.6132104992866516,
+        "BPQ__BPQ090D": -0.5566619634628296,
+        "MCQ__MCQ371D": -0.5418198108673096,
+        "MCQ__MCQ371C": -0.5376911163330078,
+        "MCQ__MCQ371A": -0.51106858253479,
+        "MCQ__MCQ160P": -0.42935675382614136
+      }
+    },
+    {
+      "cluster": 4,
+      "name": "Low blood pressure",
+      "n": 4937,
+      "pct": 0.2742777777777778,
+      "anchor_z": {
+        "blood_pressure": -0.4008699655532837,
+        "diabetes": -0.06624569743871689,
+        "cardio_history": 0.23069064319133759,
+        "respiratory_smoking": -0.027139026671648026,
+        "mental_health_sleep": -0.05005355551838875,
+        "general_health_utilization": -0.08650363981723785
+      },
+      "top_positive_fields": {
+        "BPQ__BPQ101D": 0.31624290347099304,
+        "BPQ__BPQ090D": 0.2763183116912842,
+        "MCQ__MCQ300C": 0.25954949855804443,
+        "BPQ__BPQ100D": 0.24120156466960907,
+        "MCQ__MCQ160C": 0.23121367394924164,
+        "SLQ__SLQ040": 0.2236049324274063,
+        "MCQ__MCQ160B": 0.21703486144542694,
+        "MCQ__MCQ195": 0.19527634978294373,
+        "BPQ__BPQ030": 0.19196541607379913,
+        "MCQ__AGQ030": 0.19080641865730286
+      },
+      "top_negative_fields": {
+        "MCQ__MCQ080": -0.5826029777526855,
+        "MCQ__MCQ366D": -0.5707395076751709,
+        "MCQ__MCQ366A": -0.5519025325775146,
+        "MCQ__MCQ366C": -0.5401404500007629,
+        "SLQ__SLQ050": -0.4275627136230469,
+        "BPQ__BPQ020": -0.40079283714294434,
+        "DIQ__DIQ180": -0.3940834701061249,
+        "RXQ_RX__RXQ033": -0.35868898034095764,
+        "PAQ__PAQ620": -0.3319845199584961,
+        "MCQ__MCQ160A": -0.3267113268375397
+      }
+    },
+    {
+      "cluster": 5,
+      "name": "Health/utilization + Mood/sleep",
+      "n": 141,
+      "pct": 0.007833333333333333,
+      "anchor_z": {
+        "blood_pressure": -0.23270468413829803,
+        "diabetes": -0.5390875935554504,
+        "cardio_history": -0.3667413890361786,
+        "respiratory_smoking": -0.34921595454216003,
+        "mental_health_sleep": 0.3664698004722595,
+        "general_health_utilization": 0.6194663047790527
+      },
+      "top_positive_fields": {
+        "MCQ__MCD180A": 6.039299488067627,
+        "RXQ_RX__RXDDAYS": 2.01702880859375,
+        "BPQ__BPD035": 1.7011735439300537,
+        "MCQ__MCQ371A": 0.8420126438140869,
+        "HSQ__HSD010": 0.7158675789833069,
+        "SLQ__SLQ040": 0.6182731986045837,
+        "RXQ_RX__RXDCOUNT": 0.6114728450775146,
+        "DPQ__DPQ010": 0.5945138931274414,
+        "DIQ__DID040": 0.5186896920204163,
+        "MCQ__MCQ371C": 0.4772140085697174
+      },
+      "top_negative_fields": {
+        "MCQ__MCQ160A": -1.157760500907898,
+        "MCQ__MCQ160N": -0.9276120066642761,
+        "MCQ__MCQ053": -0.8713079690933228,
+        "MCQ__MCQ092": -0.7953536510467529,
+        "MCQ__MCQ366C": -0.731020987033844,
+        "MCQ__MCQ160E": -0.7031875848770142,
+        "MCQ__MCQ160O": -0.6567705273628235,
+        "MCQ__MCQ160B": -0.5280001163482666,
+        "MCQ__MCQ366D": -0.49339163303375244,
+        "MCQ__MCQ160K": -0.4869672656059265
+      }
+    },
+    {
+      "cluster": 6,
+      "name": "Low resp/smoking",
+      "n": 428,
+      "pct": 0.023777777777777776,
+      "anchor_z": {
+        "blood_pressure": -0.21309973299503326,
+        "diabetes": 0.14625944197177887,
+        "cardio_history": -0.39693528413772583,
+        "respiratory_smoking": -0.5537185072898865,
+        "mental_health_sleep": 0.14045847952365875,
+        "general_health_utilization": 0.01785784773528576
+      },
+      "top_positive_fields": {
+        "MCQ__MCQ080": 0.6772058010101318,
+        "MCQ__MCQ366D": 0.6521466970443726,
+        "MCQ__MCQ366C": 0.6482638716697693,
+        "SLQ__SLQ050": 0.608079731464386,
+        "PAQ__PAQ620": 0.5809026956558228,
+        "SMQ__SMQ890": 0.5723429918289185,
+        "MCQ__MCQ366A": 0.5708920955657959,
+        "PAQ__PAQ665": 0.5233299136161804,
+        "MCQ__MCQ520": 0.48296305537223816,
+        "MCQ__MCQ300B": 0.4267675578594208
+      },
+      "top_negative_fields": {
+        "MCQ__MCQ160P": -6.0079169273376465,
+        "BPQ__BPQ101D": -1.4888391494750977,
+        "MCQ__AGQ030": -0.8406161665916443,
+        "SMQ__SMQ020": -0.6910642981529236,
+        "MCQ__MCQ366B": -0.6322798728942871,
+        "MCQ__MCQ300C": -0.6217319965362549,
+        "MCQ__MCQ371B": -0.6132104992866516,
+        "SMQ__SMQ040": -0.5911231637001038,
+        "BPQ__BPQ090D": -0.5566619038581848,
+        "MCQ__MCQ371D": -0.5418197512626648
+      }
+    },
+    {
+      "cluster": 7,
+      "name": "Low blood pressure",
+      "n": 297,
+      "pct": 0.0165,
+      "anchor_z": {
+        "blood_pressure": -0.9567936658859253,
+        "diabetes": 0.05674666538834572,
+        "cardio_history": 0.11339274048805237,
+        "respiratory_smoking": -0.25584280490875244,
+        "mental_health_sleep": 0.19664059579372406,
+        "general_health_utilization": -0.1510142683982849
+      },
+      "top_positive_fields": {
+        "BPQ__BPQ040A": 5.822676181793213,
+        "BPQ__BPQ030": 1.224336862564087,
+        "BPQ__BPQ090D": 0.7186775803565979,
+        "BPQ__BPQ070": 0.5271205902099609,
+        "RXQ_RX__RXDUSE": 0.47779524326324463,
+        "MCQ__MCQ366B": 0.46767333149909973,
+        "SLQ__SLQ040": 0.3833484351634979,
+        "RXQ_RX__RXQSEEN": 0.3745988607406616,
+        "ALQ__ALQ130": 0.34861400723457336,
+        "MCQ__MCQ300C": 0.3304073214530945
+      },
+      "top_negative_fields": {
+        "BPQ__BPQ020": -0.9566095471382141,
+        "SMQ__SMQ890": -0.6765303611755371,
+        "SMQ__SMQ900": -0.6147146821022034,
+        "SMQ__SMQ910": -0.5788701176643372,
+        "PAQ__PAQ605": -0.5162367224693298,
+        "MCQ__MCQ080": -0.5111796259880066,
+        "HSQ__HSQ500": -0.48959407210350037,
+        "PAQ__PAQ665": -0.4466826021671295,
+        "MCQ__MCQ520": -0.4176673889160156,
+        "SLQ__SLQ050": -0.37608861923217773
+      }
+    },
+    {
+      "cluster": 8,
+      "name": "Health/utilization",
+      "n": 1793,
+      "pct": 0.09961111111111111,
+      "anchor_z": {
+        "blood_pressure": -0.7033470273017883,
+        "diabetes": -0.6336798071861267,
+        "cardio_history": -1.974297285079956,
+        "respiratory_smoking": -0.7812829613685608,
+        "mental_health_sleep": 0.06460769474506378,
+        "general_health_utilization": 0.9108999371528625
+      },
+      "top_positive_fields": {
+        "RXQ_RX__RXDCOUNT": 1.238503336906433,
+        "HSQ__HSD010": 0.5810540318489075,
+        "SLQ__SLQ040": 0.5534830093383789,
+        "SLQ__SLQ120": 0.45259836316108704,
+        "RXQ_RX__RXQSEEN": 0.4308386445045471,
+        "MCQ__MCQ371B": 0.4196578562259674,
+        "BPQ__BPD035": 0.35317593812942505,
+        "DIQ__DIQ070": 0.3142731487751007,
+        "BPQ__BPQ101D": 0.2837827801704407,
+        "MCQ__MCQ195": 0.27023789286613464
+      },
+      "top_negative_fields": {
+        "MCQ__MCQ160C": -1.6360026597976685,
+        "MCQ__MCQ160B": -1.6094156503677368,
+        "MCQ__MCQ160E": -1.4093374013900757,
+        "MCQ__MCQ160O": -1.1927937269210815,
+        "MCQ__MCQ160D": -1.1294944286346436,
+        "MCQ__MCQ160K": -0.9795877933502197,
+        "MCQ__MCQ366C": -0.9031625986099243,
+        "MCQ__OSQ230": -0.8705719709396362,
+        "MCQ__MCQ160F": -0.8427343964576721,
+        "MCQ__MCQ366D": -0.8293725848197937
+      }
+    },
+    {
+      "cluster": 9,
+      "name": "Blood pressure + Cardio history",
+      "n": 3042,
+      "pct": 0.169,
+      "anchor_z": {
+        "blood_pressure": 0.6745978593826294,
+        "diabetes": 0.17065010964870453,
+        "cardio_history": 0.35875117778778076,
+        "respiratory_smoking": 0.269236296415329,
+        "mental_health_sleep": -0.3196645975112915,
+        "general_health_utilization": -0.6464992165565491
+      },
+      "top_positive_fields": {
+        "RXQ_RX__RXDUSE": 1.2772974967956543,
+        "MCQ__MCQ366B": 1.100502848625183,
+        "MCQ__MCQ371C": 0.9433465600013733,
+        "MCQ__MCQ371D": 0.8797680735588074,
+        "BPQ__BPQ060": 0.8129384517669678,
+        "MCQ__MCQ371A": 0.7625645995140076,
+        "BPQ__BPQ090D": 0.6799848079681396,
+        "MCQ__MCQ300C": 0.676784873008728,
+        "BPQ__BPQ020": 0.6744679808616638,
+        "MCQ__MCQ160A": 0.5821302533149719
+      },
+      "top_negative_fields": {
+        "PAQ__PAQ650": -0.6599997878074646,
+        "HSQ__HSD010": -0.5886670351028442,
+        "SLQ__SLQ030": -0.5343812704086304,
+        "RXQ_RX__RXDCOUNT": -0.4916561543941498,
+        "PAQ__PAQ635": -0.48582300543785095,
+        "SLQ__SLQ120": -0.47506818175315857,
+        "PAQ__PAQ665": -0.45396584272384644,
+        "RXQ_RX__RXQ033": -0.35868895053863525,
+        "DPQ__DPQ040": -0.35823339223861694,
+        "PAQ__PAQ620": -0.34469738602638245
+      }
+    }
+  ],
+  "plots": {
+    "umap_clusters": "outputs/nhanes_quotient_questionnaire/umap_clusters.png",
+    "cluster_archetypes": "outputs/nhanes_quotient_questionnaire/cluster_archetypes.png",
+    "tweetable_four_panel": "outputs/nhanes_quotient_questionnaire/tweetable_four_panel.png",
+    "umap_blood_pressure": "outputs/nhanes_quotient_questionnaire/umap_blood_pressure.png",
+    "umap_diabetes": "outputs/nhanes_quotient_questionnaire/umap_diabetes.png",
+    "umap_cardio_history": "outputs/nhanes_quotient_questionnaire/umap_cardio_history.png",
+    "umap_respiratory_smoking": "outputs/nhanes_quotient_questionnaire/umap_respiratory_smoking.png",
+    "umap_mental_health_sleep": "outputs/nhanes_quotient_questionnaire/umap_mental_health_sleep.png",
+    "umap_general_health_utilization": "outputs/nhanes_quotient_questionnaire/umap_general_health_utilization.png"
+  }
+}

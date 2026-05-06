@@ -97,6 +97,8 @@ def main():
     p.add_argument("--umap-sample", type=int, default=18000)
     p.add_argument("--keep-missingness", action="store_true")
     p.add_argument("--keep-demographics", action="store_true")
+    p.add_argument("--include-prefixes", nargs="*", default=None)
+    p.add_argument("--exclude-prefixes", nargs="*", default=None)
     p.add_argument("--seed", type=int, default=67)
     p.add_argument("--out-dir", default="outputs/nhanes_mining")
     args = p.parse_args()
@@ -112,6 +114,14 @@ def main():
         drop_cols.extend([c for c in x_df.columns if c.startswith("DEMO__")])
     if drop_cols:
         x_df = x_df.drop(columns=sorted(set(drop_cols)), errors="ignore")
+    if args.include_prefixes:
+        prefixes = tuple(f"{p}__" for p in args.include_prefixes)
+        x_df = x_df[[c for c in x_df.columns if c.startswith(prefixes)]]
+    if args.exclude_prefixes:
+        prefixes = tuple(f"{p}__" for p in args.exclude_prefixes)
+        x_df = x_df[[c for c in x_df.columns if not c.startswith(prefixes)]]
+    if x_df.shape[1] < 10:
+        raise SystemExit(f"Only {x_df.shape[1]} columns remain after filtering; relax prefix filters.")
     x = x_df.to_numpy(dtype=np.float32)
 
     model = train_sparse_autoencoder(x, args.hidden, args.steps, args.batch_size, args.lr, args.l1, args.seed)
@@ -194,16 +204,20 @@ def main():
     plt.close()
 
     fig, axes = plt.subplots(2, 2, figsize=(12, 10), facecolor="#f6f3ec")
-    showcase = ["adiposity_body_size", "mental_health_sleep", "blood_pressure", "lipids_glucose"]
-    for ax, anchor in zip(axes.ravel(), showcase):
+    preferred_showcase = ["adiposity_body_size", "mental_health_sleep", "blood_pressure", "lipids_glucose"]
+    showcase = [a for a in preferred_showcase if a in anchors.columns]
+    showcase += [a for a in anchors.columns if a not in showcase]
+    for ax, anchor in zip(axes.ravel(), showcase[:4]):
         vals = anchors[anchor].to_numpy()
         lo, hi = np.nanpercentile(vals, [2, 98])
-        sc = ax.scatter(emb[:, 0], emb[:, 1], c=np.clip(vals, lo, hi), s=3, alpha=0.65, cmap="magma", linewidths=0)
+        ax.scatter(emb[:, 0], emb[:, 1], c=np.clip(vals, lo, hi), s=3, alpha=0.65, cmap="magma", linewidths=0)
         ax.set_title(PRETTY_ANCHORS.get(anchor, anchor), loc="left", fontsize=13, fontweight="bold")
         ax.set_xticks([])
         ax.set_yticks([])
         for spine in ax.spines.values():
             spine.set_visible(False)
+    for ax in axes.ravel()[len(showcase[:4]):]:
+        ax.axis("off")
     fig.suptitle("A phenome map from sparse autoencoder activations", x=0.06, y=0.995, ha="left", fontsize=18, fontweight="bold")
     plt.tight_layout()
     plt.savefig(out / "tweetable_four_panel.png", dpi=240)
