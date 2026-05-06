@@ -1,0 +1,101 @@
+{
+  "block": "renal_liver",
+  "name": "Renal/liver",
+  "n_columns": 8,
+  "columns": [
+    "BIOPRO__LBXSCR",
+    "BIOPRO__LBXSBU",
+    "BIOPRO__LBXSAL",
+    "BIOPRO__LBXSAPSI",
+    "BIOPRO__LBXSASSI",
+    "BIOPRO__LBXSATSI",
+    "BIOPRO__LBXSGTSI",
+    "BIOPRO__LBXSUA"
+  ],
+  "embedding_source": "sae",
+  "live_units": 12,
+  "mean_active_rate": 0.1124173411489841,
+  "cluster_k": 3,
+  "cluster_silhouette": 0.756833016872406,
+  "cards": [
+    {
+      "cluster": 0,
+      "n": 523,
+      "pct": 0.029055555555555557,
+      "top_positive_fields": {
+        "BIOPRO__LBXSGTSI": 2.9604952335357666,
+        "BIOPRO__LBXSASSI": 2.4799158573150635,
+        "BIOPRO__LBXSATSI": 1.9587746858596802,
+        "BIOPRO__LBXSAPSI": 1.1620604991912842,
+        "BIOPRO__LBXSUA": 0.10330445319414139,
+        "BIOPRO__LBXSBU": -0.07510758936405182,
+        "BIOPRO__LBXSCR": -0.12619641423225403,
+        "BIOPRO__LBXSAL": -1.0345264673233032
+      },
+      "top_negative_fields": {
+        "BIOPRO__LBXSAL": -1.0345264673233032,
+        "BIOPRO__LBXSCR": -0.12619641423225403,
+        "BIOPRO__LBXSBU": -0.07510758936405182,
+        "BIOPRO__LBXSUA": 0.10330445319414139,
+        "BIOPRO__LBXSAPSI": 1.1620604991912842,
+        "BIOPRO__LBXSATSI": 1.9587746858596802,
+        "BIOPRO__LBXSASSI": 2.4799158573150635,
+        "BIOPRO__LBXSGTSI": 2.9604952335357666
+      }
+    },
+    {
+      "cluster": 1,
+      "n": 17368,
+      "pct": 0.9648888888888889,
+      "top_positive_fields": {
+        "BIOPRO__LBXSAL": 0.03956299275159836,
+        "BIOPRO__LBXSUA": 0.0016863588243722916,
+        "BIOPRO__LBXSBU": -0.01775212027132511,
+        "BIOPRO__LBXSCR": -0.03143361210823059,
+        "BIOPRO__LBXSAPSI": -0.04475271701812744,
+        "BIOPRO__LBXSATSI": -0.05655496567487717,
+        "BIOPRO__LBXSASSI": -0.07249192893505096,
+        "BIOPRO__LBXSGTSI": -0.09492164105176926
+      },
+      "top_negative_fields": {
+        "BIOPRO__LBXSGTSI": -0.09492164105176926,
+        "BIOPRO__LBXSASSI": -0.07249192893505096,
+        "BIOPRO__LBXSATSI": -0.05655496567487717,
+        "BIOPRO__LBXSAPSI": -0.04475271701812744,
+        "BIOPRO__LBXSCR": -0.03143361210823059,
+        "BIOPRO__LBXSBU": -0.01775212027132511,
+        "BIOPRO__LBXSUA": 0.0016863588243722916,
+        "BIOPRO__LBXSAL": 0.03956299275159836
+      }
+    },
+    {
+      "cluster": 2,
+      "n": 109,
+      "pct": 0.006055555555555555,
+      "top_positive_fields": {
+        "BIOPRO__LBXSCR": 5.614125728607178,
+        "BIOPRO__LBXSBU": 3.188990592956543,
+        "BIOPRO__LBXSAPSI": 1.55511474609375,
+        "BIOPRO__LBXSGTSI": 0.9198161959648132,
+        "BIOPRO__LBXSASSI": -0.34822216629981995,
+        "BIOPRO__LBXSATSI": -0.38708826899528503,
+        "BIOPRO__LBXSUA": -0.7643753886222839,
+        "BIOPRO__LBXSAL": -1.340117335319519
+      },
+      "top_negative_fields": {
+        "BIOPRO__LBXSAL": -1.340117335319519,
+        "BIOPRO__LBXSUA": -0.7643753886222839,
+        "BIOPRO__LBXSATSI": -0.38708826899528503,
+        "BIOPRO__LBXSASSI": -0.34822216629981995,
+        "BIOPRO__LBXSGTSI": 0.9198161959648132,
+        "BIOPRO__LBXSAPSI": 1.55511474609375,
+        "BIOPRO__LBXSBU": 3.188990592956543,
+        "BIOPRO__LBXSCR": 5.614125728607178
+      }
+    }
+  ],
+  "plots": {
+    "umap_clusters": "outputs/nhanes_independent_blocks/renal_liver/umap_clusters.png",
+    "cluster_fields": "outputs/nhanes_independent_blocks/renal_liver/cluster_fields.png"
+  }
+}

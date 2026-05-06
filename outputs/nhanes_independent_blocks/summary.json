@@ -1,0 +1,1806 @@
+{
+  "args": {
+    "input": "data/nhanes/processed/nhanes_phenome_raw.parquet",
+    "out_dir": "outputs/nhanes_independent_blocks",
+    "blocks": [
+      "body_size",
+      "blood_pressure",
+      "lipids_glucose",
+      "renal_liver",
+      "blood_counts",
+      "diabetes_history",
+      "cardio_history",
+      "resp_smoking",
+      "mood_sleep",
+      "utilization_meds",
+      "activity_alcohol"
+    ],
+    "hidden": 32,
+    "steps": 1800,
+    "batch_size": 768,
+    "lr": 0.012,
+    "l1": 0.001,
+    "umap_sample": 18000,
+    "seed": 131
+  },
+  "n_participants": 23969,
+  "blocks": [
+    {
+      "block": "body_size",
+      "name": "Body size",
+      "n_columns": 6,
+      "columns": [
+        "BMX__BMXBMI",
+        "BMX__BMXWT",
+        "BMX__BMXWAIST",
+        "BMX__BMXHIP",
+        "BMX__BMXARMC",
+        "BMX__BMXHT"
+      ],
+      "embedding_source": "direct_fields",
+      "live_units": 2,
+      "mean_active_rate": 0.03757631384983382,
+      "cluster_k": 3,
+      "cluster_silhouette": 0.3374967873096466,
+      "cards": [
+        {
+          "cluster": 0,
+          "n": 5297,
+          "pct": 0.2942777777777778,
+          "top_positive_fields": {
+            "BMX__BMXHT": -0.3823610842227936,
+            "BMX__BMXHIP": -0.88869309425354,
+            "BMX__BMXBMI": -0.9264184236526489,
+            "BMX__BMXWT": -0.9876755475997925,
+            "BMX__BMXARMC": -1.0173957347869873,
+            "BMX__BMXWAIST": -1.0183727741241455
+          },
+          "top_negative_fields": {
+            "BMX__BMXWAIST": -1.0183727741241455,
+            "BMX__BMXARMC": -1.0173957347869873,
+            "BMX__BMXWT": -0.9876755475997925,
+            "BMX__BMXBMI": -0.9264184236526489,
+            "BMX__BMXHIP": -0.88869309425354,
+            "BMX__BMXHT": -0.3823610842227936
+          }
+        },
+        {
+          "cluster": 1,
+          "n": 9828,
+          "pct": 0.546,
+          "top_positive_fields": {
+            "BMX__BMXHT": 0.12020624428987503,
+            "BMX__BMXARMC": 0.10220199823379517,
+            "BMX__BMXWAIST": 0.0973866656422615,
+            "BMX__BMXWT": 0.04709732159972191,
+            "BMX__BMXBMI": 0.011094732210040092,
+            "BMX__BMXHIP": -0.010128210298717022
+          },
+          "top_negative_fields": {
+            "BMX__BMXHIP": -0.010128210298717022,
+            "BMX__BMXBMI": 0.011094732210040092,
+            "BMX__BMXWT": 0.04709732159972191,
+            "BMX__BMXWAIST": 0.0973866656422615,
+            "BMX__BMXARMC": 0.10220199823379517,
+            "BMX__BMXHT": 0.12020624428987503
+          }
+        },
+        {
+          "cluster": 2,
+          "n": 2875,
+          "pct": 0.1597222222222222,
+          "top_positive_fields": {
+            "BMX__BMXHIP": 1.6719818115234375,
+            "BMX__BMXBMI": 1.6689388751983643,
+            "BMX__BMXWT": 1.6587287187576294,
+            "BMX__BMXWAIST": 1.5433753728866577,
+            "BMX__BMXARMC": 1.5251144170761108,
+            "BMX__BMXHT": 0.29355815052986145
+          },
+          "top_negative_fields": {
+            "BMX__BMXHT": 0.29355815052986145,
+            "BMX__BMXARMC": 1.5251144170761108,
+            "BMX__BMXWAIST": 1.5433753728866577,
+            "BMX__BMXWT": 1.6587287187576294,
+            "BMX__BMXBMI": 1.6689388751983643,
+            "BMX__BMXHIP": 1.6719818115234375
+          }
+        }
+      ],
+      "plots": {
+        "umap_clusters": "outputs/nhanes_independent_blocks/body_size/umap_clusters.png",
+        "cluster_fields": "outputs/nhanes_independent_blocks/body_size/cluster_fields.png"
+      }
+    },
+    {
+      "block": "blood_pressure",
+      "name": "Blood pressure",
+      "n_columns": 12,
+      "columns": [
+        "BPX__BPXSY1",
+        "BPX__BPXSY2",
+        "BPX__BPXSY3",
+        "BPX__BPXDI1",
+        "BPX__BPXDI2",
+        "BPX__BPXDI3",
+        "BPXO__BPXOSY1",
+        "BPXO__BPXOSY2",
+        "BPXO__BPXOSY3",
+        "BPXO__BPXODI1",
+        "BPXO__BPXODI2",
+        "BPXO__BPXODI3"
+      ],
+      "embedding_source": "sae",
+      "live_units": 5,
+      "mean_active_rate": 0.0783055717802161,
+      "cluster_k": 3,
+      "cluster_silhouette": 0.4668654203414917,
+      "cards": [
+        {
+          "cluster": 0,
+          "n": 14683,
+          "pct": 0.8157222222222222,
+          "top_positive_fields": {
+            "BPX__BPXDI3": -0.14378765225410461,
+            "BPX__BPXDI1": -0.14741036295890808,
+            "BPX__BPXDI2": -0.15631917119026184,
+            "BPXO__BPXODI3": -0.17008213698863983,
+            "BPXO__BPXODI2": -0.1711130142211914,
+            "BPXO__BPXODI1": -0.17379054427146912,
+            "BPXO__BPXOSY3": -0.2699393033981323,
+            "BPXO__BPXOSY1": -0.27054497599601746
+          },
+          "top_negative_fields": {
+            "BPX__BPXSY3": -0.3319956958293915,
+            "BPX__BPXSY2": -0.32874390482902527,
+            "BPX__BPXSY1": -0.31571856141090393,
+            "BPXO__BPXOSY2": -0.2722611427307129,
+            "BPXO__BPXOSY1": -0.27054497599601746,
+            "BPXO__BPXOSY3": -0.2699393033981323,
+            "BPXO__BPXODI1": -0.17379054427146912,
+            "BPXO__BPXODI2": -0.1711130142211914
+          }
+        },
+        {
+          "cluster": 1,
+          "n": 3281,
+          "pct": 0.1822777777777778,
+          "top_positive_fields": {
+            "BPX__BPXSY3": 1.4831271171569824,
+            "BPX__BPXSY2": 1.4687273502349854,
+            "BPX__BPXSY1": 1.4058443307876587,
+            "BPXO__BPXOSY2": 1.206590175628662,
+            "BPXO__BPXOSY1": 1.202837586402893,
+            "BPXO__BPXOSY3": 1.196840524673462,
+            "BPXO__BPXODI1": 0.7747241854667664,
+            "BPXO__BPXODI2": 0.76240473985672
+          },
+          "top_negative_fields": {
+            "BPX__BPXDI1": 0.6586938500404358,
+            "BPX__BPXDI3": 0.6815065741539001,
+            "BPX__BPXDI2": 0.7446597814559937,
+            "BPXO__BPXODI3": 0.7581336498260498,
+            "BPXO__BPXODI2": 0.76240473985672,
+            "BPXO__BPXODI1": 0.7747241854667664,
+            "BPXO__BPXOSY3": 1.196840524673462,
+            "BPXO__BPXOSY1": 1.202837586402893
+          }
+        },
+        {
+          "cluster": 2,
+          "n": 36,
+          "pct": 0.002,
+          "top_positive_fields": {
+            "BPXO__BPXOSY2": 1.077437400817871,
+            "BPXO__BPXOSY3": 1.0190327167510986,
+            "BPXO__BPXOSY1": 0.7194863557815552,
+            "BPX__BPXSY1": 0.6422263383865356,
+            "BPXO__BPXODI2": 0.30562567710876465,
+            "BPXO__BPXODI1": 0.2749088406562805,
+            "BPXO__BPXODI3": 0.2744366526603699,
+            "BPX__BPXSY3": 0.2375725358724594
+          },
+          "top_negative_fields": {
+            "BPX__BPXDI2": -4.110956192016602,
+            "BPX__BPXDI3": -3.4663596153259277,
+            "BPX__BPXDI1": 0.09032682329416275,
+            "BPX__BPXSY2": 0.2236749678850174,
+            "BPX__BPXSY3": 0.2375725358724594,
+            "BPXO__BPXODI3": 0.2744366526603699,
+            "BPXO__BPXODI1": 0.2749088406562805,
+            "BPXO__BPXODI2": 0.30562567710876465
+          }
+        }
+      ],
+      "plots": {
+        "umap_clusters": "outputs/nhanes_independent_blocks/blood_pressure/umap_clusters.png",
+        "cluster_fields": "outputs/nhanes_independent_blocks/blood_pressure/cluster_fields.png"
+      }
+    },
+    {
+      "block": "lipids_glucose",
+      "name": "Lipids/glucose",
+      "n_columns": 7,
+      "columns": [
+        "TCHOL__LBXTC",
+        "HDL__LBDHDD",
+        "TRIGLY__LBXTR",
+        "TRIGLY__LBDLDL",
+        "GLU__LBXGLU",
+        "GHB__LBXGH",
+        "BIOPRO__LBXSGL"
+      ],
+      "embedding_source": "sae",
+      "live_units": 5,
+      "mean_active_rate": 0.09105809289379733,
+      "cluster_k": 3,
+      "cluster_silhouette": 0.5925048589706421,
+      "cards": [
+        {
+          "cluster": 0,
+          "n": 16377,
+          "pct": 0.9098333333333334,
+          "top_positive_fields": {
+            "HDL__LBDHDD": 0.06028897315263748,
+            "TRIGLY__LBDLDL": 0.0138487434014678,
+            "TCHOL__LBXTC": 0.0023728548549115658,
+            "TRIGLY__LBXTR": -0.08743325620889664,
+            "GLU__LBXGLU": -0.1960778385400772,
+            "GHB__LBXGH": -0.21448072791099548,
+            "BIOPRO__LBXSGL": -0.22552621364593506
+          },
+          "top_negative_fields": {
+            "BIOPRO__LBXSGL": -0.22552621364593506,
+            "GHB__LBXGH": -0.21448072791099548,
+            "GLU__LBXGLU": -0.1960778385400772,
+            "TRIGLY__LBXTR": -0.08743325620889664,
+            "TCHOL__LBXTC": 0.0023728548549115658,
+            "TRIGLY__LBDLDL": 0.0138487434014678,
+            "HDL__LBDHDD": 0.06028897315263748
+          }
+        },
+        {
+          "cluster": 1,
+          "n": 1539,
+          "pct": 0.0855,
+          "top_positive_fields": {
+            "BIOPRO__LBXSGL": 2.1842129230499268,
+            "GHB__LBXGH": 2.15494704246521,
+            "GLU__LBXGLU": 1.8042176961898804,
+            "TRIGLY__LBXTR": 0.937188982963562,
+            "TCHOL__LBXTC": -0.036849070340394974,
+            "TRIGLY__LBDLDL": -0.15994350612163544,
+            "HDL__LBDHDD": -0.6154916882514954
+          },
+          "top_negative_fields": {
+            "HDL__LBDHDD": -0.6154916882514954,
+            "TRIGLY__LBDLDL": -0.15994350612163544,
+            "TCHOL__LBXTC": -0.036849070340394974,
+            "TRIGLY__LBXTR": 0.937188982963562,
+            "GLU__LBXGLU": 1.8042176961898804,
+            "GHB__LBXGH": 2.15494704246521,
+            "BIOPRO__LBXSGL": 2.1842129230499268
+          }
+        },
+        {
+          "cluster": 2,
+          "n": 84,
+          "pct": 0.004666666666666667,
+          "top_positive_fields": {
+            "GLU__LBXGLU": 5.172327995300293,
+            "BIOPRO__LBXSGL": 3.9516549110412598,
+            "GHB__LBXGH": 2.3343725204467773,
+            "TRIGLY__LBDLDL": 0.230383038520813,
+            "TCHOL__LBXTC": 0.2125055342912674,
+            "TRIGLY__LBXTR": -0.12427885085344315,
+            "HDL__LBDHDD": -0.4775094985961914
+          },
+          "top_negative_fields": {
+            "HDL__LBDHDD": -0.4775094985961914,
+            "TRIGLY__LBXTR": -0.12427885085344315,
+            "TCHOL__LBXTC": 0.2125055342912674,
+            "TRIGLY__LBDLDL": 0.230383038520813,
+            "GHB__LBXGH": 2.3343725204467773,
+            "BIOPRO__LBXSGL": 3.9516549110412598,
+            "GLU__LBXGLU": 5.172327995300293
+          }
+        }
+      ],
+      "plots": {
+        "umap_clusters": "outputs/nhanes_independent_blocks/lipids_glucose/umap_clusters.png",
+        "cluster_fields": "outputs/nhanes_independent_blocks/lipids_glucose/cluster_fields.png"
+      }
+    },
+    {
+      "block": "renal_liver",
+      "name": "Renal/liver",
+      "n_columns": 8,
+      "columns": [
+        "BIOPRO__LBXSCR",
+        "BIOPRO__LBXSBU",
+        "BIOPRO__LBXSAL",
+        "BIOPRO__LBXSAPSI",
+        "BIOPRO__LBXSASSI",
+        "BIOPRO__LBXSATSI",
+        "BIOPRO__LBXSGTSI",
+        "BIOPRO__LBXSUA"
+      ],
+      "embedding_source": "sae",
+      "live_units": 12,
+      "mean_active_rate": 0.1124173411489841,
+      "cluster_k": 3,
+      "cluster_silhouette": 0.756833016872406,
+      "cards": [
+        {
+          "cluster": 0,
+          "n": 523,
+          "pct": 0.029055555555555557,
+          "top_positive_fields": {
+            "BIOPRO__LBXSGTSI": 2.9604952335357666,
+            "BIOPRO__LBXSASSI": 2.4799158573150635,
+            "BIOPRO__LBXSATSI": 1.9587746858596802,
+            "BIOPRO__LBXSAPSI": 1.1620604991912842,
+            "BIOPRO__LBXSUA": 0.10330445319414139,
+            "BIOPRO__LBXSBU": -0.07510758936405182,
+            "BIOPRO__LBXSCR": -0.12619641423225403,
+            "BIOPRO__LBXSAL": -1.0345264673233032
+          },
+          "top_negative_fields": {
+            "BIOPRO__LBXSAL": -1.0345264673233032,
+            "BIOPRO__LBXSCR": -0.12619641423225403,
+            "BIOPRO__LBXSBU": -0.07510758936405182,
+            "BIOPRO__LBXSUA": 0.10330445319414139,
+            "BIOPRO__LBXSAPSI": 1.1620604991912842,
+            "BIOPRO__LBXSATSI": 1.9587746858596802,
+            "BIOPRO__LBXSASSI": 2.4799158573150635,
+            "BIOPRO__LBXSGTSI": 2.9604952335357666
+          }
+        },
+        {
+          "cluster": 1,
+          "n": 17368,
+          "pct": 0.9648888888888889,
+          "top_positive_fields": {
+            "BIOPRO__LBXSAL": 0.03956299275159836,
+            "BIOPRO__LBXSUA": 0.0016863588243722916,
+            "BIOPRO__LBXSBU": -0.01775212027132511,
+            "BIOPRO__LBXSCR": -0.03143361210823059,
+            "BIOPRO__LBXSAPSI": -0.04475271701812744,
+            "BIOPRO__LBXSATSI": -0.05655496567487717,
+            "BIOPRO__LBXSASSI": -0.07249192893505096,
+            "BIOPRO__LBXSGTSI": -0.09492164105176926
+          },
+          "top_negative_fields": {
+            "BIOPRO__LBXSGTSI": -0.09492164105176926,
+            "BIOPRO__LBXSASSI": -0.07249192893505096,
+            "BIOPRO__LBXSATSI": -0.05655496567487717,
+            "BIOPRO__LBXSAPSI": -0.04475271701812744,
+            "BIOPRO__LBXSCR": -0.03143361210823059,
+            "BIOPRO__LBXSBU": -0.01775212027132511,
+            "BIOPRO__LBXSUA": 0.0016863588243722916,
+            "BIOPRO__LBXSAL": 0.03956299275159836
+          }
+        },
+        {
+          "cluster": 2,
+          "n": 109,
+          "pct": 0.006055555555555555,
+          "top_positive_fields": {
+            "BIOPRO__LBXSCR": 5.614125728607178,
+            "BIOPRO__LBXSBU": 3.188990592956543,
+            "BIOPRO__LBXSAPSI": 1.55511474609375,
+            "BIOPRO__LBXSGTSI": 0.9198161959648132,
+            "BIOPRO__LBXSASSI": -0.34822216629981995,
+            "BIOPRO__LBXSATSI": -0.38708826899528503,
+            "BIOPRO__LBXSUA": -0.7643753886222839,
+            "BIOPRO__LBXSAL": -1.340117335319519
+          },
+          "top_negative_fields": {
+            "BIOPRO__LBXSAL": -1.340117335319519,
+            "BIOPRO__LBXSUA": -0.7643753886222839,
+            "BIOPRO__LBXSATSI": -0.38708826899528503,
+            "BIOPRO__LBXSASSI": -0.34822216629981995,
+            "BIOPRO__LBXSGTSI": 0.9198161959648132,
+            "BIOPRO__LBXSAPSI": 1.55511474609375,
+            "BIOPRO__LBXSBU": 3.188990592956543,
+            "BIOPRO__LBXSCR": 5.614125728607178
+          }
+        }
+      ],
+      "plots": {
+        "umap_clusters": "outputs/nhanes_independent_blocks/renal_liver/umap_clusters.png",
+        "cluster_fields": "outputs/nhanes_independent_blocks/renal_liver/cluster_fields.png"
+      }
+    },
+    {
+      "block": "blood_counts",
+      "name": "Blood counts",
+      "n_columns": 8,
+      "columns": [
+        "CBC__LBXWBCSI",
+        "CBC__LBXRBCSI",
+        "CBC__LBXHGB",
+        "CBC__LBXHCT",
+        "CBC__LBXPLTSI",
+        "CBC__LBXRDW",
+        "CBC__LBXLYPCT",
+        "CBC__LBXNEPCT"
+      ],
+      "embedding_source": "sae",
+      "live_units": 5,
+      "mean_active_rate": 0.11247861821519461,
+      "cluster_k": 7,
+      "cluster_silhouette": 0.2679719626903534,
+      "cards": [
+        {
+          "cluster": 0,
+          "n": 2091,
+          "pct": 0.11616666666666667,
+          "top_positive_fields": {
+            "CBC__LBXNEPCT": 0.5051580667495728,
+            "CBC__LBXRDW": 0.39761415123939514,
+            "CBC__LBXWBCSI": -0.03509178012609482,
+            "CBC__LBXLYPCT": -0.6188498735427856,
+            "CBC__LBXPLTSI": -0.6214319467544556,
+            "CBC__LBXHGB": -1.149657964706421,
+            "CBC__LBXHCT": -1.1884843111038208,
+            "CBC__LBXRBCSI": -1.239940881729126
+          },
+          "top_negative_fields": {
+            "CBC__LBXRBCSI": -1.239940881729126,
+            "CBC__LBXHCT": -1.1884843111038208,
+            "CBC__LBXHGB": -1.149657964706421,
+            "CBC__LBXPLTSI": -0.6214319467544556,
+            "CBC__LBXLYPCT": -0.6188498735427856,
+            "CBC__LBXWBCSI": -0.03509178012609482,
+            "CBC__LBXRDW": 0.39761415123939514,
+            "CBC__LBXNEPCT": 0.5051580667495728
+          }
+        },
+        {
+          "cluster": 1,
+          "n": 2082,
+          "pct": 0.11566666666666667,
+          "top_positive_fields": {
+            "CBC__LBXLYPCT": 1.3858941793441772,
+            "CBC__LBXRBCSI": 0.3811323344707489,
+            "CBC__LBXRDW": 0.32918795943260193,
+            "CBC__LBXHCT": 0.1602865755558014,
+            "CBC__LBXHGB": 0.07175635546445847,
+            "CBC__LBXWBCSI": -0.22808673977851868,
+            "CBC__LBXPLTSI": -0.2720410227775574,
+            "CBC__LBXNEPCT": -1.4108915328979492
+          },
+          "top_negative_fields": {
+            "CBC__LBXNEPCT": -1.4108915328979492,
+            "CBC__LBXPLTSI": -0.2720410227775574,
+            "CBC__LBXWBCSI": -0.22808673977851868,
+            "CBC__LBXHGB": 0.07175635546445847,
+            "CBC__LBXHCT": 0.1602865755558014,
+            "CBC__LBXRDW": 0.32918795943260193,
+            "CBC__LBXRBCSI": 0.3811323344707489,
+            "CBC__LBXLYPCT": 1.3858941793441772
+          }
+        },
+        {
+          "cluster": 2,
+          "n": 795,
+          "pct": 0.04416666666666667,
+          "top_positive_fields": {
+            "CBC__LBXRDW": 3.0204555988311768,
+            "CBC__LBXPLTSI": 0.9604783654212952,
+            "CBC__LBXNEPCT": 0.19148151576519012,
+            "CBC__LBXWBCSI": 0.09883777797222137,
+            "CBC__LBXLYPCT": -0.16664542257785797,
+            "CBC__LBXRBCSI": -0.24733567237854004,
+            "CBC__LBXHCT": -1.464556097984314,
+            "CBC__LBXHGB": -1.7002933025360107
+          },
+          "top_negative_fields": {
+            "CBC__LBXHGB": -1.7002933025360107,
+            "CBC__LBXHCT": -1.464556097984314,
+            "CBC__LBXRBCSI": -0.24733567237854004,
+            "CBC__LBXLYPCT": -0.16664542257785797,
+            "CBC__LBXWBCSI": 0.09883777797222137,
+            "CBC__LBXNEPCT": 0.19148151576519012,
+            "CBC__LBXPLTSI": 0.9604783654212952,
+            "CBC__LBXRDW": 3.0204555988311768
+          }
+        },
+        {
+          "cluster": 3,
+          "n": 2816,
+          "pct": 0.15644444444444444,
+          "top_positive_fields": {
+            "CBC__LBXHCT": 1.0763736963272095,
+            "CBC__LBXHGB": 1.0247467756271362,
+            "CBC__LBXRBCSI": 1.0003312826156616,
+            "CBC__LBXNEPCT": 0.8681806325912476,
+            "CBC__LBXWBCSI": 0.31044045090675354,
+            "CBC__LBXRDW": 0.028650877997279167,
+            "CBC__LBXPLTSI": 0.018397774547338486,
+            "CBC__LBXLYPCT": -0.82781583070755
+          },
+          "top_negative_fields": {
+            "CBC__LBXLYPCT": -0.82781583070755,
+            "CBC__LBXPLTSI": 0.018397774547338486,
+            "CBC__LBXRDW": 0.028650877997279167,
+            "CBC__LBXWBCSI": 0.31044045090675354,
+            "CBC__LBXNEPCT": 0.8681806325912476,
+            "CBC__LBXRBCSI": 1.0003312826156616,
+            "CBC__LBXHGB": 1.0247467756271362,
+            "CBC__LBXHCT": 1.0763736963272095
+          }
+        },
+        {
+          "cluster": 4,
+          "n": 8091,
+          "pct": 0.4495,
+          "top_positive_fields": {
+            "CBC__LBXHGB": 0.18323679268360138,
+            "CBC__LBXHCT": 0.14120988547801971,
+            "CBC__LBXRBCSI": 0.0021020269487053156,
+            "CBC__LBXNEPCT": -0.0015212378930300474,
+            "CBC__LBXLYPCT": -0.01231599785387516,
+            "CBC__LBXWBCSI": -0.14220695197582245,
+            "CBC__LBXPLTSI": -0.23472128808498383,
+            "CBC__LBXRDW": -0.4277000427246094
+          },
+          "top_negative_fields": {
+            "CBC__LBXRDW": -0.4277000427246094,
+            "CBC__LBXPLTSI": -0.23472128808498383,
+            "CBC__LBXWBCSI": -0.14220695197582245,
+            "CBC__LBXLYPCT": -0.01231599785387516,
+            "CBC__LBXNEPCT": -0.0015212378930300474,
+            "CBC__LBXRBCSI": 0.0021020269487053156,
+            "CBC__LBXHCT": 0.14120988547801971,
+            "CBC__LBXHGB": 0.18323679268360138
+          }
+        },
+        {
+          "cluster": 5,
+          "n": 2114,
+          "pct": 0.11744444444444445,
+          "top_positive_fields": {
+            "CBC__LBXPLTSI": 1.4015644788742065,
+            "CBC__LBXLYPCT": 0.42849162220954895,
+            "CBC__LBXWBCSI": 0.32231658697128296,
+            "CBC__LBXRDW": -0.256225049495697,
+            "CBC__LBXNEPCT": -0.30454373359680176,
+            "CBC__LBXHGB": -0.35297930240631104,
+            "CBC__LBXRBCSI": -0.3895237445831299,
+            "CBC__LBXHCT": -0.39950254559516907
+          },
+          "top_negative_fields": {
+            "CBC__LBXHCT": -0.39950254559516907,
+            "CBC__LBXRBCSI": -0.3895237445831299,
+            "CBC__LBXHGB": -0.35297930240631104,
+            "CBC__LBXNEPCT": -0.30454373359680176,
+            "CBC__LBXRDW": -0.256225049495697,
+            "CBC__LBXWBCSI": 0.32231658697128296,
+            "CBC__LBXLYPCT": 0.42849162220954895,
+            "CBC__LBXPLTSI": 1.4015644788742065
+          }
+        },
+        {
+          "cluster": 6,
+          "n": 11,
+          "pct": 0.0006111111111111111,
+          "top_positive_fields": {
+            "CBC__LBXLYPCT": 6.001192092895508,
+            "CBC__LBXWBCSI": 5.881476879119873,
+            "CBC__LBXRDW": 0.314299613237381,
+            "CBC__LBXHCT": -1.211180329322815,
+            "CBC__LBXPLTSI": -1.2147250175476074,
+            "CBC__LBXRBCSI": -1.332371711730957,
+            "CBC__LBXHGB": -1.4351022243499756,
+            "CBC__LBXNEPCT": -5.429083347320557
+          },
+          "top_negative_fields": {
+            "CBC__LBXNEPCT": -5.429083347320557,
+            "CBC__LBXHGB": -1.4351022243499756,
+            "CBC__LBXRBCSI": -1.332371711730957,
+            "CBC__LBXPLTSI": -1.2147250175476074,
+            "CBC__LBXHCT": -1.211180329322815,
+            "CBC__LBXRDW": 0.314299613237381,
+            "CBC__LBXWBCSI": 5.881476879119873,
+            "CBC__LBXLYPCT": 6.001192092895508
+          }
+        }
+      ],
+      "plots": {
+        "umap_clusters": "outputs/nhanes_independent_blocks/blood_counts/umap_clusters.png",
+        "cluster_fields": "outputs/nhanes_independent_blocks/blood_counts/cluster_fields.png"
+      }
+    },
+    {
+      "block": "diabetes_history",
+      "name": "Diabetes history",
+      "n_columns": 6,
+      "columns": [
+        "DIQ__DIQ010",
+        "DIQ__DIQ050",
+        "DIQ__DIQ070",
+        "DIQ__DIQ160",
+        "DIQ__DIQ170",
+        "DIQ__DIQ180"
+      ],
+      "embedding_source": "direct_fields",
+      "live_units": 1,
+      "mean_active_rate": 0.010598759508809992,
+      "cluster_k": 8,
+      "cluster_silhouette": 0.8604744076728821,
+      "cards": [
+        {
+          "cluster": 0,
+          "n": 476,
+          "pct": 0.026444444444444444,
+          "top_positive_fields": {
+            "DIQ__DIQ070": 1.8646305799484253,
+            "DIQ__DIQ010": 0.4680532217025757,
+            "DIQ__DIQ050": 0.30636507272720337,
+            "DIQ__DIQ180": -0.5168336629867554,
+            "DIQ__DIQ160": -2.9172873497009277,
+            "DIQ__DIQ170": -3.2759838104248047
+          },
+          "top_negative_fields": {
+            "DIQ__DIQ170": -3.2759838104248047,
+            "DIQ__DIQ160": -2.9172873497009277,
+            "DIQ__DIQ180": -0.5168336629867554,
+            "DIQ__DIQ050": 0.30636507272720337,
+            "DIQ__DIQ010": 0.4680532217025757,
+            "DIQ__DIQ070": 1.8646305799484253
+          }
+        },
+        {
+          "cluster": 1,
+          "n": 4996,
+          "pct": 0.27755555555555556,
+          "top_positive_fields": {
+            "DIQ__DIQ010": 0.5108124017715454,
+            "DIQ__DIQ160": 0.3428586721420288,
+            "DIQ__DIQ050": 0.32793164253234863,
+            "DIQ__DIQ170": 0.3075900971889496,
+            "DIQ__DIQ070": -0.4769739508628845,
+            "DIQ__DIQ180": -0.6712865233421326
+          },
+          "top_negative_fields": {
+            "DIQ__DIQ180": -0.6712865233421326,
+            "DIQ__DIQ070": -0.4769739508628845,
+            "DIQ__DIQ170": 0.3075900971889496,
+            "DIQ__DIQ050": 0.32793164253234863,
+            "DIQ__DIQ160": 0.3428586721420288,
+            "DIQ__DIQ010": 0.5108124017715454
+          }
+        },
+        {
+          "cluster": 2,
+          "n": 5000,
+          "pct": 0.2777777777777778,
+          "top_positive_fields": {
+            "DIQ__DIQ180": 1.4910537004470825,
+            "DIQ__DIQ010": 0.47090157866477966,
+            "DIQ__DIQ160": 0.3428586721420288,
+            "DIQ__DIQ050": 0.32793164253234863,
+            "DIQ__DIQ170": 0.3075900971889496,
+            "DIQ__DIQ070": -0.4769739508628845
+          },
+          "top_negative_fields": {
+            "DIQ__DIQ070": -0.4769739508628845,
+            "DIQ__DIQ170": 0.3075900971889496,
+            "DIQ__DIQ050": 0.32793164253234863,
+            "DIQ__DIQ160": 0.3428586721420288,
+            "DIQ__DIQ010": 0.47090157866477966,
+            "DIQ__DIQ180": 1.4910537004470825
+          }
+        },
+        {
+          "cluster": 3,
+          "n": 1410,
+          "pct": 0.07833333333333334,
+          "top_positive_fields": {
+            "DIQ__DIQ070": 1.8835948705673218,
+            "DIQ__DIQ010": 0.4680532217025757,
+            "DIQ__DIQ050": 0.32793164253234863,
+            "DIQ__DIQ170": 0.3075900971889496,
+            "DIQ__DIQ180": -0.26948994398117065,
+            "DIQ__DIQ160": -2.9172873497009277
+          },
+          "top_negative_fields": {
+            "DIQ__DIQ160": -2.9172873497009277,
+            "DIQ__DIQ180": -0.26948994398117065,
+            "DIQ__DIQ170": 0.3075900971889496,
+            "DIQ__DIQ050": 0.32793164253234863,
+            "DIQ__DIQ010": 0.4680532217025757,
+            "DIQ__DIQ070": 1.8835948705673218
+          }
+        },
+        {
+          "cluster": 4,
+          "n": 1720,
+          "pct": 0.09555555555555556,
+          "top_positive_fields": {
+            "DIQ__DIQ070": 0.5801736116409302,
+            "DIQ__DIQ160": 0.32959064841270447,
+            "DIQ__DIQ170": 0.3075900971889496,
+            "DIQ__DIQ180": -0.6712865233421326,
+            "DIQ__DIQ010": -1.5581893920898438,
+            "DIQ__DIQ050": -3.093963623046875
+          },
+          "top_negative_fields": {
+            "DIQ__DIQ050": -3.093963623046875,
+            "DIQ__DIQ010": -1.5581893920898438,
+            "DIQ__DIQ180": -0.6712865233421326,
+            "DIQ__DIQ170": 0.3075900971889496,
+            "DIQ__DIQ160": 0.32959064841270447,
+            "DIQ__DIQ070": 0.5801736116409302
+          }
+        },
+        {
+          "cluster": 5,
+          "n": 3007,
+          "pct": 0.16705555555555557,
+          "top_positive_fields": {
+            "DIQ__DIQ160": 0.3428586721420288,
+            "DIQ__DIQ050": 0.32793164253234863,
+            "DIQ__DIQ170": 0.3075900971889496,
+            "DIQ__DIQ070": -0.06701667606830597,
+            "DIQ__DIQ180": -0.6712865233421326,
+            "DIQ__DIQ010": -1.566469430923462
+          },
+          "top_negative_fields": {
+            "DIQ__DIQ010": -1.566469430923462,
+            "DIQ__DIQ180": -0.6712865233421326,
+            "DIQ__DIQ070": -0.06701667606830597,
+            "DIQ__DIQ170": 0.3075900971889496,
+            "DIQ__DIQ050": 0.32793164253234863,
+            "DIQ__DIQ160": 0.3428586721420288
+          }
+        },
+        {
+          "cluster": 6,
+          "n": 1069,
+          "pct": 0.05938888888888889,
+          "top_positive_fields": {
+            "DIQ__DIQ010": 0.744017481803894,
+            "DIQ__DIQ160": 0.3428586721420288,
+            "DIQ__DIQ050": 0.3215295672416687,
+            "DIQ__DIQ180": -0.16963976621627808,
+            "DIQ__DIQ070": -0.22952231764793396,
+            "DIQ__DIQ170": -3.2759838104248047
+          },
+          "top_negative_fields": {
+            "DIQ__DIQ170": -3.2759838104248047,
+            "DIQ__DIQ070": -0.22952231764793396,
+            "DIQ__DIQ180": -0.16963976621627808,
+            "DIQ__DIQ050": 0.3215295672416687,
+            "DIQ__DIQ160": 0.3428586721420288,
+            "DIQ__DIQ010": 0.744017481803894
+          }
+        },
+        {
+          "cluster": 7,
+          "n": 322,
+          "pct": 0.017888888888888888,
+          "top_positive_fields": {
+            "DIQ__DIQ010": 2.5025758743286133,
+            "DIQ__DIQ070": 2.0912375450134277,
+            "DIQ__DIQ160": 0.3428586721420288,
+            "DIQ__DIQ050": 0.32793164253234863,
+            "DIQ__DIQ170": 0.3075900971889496,
+            "DIQ__DIQ180": -0.37581145763397217
+          },
+          "top_negative_fields": {
+            "DIQ__DIQ180": -0.37581145763397217,
+            "DIQ__DIQ170": 0.3075900971889496,
+            "DIQ__DIQ050": 0.32793164253234863,
+            "DIQ__DIQ160": 0.3428586721420288,
+            "DIQ__DIQ070": 2.0912375450134277,
+            "DIQ__DIQ010": 2.5025758743286133
+          }
+        }
+      ],
+      "plots": {
+        "umap_clusters": "outputs/nhanes_independent_blocks/diabetes_history/umap_clusters.png",
+        "cluster_fields": "outputs/nhanes_independent_blocks/diabetes_history/cluster_fields.png"
+      }
+    },
+    {
+      "block": "cardio_history",
+      "name": "Cardio history",
+      "n_columns": 9,
+      "columns": [
+        "BPQ__BPQ020",
+        "BPQ__BPQ030",
+        "BPQ__BPQ040A",
+        "BPQ__BPQ050A",
+        "MCQ__MCQ160B",
+        "MCQ__MCQ160C",
+        "MCQ__MCQ160D",
+        "MCQ__MCQ160E",
+        "MCQ__MCQ160F"
+      ],
+      "embedding_source": "sae",
+      "live_units": 9,
+      "mean_active_rate": 0.01926707413742751,
+      "cluster_k": 8,
+      "cluster_silhouette": 0.8172112107276917,
+      "cards": [
+        {
+          "cluster": 0,
+          "n": 13132,
+          "pct": 0.7295555555555555,
+          "top_positive_fields": {
+            "MCQ__MCQ160F": 0.3098956048488617,
+            "MCQ__MCQ160E": 0.3089970350265503,
+            "MCQ__MCQ160B": 0.3008037805557251,
+            "BPQ__BPQ020": 0.2616111636161804,
+            "MCQ__MCQ160C": 0.22084368765354156,
+            "MCQ__MCQ160D": 0.15160883963108063,
+            "BPQ__BPQ040A": -0.09771452844142914,
+            "BPQ__BPQ050A": -0.17492255568504333
+          },
+          "top_negative_fields": {
+            "BPQ__BPQ030": -0.2988925278186798,
+            "BPQ__BPQ050A": -0.17492255568504333,
+            "BPQ__BPQ040A": -0.09771452844142914,
+            "MCQ__MCQ160D": 0.15160883963108063,
+            "MCQ__MCQ160C": 0.22084368765354156,
+            "BPQ__BPQ020": 0.2616111636161804,
+            "MCQ__MCQ160B": 0.3008037805557251,
+            "MCQ__MCQ160E": 0.3089970350265503
+          }
+        },
+        {
+          "cluster": 1,
+          "n": 805,
+          "pct": 0.04472222222222222,
+          "top_positive_fields": {
+            "MCQ__MCQ160E": 0.3089970350265503,
+            "MCQ__MCQ160B": 0.3008037805557251,
+            "MCQ__MCQ160D": -0.0362677164375782,
+            "MCQ__MCQ160C": -0.0918668732047081,
+            "BPQ__BPQ040A": -0.09771452844142914,
+            "BPQ__BPQ050A": -0.17492255568504333,
+            "BPQ__BPQ030": -0.2626931369304657,
+            "BPQ__BPQ020": -0.4422697126865387
+          },
+          "top_negative_fields": {
+            "MCQ__MCQ160F": -3.2681167125701904,
+            "BPQ__BPQ020": -0.4422697126865387,
+            "BPQ__BPQ030": -0.2626931369304657,
+            "BPQ__BPQ050A": -0.17492255568504333,
+            "BPQ__BPQ040A": -0.09771452844142914,
+            "MCQ__MCQ160C": -0.0918668732047081,
+            "MCQ__MCQ160D": -0.0362677164375782,
+            "MCQ__MCQ160B": 0.3008037805557251
+          }
+        },
+        {
+          "cluster": 2,
+          "n": 1026,
+          "pct": 0.057,
+          "top_positive_fields": {
+            "BPQ__BPQ030": 3.3436708450317383,
+            "MCQ__MCQ160E": 0.3089970350265503,
+            "MCQ__MCQ160B": 0.3008037805557251,
+            "MCQ__MCQ160C": 0.23805908858776093,
+            "MCQ__MCQ160D": 0.12348354607820511,
+            "MCQ__MCQ160F": 0.041370317339897156,
+            "BPQ__BPQ040A": -0.09771452844142914,
+            "BPQ__BPQ050A": -0.17492255568504333
+          },
+          "top_negative_fields": {
+            "BPQ__BPQ020": -0.956943154335022,
+            "BPQ__BPQ050A": -0.17492255568504333,
+            "BPQ__BPQ040A": -0.09771452844142914,
+            "MCQ__MCQ160F": 0.041370317339897156,
+            "MCQ__MCQ160D": 0.12348354607820511,
+            "MCQ__MCQ160C": 0.23805908858776093,
+            "MCQ__MCQ160B": 0.3008037805557251,
+            "MCQ__MCQ160E": 0.3089970350265503
+          }
+        },
+        {
+          "cluster": 3,
+          "n": 516,
+          "pct": 0.028666666666666667,
+          "top_positive_fields": {
+            "BPQ__BPQ050A": 5.927027702331543,
+            "BPQ__BPQ030": 0.4988006353378296,
+            "MCQ__MCQ160C": -0.06130566447973251,
+            "BPQ__BPQ040A": -0.09771452844142914,
+            "MCQ__MCQ160E": -0.1053130105137825,
+            "MCQ__MCQ160B": -0.15203635394573212,
+            "MCQ__MCQ160F": -0.16855952143669128,
+            "MCQ__MCQ160D": -0.2106173187494278
+          },
+          "top_negative_fields": {
+            "BPQ__BPQ020": -0.956943154335022,
+            "MCQ__MCQ160D": -0.2106173187494278,
+            "MCQ__MCQ160F": -0.16855952143669128,
+            "MCQ__MCQ160B": -0.15203635394573212,
+            "MCQ__MCQ160E": -0.1053130105137825,
+            "BPQ__BPQ040A": -0.09771452844142914,
+            "MCQ__MCQ160C": -0.06130566447973251,
+            "BPQ__BPQ030": 0.4988006353378296
+          }
+        },
+        {
+          "cluster": 4,
+          "n": 761,
+          "pct": 0.042277777777777775,
+          "top_positive_fields": {
+            "MCQ__MCQ160E": 0.3089970350265503,
+            "BPQ__BPQ030": -0.006913077086210251,
+            "BPQ__BPQ040A": -0.09771452844142914,
+            "BPQ__BPQ050A": -0.17492255568504333,
+            "MCQ__MCQ160D": -0.4657783806324005,
+            "MCQ__MCQ160F": -0.47999411821365356,
+            "BPQ__BPQ020": -0.6860426068305969,
+            "MCQ__MCQ160C": -0.7920509576797485
+          },
+          "top_negative_fields": {
+            "MCQ__MCQ160B": -3.3502197265625,
+            "MCQ__MCQ160C": -0.7920509576797485,
+            "BPQ__BPQ020": -0.6860426068305969,
+            "MCQ__MCQ160F": -0.47999411821365356,
+            "MCQ__MCQ160D": -0.4657783806324005,
+            "BPQ__BPQ050A": -0.17492255568504333,
+            "BPQ__BPQ040A": -0.09771452844142914,
+            "BPQ__BPQ030": -0.006913077086210251
+          }
+        },
+        {
+          "cluster": 5,
+          "n": 287,
+          "pct": 0.015944444444444445,
+          "top_positive_fields": {
+            "BPQ__BPQ040A": 6.030723571777344,
+            "BPQ__BPQ030": 1.3129733800888062,
+            "MCQ__MCQ160B": 0.28808242082595825,
+            "MCQ__MCQ160C": 0.1774015724658966,
+            "MCQ__MCQ160F": 0.0854906514286995,
+            "MCQ__MCQ160E": -0.03861919790506363,
+            "MCQ__MCQ160D": -0.1569254845380783,
+            "BPQ__BPQ050A": -0.17492255568504333
+          },
+          "top_negative_fields": {
+            "BPQ__BPQ020": -0.9569430947303772,
+            "BPQ__BPQ050A": -0.17492255568504333,
+            "MCQ__MCQ160D": -0.1569254845380783,
+            "MCQ__MCQ160E": -0.03861919790506363,
+            "MCQ__MCQ160F": 0.0854906514286995,
+            "MCQ__MCQ160C": 0.1774015724658966,
+            "MCQ__MCQ160B": 0.28808242082595825,
+            "BPQ__BPQ030": 1.3129733800888062
+          }
+        },
+        {
+          "cluster": 6,
+          "n": 816,
+          "pct": 0.04533333333333334,
+          "top_positive_fields": {
+            "MCQ__MCQ160B": 0.3008037805557251,
+            "BPQ__BPQ030": 0.09839684516191483,
+            "BPQ__BPQ040A": -0.09771452844142914,
+            "BPQ__BPQ050A": -0.17492255568504333,
+            "BPQ__BPQ020": -0.40505680441856384,
+            "MCQ__MCQ160F": -0.6986127495765686,
+            "MCQ__MCQ160D": -0.8521981835365295,
+            "MCQ__MCQ160C": -1.650073766708374
+          },
+          "top_negative_fields": {
+            "MCQ__MCQ160E": -3.2540693283081055,
+            "MCQ__MCQ160C": -1.650073766708374,
+            "MCQ__MCQ160D": -0.8521981835365295,
+            "MCQ__MCQ160F": -0.6986127495765686,
+            "BPQ__BPQ020": -0.40505680441856384,
+            "BPQ__BPQ050A": -0.17492255568504333,
+            "BPQ__BPQ040A": -0.09771452844142914,
+            "BPQ__BPQ030": 0.09839684516191483
+          }
+        },
+        {
+          "cluster": 7,
+          "n": 657,
+          "pct": 0.0365,
+          "top_positive_fields": {
+            "BPQ__BPQ030": -0.005047998391091824,
+            "BPQ__BPQ040A": -0.09771452844142914,
+            "BPQ__BPQ050A": -0.17492255568504333,
+            "BPQ__BPQ020": -0.7254140973091125,
+            "MCQ__MCQ160F": -0.7357335686683655,
+            "MCQ__MCQ160D": -1.3468176126480103,
+            "MCQ__MCQ160C": -1.735897421836853,
+            "MCQ__MCQ160E": -3.2540693283081055
+          },
+          "top_negative_fields": {
+            "MCQ__MCQ160B": -3.350219488143921,
+            "MCQ__MCQ160E": -3.2540693283081055,
+            "MCQ__MCQ160C": -1.735897421836853,
+            "MCQ__MCQ160D": -1.3468176126480103,
+            "MCQ__MCQ160F": -0.7357335686683655,
+            "BPQ__BPQ020": -0.7254140973091125,
+            "BPQ__BPQ050A": -0.17492255568504333,
+            "BPQ__BPQ040A": -0.09771452844142914
+          }
+        }
+      ],
+      "plots": {
+        "umap_clusters": "outputs/nhanes_independent_blocks/cardio_history/umap_clusters.png",
+        "cluster_fields": "outputs/nhanes_independent_blocks/cardio_history/cluster_fields.png"
+      }
+    },
+    {
+      "block": "resp_smoking",
+      "name": "Resp/smoking",
+      "n_columns": 9,
+      "columns": [
+        "SMQ__SMQ020",
+        "SMQ__SMQ040",
+        "SMQ__SMQ890",
+        "SMQ__SMQ900",
+        "SMQ__SMQ910",
+        "MCQ__MCQ010",
+        "MCQ__MCQ160G",
+        "MCQ__MCQ160K",
+        "MCQ__MCQ160O"
+      ],
+      "embedding_source": "sae",
+      "live_units": 5,
+      "mean_active_rate": 0.03381190287454629,
+      "cluster_k": 8,
+      "cluster_silhouette": 0.6612270474433899,
+      "cards": [
+        {
+          "cluster": 0,
+          "n": 9609,
+          "pct": 0.5338333333333334,
+          "top_positive_fields": {
+            "MCQ__MCQ010": 0.49466657638549805,
+            "SMQ__SMQ890": 0.41685864329338074,
+            "SMQ__SMQ020": 0.4072961211204529,
+            "SMQ__SMQ040": 0.38395240902900696,
+            "SMQ__SMQ900": 0.35468199849128723,
+            "SMQ__SMQ910": 0.330181747674942,
+            "MCQ__MCQ160K": 0.2948179244995117,
+            "MCQ__MCQ160O": 0.29281046986579895
+          },
+          "top_negative_fields": {
+            "MCQ__MCQ160G": 0.16992488503456116,
+            "MCQ__MCQ160O": 0.29281046986579895,
+            "MCQ__MCQ160K": 0.2948179244995117,
+            "SMQ__SMQ910": 0.330181747674942,
+            "SMQ__SMQ900": 0.35468199849128723,
+            "SMQ__SMQ040": 0.38395240902900696,
+            "SMQ__SMQ020": 0.4072961211204529,
+            "SMQ__SMQ890": 0.41685864329338074
+          }
+        },
+        {
+          "cluster": 1,
+          "n": 243,
+          "pct": 0.0135,
+          "top_positive_fields": {
+            "MCQ__MCQ160G": 0.16992488503456116,
+            "SMQ__SMQ910": -0.449516624212265,
+            "MCQ__MCQ010": -0.4813450276851654,
+            "SMQ__SMQ890": -0.9387126564979553,
+            "SMQ__SMQ020": -1.0646672248840332,
+            "MCQ__MCQ160K": -1.3222790956497192,
+            "SMQ__SMQ040": -1.464969515800476,
+            "SMQ__SMQ900": -2.8247382640838623
+          },
+          "top_negative_fields": {
+            "MCQ__MCQ160O": -3.4006643295288086,
+            "SMQ__SMQ900": -2.8247382640838623,
+            "SMQ__SMQ040": -1.464969515800476,
+            "MCQ__MCQ160K": -1.3222790956497192,
+            "SMQ__SMQ020": -1.0646672248840332,
+            "SMQ__SMQ890": -0.9387126564979553,
+            "MCQ__MCQ010": -0.4813450276851654,
+            "SMQ__SMQ910": -0.449516624212265
+          }
+        },
+        {
+          "cluster": 2,
+          "n": 694,
+          "pct": 0.03855555555555556,
+          "top_positive_fields": {
+            "MCQ__MCQ160O": 0.29281046986579895,
+            "MCQ__MCQ160G": 0.16992488503456116,
+            "MCQ__MCQ010": -0.11611117422580719,
+            "MCQ__MCQ160K": -0.25552377104759216,
+            "SMQ__SMQ020": -0.9385306239128113,
+            "SMQ__SMQ890": -1.5625520944595337,
+            "SMQ__SMQ040": -1.6732268333435059,
+            "SMQ__SMQ910": -1.863451600074768
+          },
+          "top_negative_fields": {
+            "SMQ__SMQ900": -2.8247382640838623,
+            "SMQ__SMQ910": -1.863451600074768,
+            "SMQ__SMQ040": -1.6732268333435059,
+            "SMQ__SMQ890": -1.5625520944595337,
+            "SMQ__SMQ020": -0.9385306239128113,
+            "MCQ__MCQ160K": -0.25552377104759216,
+            "MCQ__MCQ010": -0.11611117422580719,
+            "MCQ__MCQ160G": 0.16992488503456116
+          }
+        },
+        {
+          "cluster": 3,
+          "n": 510,
+          "pct": 0.028333333333333332,
+          "top_positive_fields": {
+            "SMQ__SMQ910": -0.5822826027870178,
+            "SMQ__SMQ040": -0.6264148950576782,
+            "SMQ__SMQ900": -0.7113589644432068,
+            "MCQ__MCQ010": -0.7223551273345947,
+            "SMQ__SMQ890": -0.804142415523529,
+            "SMQ__SMQ020": -0.8771533370018005,
+            "MCQ__MCQ160K": -1.5702221393585205,
+            "MCQ__MCQ160O": -2.7923271656036377
+          },
+          "top_negative_fields": {
+            "MCQ__MCQ160G": -5.827424049377441,
+            "MCQ__MCQ160O": -2.7923271656036377,
+            "MCQ__MCQ160K": -1.5702221393585205,
+            "SMQ__SMQ020": -0.8771533370018005,
+            "SMQ__SMQ890": -0.804142415523529,
+            "MCQ__MCQ010": -0.7223551273345947,
+            "SMQ__SMQ900": -0.7113589644432068,
+            "SMQ__SMQ040": -0.6264148950576782
+          }
+        },
+        {
+          "cluster": 4,
+          "n": 2656,
+          "pct": 0.14755555555555555,
+          "top_positive_fields": {
+            "SMQ__SMQ900": 0.35468199849128723,
+            "MCQ__MCQ160O": 0.29281046986579895,
+            "SMQ__SMQ890": 0.2858130931854248,
+            "SMQ__SMQ910": 0.2350679337978363,
+            "SMQ__SMQ020": 0.1714220941066742,
+            "MCQ__MCQ160G": 0.16992488503456116,
+            "SMQ__SMQ040": 0.16931483149528503,
+            "MCQ__MCQ160K": -0.4725850522518158
+          },
+          "top_negative_fields": {
+            "MCQ__MCQ010": -1.77003812789917,
+            "MCQ__MCQ160K": -0.4725850522518158,
+            "SMQ__SMQ040": 0.16931483149528503,
+            "MCQ__MCQ160G": 0.16992488503456116,
+            "SMQ__SMQ020": 0.1714220941066742,
+            "SMQ__SMQ910": 0.2350679337978363,
+            "SMQ__SMQ890": 0.2858130931854248,
+            "MCQ__MCQ160O": 0.29281046986579895
+          }
+        },
+        {
+          "cluster": 5,
+          "n": 2630,
+          "pct": 0.1461111111111111,
+          "top_positive_fields": {
+            "MCQ__MCQ010": 0.3584387004375458,
+            "SMQ__SMQ900": 0.35468199849128723,
+            "MCQ__MCQ160O": 0.29281046986579895,
+            "MCQ__MCQ160K": 0.21103528141975403,
+            "MCQ__MCQ160G": 0.16992488503456116,
+            "SMQ__SMQ040": -0.7743768692016602,
+            "SMQ__SMQ910": -0.8414254188537598,
+            "SMQ__SMQ890": -0.8417165875434875
+          },
+          "top_negative_fields": {
+            "SMQ__SMQ020": -0.8655311465263367,
+            "SMQ__SMQ890": -0.8417165875434875,
+            "SMQ__SMQ910": -0.8414254188537598,
+            "SMQ__SMQ040": -0.7743768692016602,
+            "MCQ__MCQ160G": 0.16992488503456116,
+            "MCQ__MCQ160K": 0.21103528141975403,
+            "MCQ__MCQ160O": 0.29281046986579895,
+            "SMQ__SMQ900": 0.35468199849128723
+          }
+        },
+        {
+          "cluster": 6,
+          "n": 758,
+          "pct": 0.04211111111111111,
+          "top_positive_fields": {
+            "SMQ__SMQ900": 0.35468199849128723,
+            "MCQ__MCQ160G": 0.16992488503456116,
+            "SMQ__SMQ040": 0.019016418606042862,
+            "SMQ__SMQ910": -0.19604156911373138,
+            "SMQ__SMQ890": -0.455935537815094,
+            "SMQ__SMQ020": -0.4934842884540558,
+            "MCQ__MCQ010": -0.5238910913467407,
+            "MCQ__MCQ160K": -1.0859930515289307
+          },
+          "top_negative_fields": {
+            "MCQ__MCQ160O": -3.4006643295288086,
+            "MCQ__MCQ160K": -1.0859930515289307,
+            "MCQ__MCQ010": -0.5238910913467407,
+            "SMQ__SMQ020": -0.4934842884540558,
+            "SMQ__SMQ890": -0.455935537815094,
+            "SMQ__SMQ910": -0.19604156911373138,
+            "SMQ__SMQ040": 0.019016418606042862,
+            "MCQ__MCQ160G": 0.16992488503456116
+          }
+        },
+        {
+          "cluster": 7,
+          "n": 900,
+          "pct": 0.05,
+          "top_positive_fields": {
+            "SMQ__SMQ910": 0.2932486832141876,
+            "MCQ__MCQ160O": 0.29281046986579895,
+            "MCQ__MCQ160G": 0.16992487013339996,
+            "MCQ__MCQ160K": -0.011221442371606827,
+            "MCQ__MCQ010": -0.035183124244213104,
+            "SMQ__SMQ040": -0.3113594055175781,
+            "SMQ__SMQ020": -0.4013272225856781,
+            "SMQ__SMQ890": -0.5364106297492981
+          },
+          "top_negative_fields": {
+            "SMQ__SMQ900": -2.8247382640838623,
+            "SMQ__SMQ890": -0.5364106297492981,
+            "SMQ__SMQ020": -0.4013272225856781,
+            "SMQ__SMQ040": -0.3113594055175781,
+            "MCQ__MCQ010": -0.035183124244213104,
+            "MCQ__MCQ160K": -0.011221442371606827,
+            "MCQ__MCQ160G": 0.16992487013339996,
+            "MCQ__MCQ160O": 0.29281046986579895
+          }
+        }
+      ],
+      "plots": {
+        "umap_clusters": "outputs/nhanes_independent_blocks/resp_smoking/umap_clusters.png",
+        "cluster_fields": "outputs/nhanes_independent_blocks/resp_smoking/cluster_fields.png"
+      }
+    },
+    {
+      "block": "mood_sleep",
+      "name": "Mood/sleep",
+      "n_columns": 12,
+      "columns": [
+        "DPQ__DPQ010",
+        "DPQ__DPQ020",
+        "DPQ__DPQ030",
+        "DPQ__DPQ040",
+        "DPQ__DPQ050",
+        "DPQ__DPQ060",
+        "DPQ__DPQ070",
+        "DPQ__DPQ080",
+        "DPQ__DPQ090",
+        "DPQ__DPQ100",
+        "SLQ__SLD012",
+        "SLQ__SLQ050"
+      ],
+      "embedding_source": "sae",
+      "live_units": 8,
+      "mean_active_rate": 0.09509418415453294,
+      "cluster_k": 3,
+      "cluster_silhouette": 0.49103817343711853,
+      "cards": [
+        {
+          "cluster": 0,
+          "n": 3154,
+          "pct": 0.17522222222222222,
+          "top_positive_fields": {
+            "DPQ__DPQ010": 1.1943835020065308,
+            "DPQ__DPQ050": 1.1582469940185547,
+            "DPQ__DPQ020": 1.155104637145996,
+            "DPQ__DPQ030": 1.1480367183685303,
+            "DPQ__DPQ040": 1.1011706590652466,
+            "DPQ__DPQ100": 1.0627350807189941,
+            "DPQ__DPQ070": 1.0523765087127686,
+            "DPQ__DPQ060": 0.8517294526100159
+          },
+          "top_negative_fields": {
+            "SLQ__SLQ050": -0.5807145237922668,
+            "DPQ__DPQ090": -0.1632082462310791,
+            "SLQ__SLD012": -0.004391056019812822,
+            "DPQ__DPQ080": 0.8288679718971252,
+            "DPQ__DPQ060": 0.8517294526100159,
+            "DPQ__DPQ070": 1.0523765087127686,
+            "DPQ__DPQ100": 1.0627350807189941,
+            "DPQ__DPQ040": 1.1011706590652466
+          }
+        },
+        {
+          "cluster": 1,
+          "n": 14168,
+          "pct": 0.7871111111111111,
+          "top_positive_fields": {
+            "SLQ__SLQ050": 0.1530766785144806,
+            "SLQ__SLD012": 0.0031236987560987473,
+            "DPQ__DPQ090": -0.15290500223636627,
+            "DPQ__DPQ080": -0.2601054906845093,
+            "DPQ__DPQ060": -0.29048407077789307,
+            "DPQ__DPQ040": -0.3025552034378052,
+            "DPQ__DPQ070": -0.31184178590774536,
+            "DPQ__DPQ100": -0.31284573674201965
+          },
+          "top_negative_fields": {
+            "DPQ__DPQ020": -0.3554233908653259,
+            "DPQ__DPQ010": -0.34518197178840637,
+            "DPQ__DPQ050": -0.3189387321472168,
+            "DPQ__DPQ030": -0.31556299328804016,
+            "DPQ__DPQ100": -0.31284573674201965,
+            "DPQ__DPQ070": -0.31184178590774536,
+            "DPQ__DPQ040": -0.3025552034378052,
+            "DPQ__DPQ060": -0.29048407077789307
+          }
+        },
+        {
+          "cluster": 2,
+          "n": 678,
+          "pct": 0.03766666666666667,
+          "top_positive_fields": {
+            "DPQ__DPQ090": 3.9544496536254883,
+            "DPQ__DPQ060": 2.1079983711242676,
+            "DPQ__DPQ020": 2.0537445545196533,
+            "DPQ__DPQ010": 1.6570099592208862,
+            "DPQ__DPQ070": 1.6209118366241455,
+            "DPQ__DPQ100": 1.5937050580978394,
+            "DPQ__DPQ080": 1.5795352458953857,
+            "DPQ__DPQ050": 1.2767143249511719
+          },
+          "top_negative_fields": {
+            "SLQ__SLQ050": -0.49736982583999634,
+            "SLQ__SLD012": -0.04484827071428299,
+            "DPQ__DPQ040": 1.1998672485351562,
+            "DPQ__DPQ030": 1.2536697387695312,
+            "DPQ__DPQ050": 1.2767143249511719,
+            "DPQ__DPQ080": 1.5795352458953857,
+            "DPQ__DPQ100": 1.5937050580978394,
+            "DPQ__DPQ070": 1.6209118366241455
+          }
+        }
+      ],
+      "plots": {
+        "umap_clusters": "outputs/nhanes_independent_blocks/mood_sleep/umap_clusters.png",
+        "cluster_fields": "outputs/nhanes_independent_blocks/mood_sleep/cluster_fields.png"
+      }
+    },
+    {
+      "block": "utilization_meds",
+      "name": "Utilization/meds",
+      "n_columns": 7,
+      "columns": [
+        "RXQ_RX__RXDUSE",
+        "RXQ_RX__RXDCOUNT",
+        "RXQ_RX__RXQSEEN",
+        "RXQ_RX__RXDDAYS",
+        "HSQ__HSD010",
+        "HSQ__HSQ500",
+        "HSQ__HSQ510"
+      ],
+      "embedding_source": "sae",
+      "live_units": 6,
+      "mean_active_rate": 0.051183671766507934,
+      "cluster_k": 8,
+      "cluster_silhouette": 0.756950318813324,
+      "cards": [
+        {
+          "cluster": 0,
+          "n": 1294,
+          "pct": 0.07188888888888889,
+          "top_positive_fields": {
+            "RXQ_RX__RXDCOUNT": 2.214603900909424,
+            "HSQ__HSD010": 0.8258625268936157,
+            "HSQ__HSQ500": 0.2955840229988098,
+            "HSQ__HSQ510": 0.2478586882352829,
+            "RXQ_RX__RXDDAYS": -0.014490693807601929,
+            "RXQ_RX__RXQSEEN": -0.2265358865261078,
+            "RXQ_RX__RXDUSE": -0.33627647161483765
+          },
+          "top_negative_fields": {
+            "RXQ_RX__RXDUSE": -0.33627647161483765,
+            "RXQ_RX__RXQSEEN": -0.2265358865261078,
+            "RXQ_RX__RXDDAYS": -0.014490693807601929,
+            "HSQ__HSQ510": 0.2478586882352829,
+            "HSQ__HSQ500": 0.2955840229988098,
+            "HSQ__HSD010": 0.8258625268936157,
+            "RXQ_RX__RXDCOUNT": 2.214603900909424
+          }
+        },
+        {
+          "cluster": 1,
+          "n": 11709,
+          "pct": 0.6505,
+          "top_positive_fields": {
+            "HSQ__HSQ500": 0.3272920846939087,
+            "HSQ__HSQ510": 0.2478586882352829,
+            "RXQ_RX__RXDDAYS": -0.07970502227544785,
+            "HSQ__HSD010": -0.12658905982971191,
+            "RXQ_RX__RXQSEEN": -0.25359076261520386,
+            "RXQ_RX__RXDCOUNT": -0.3020305633544922,
+            "RXQ_RX__RXDUSE": -0.33627647161483765
+          },
+          "top_negative_fields": {
+            "RXQ_RX__RXDUSE": -0.33627647161483765,
+            "RXQ_RX__RXDCOUNT": -0.3020305633544922,
+            "RXQ_RX__RXQSEEN": -0.25359076261520386,
+            "HSQ__HSD010": -0.12658905982971191,
+            "RXQ_RX__RXDDAYS": -0.07970502227544785,
+            "HSQ__HSQ510": 0.2478586882352829,
+            "HSQ__HSQ500": 0.3272920846939087
+          }
+        },
+        {
+          "cluster": 2,
+          "n": 963,
+          "pct": 0.0535,
+          "top_positive_fields": {
+            "HSQ__HSD010": 0.606130063533783,
+            "RXQ_RX__RXDCOUNT": 0.35870596766471863,
+            "RXQ_RX__RXQSEEN": -0.032669760286808014,
+            "RXQ_RX__RXDUSE": -0.041695237159729004,
+            "RXQ_RX__RXDDAYS": -0.05660882592201233,
+            "HSQ__HSQ500": -0.6171560287475586,
+            "HSQ__HSQ510": -4.013321876525879
+          },
+          "top_negative_fields": {
+            "HSQ__HSQ510": -4.013321876525879,
+            "HSQ__HSQ500": -0.6171560287475586,
+            "RXQ_RX__RXDDAYS": -0.05660882592201233,
+            "RXQ_RX__RXDUSE": -0.041695237159729004,
+            "RXQ_RX__RXQSEEN": -0.032669760286808014,
+            "RXQ_RX__RXDCOUNT": 0.35870596766471863,
+            "HSQ__HSD010": 0.606130063533783
+          }
+        },
+        {
+          "cluster": 3,
+          "n": 1540,
+          "pct": 0.08555555555555555,
+          "top_positive_fields": {
+            "RXQ_RX__RXDUSE": 2.962348222732544,
+            "HSQ__HSQ500": 0.27400606870651245,
+            "HSQ__HSQ510": 0.2478586882352829,
+            "RXQ_RX__RXDDAYS": -0.11693018674850464,
+            "RXQ_RX__RXDCOUNT": -0.1907365471124649,
+            "RXQ_RX__RXQSEEN": -0.25359076261520386,
+            "HSQ__HSD010": -0.5446975231170654
+          },
+          "top_negative_fields": {
+            "HSQ__HSD010": -0.5446975231170654,
+            "RXQ_RX__RXQSEEN": -0.25359076261520386,
+            "RXQ_RX__RXDCOUNT": -0.1907365471124649,
+            "RXQ_RX__RXDDAYS": -0.11693018674850464,
+            "HSQ__HSQ510": 0.2478586882352829,
+            "HSQ__HSQ500": 0.27400606870651245,
+            "RXQ_RX__RXDUSE": 2.962348222732544
+          }
+        },
+        {
+          "cluster": 4,
+          "n": 1308,
+          "pct": 0.07266666666666667,
+          "top_positive_fields": {
+            "HSQ__HSQ510": 0.2478586733341217,
+            "HSQ__HSD010": 0.20125167071819305,
+            "RXQ_RX__RXDUSE": 0.1907973438501358,
+            "RXQ_RX__RXDCOUNT": -0.007670663297176361,
+            "RXQ_RX__RXQSEEN": -0.037409644573926926,
+            "RXQ_RX__RXDDAYS": -0.062140993773937225,
+            "HSQ__HSQ500": -3.0918939113616943
+          },
+          "top_negative_fields": {
+            "HSQ__HSQ500": -3.0918939113616943,
+            "RXQ_RX__RXDDAYS": -0.062140993773937225,
+            "RXQ_RX__RXQSEEN": -0.037409644573926926,
+            "RXQ_RX__RXDCOUNT": -0.007670663297176361,
+            "RXQ_RX__RXDUSE": 0.1907973438501358,
+            "HSQ__HSD010": 0.20125167071819305,
+            "HSQ__HSQ510": 0.2478586733341217
+          }
+        },
+        {
+          "cluster": 5,
+          "n": 212,
+          "pct": 0.011777777777777778,
+          "top_positive_fields": {
+            "RXQ_RX__RXDDAYS": 6.033877849578857,
+            "RXQ_RX__RXDCOUNT": 1.2271579504013062,
+            "HSQ__HSD010": 0.687884509563446,
+            "RXQ_RX__RXQSEEN": 0.6483098864555359,
+            "HSQ__HSQ500": -0.027529112994670868,
+            "HSQ__HSQ510": -0.29483887553215027,
+            "RXQ_RX__RXDUSE": -0.33627650141716003
+          },
+          "top_negative_fields": {
+            "RXQ_RX__RXDUSE": -0.33627650141716003,
+            "HSQ__HSQ510": -0.29483887553215027,
+            "HSQ__HSQ500": -0.027529112994670868,
+            "RXQ_RX__RXQSEEN": 0.6483098864555359,
+            "HSQ__HSD010": 0.687884509563446,
+            "RXQ_RX__RXDCOUNT": 1.2271579504013062,
+            "RXQ_RX__RXDDAYS": 6.033877849578857
+          }
+        },
+        {
+          "cluster": 6,
+          "n": 453,
+          "pct": 0.025166666666666667,
+          "top_positive_fields": {
+            "RXQ_RX__RXQSEEN": 5.1324076652526855,
+            "RXQ_RX__RXDCOUNT": 1.0994393825531006,
+            "HSQ__HSD010": 0.6730825901031494,
+            "RXQ_RX__RXDDAYS": 0.005734676495194435,
+            "HSQ__HSQ510": -0.28831636905670166,
+            "RXQ_RX__RXDUSE": -0.33627647161483765,
+            "HSQ__HSQ500": -0.35956427454948425
+          },
+          "top_negative_fields": {
+            "HSQ__HSQ500": -0.35956427454948425,
+            "RXQ_RX__RXDUSE": -0.33627647161483765,
+            "HSQ__HSQ510": -0.28831636905670166,
+            "RXQ_RX__RXDDAYS": 0.005734676495194435,
+            "HSQ__HSD010": 0.6730825901031494,
+            "RXQ_RX__RXDCOUNT": 1.0994393825531006,
+            "RXQ_RX__RXQSEEN": 5.1324076652526855
+          }
+        },
+        {
+          "cluster": 7,
+          "n": 521,
+          "pct": 0.028944444444444443,
+          "top_positive_fields": {
+            "RXQ_RX__RXQSEEN": 2.439408302307129,
+            "HSQ__HSQ500": 0.3272920846939087,
+            "HSQ__HSQ510": 0.2478586882352829,
+            "RXQ_RX__RXDDAYS": -0.026670772582292557,
+            "HSQ__HSD010": -0.08690845221281052,
+            "RXQ_RX__RXDCOUNT": -0.24777643382549286,
+            "RXQ_RX__RXDUSE": -0.33627647161483765
+          },
+          "top_negative_fields": {
+            "RXQ_RX__RXDUSE": -0.33627647161483765,
+            "RXQ_RX__RXDCOUNT": -0.24777643382549286,
+            "HSQ__HSD010": -0.08690845221281052,
+            "RXQ_RX__RXDDAYS": -0.026670772582292557,
+            "HSQ__HSQ510": 0.2478586882352829,
+            "HSQ__HSQ500": 0.3272920846939087,
+            "RXQ_RX__RXQSEEN": 2.439408302307129
+          }
+        }
+      ],
+      "plots": {
+        "umap_clusters": "outputs/nhanes_independent_blocks/utilization_meds/umap_clusters.png",
+        "cluster_fields": "outputs/nhanes_independent_blocks/utilization_meds/cluster_fields.png"
+      }
+    },
+    {
+      "block": "activity_alcohol",
+      "name": "Activity/alcohol",
+      "n_columns": 11,
+      "columns": [
+        "PAQ__PAQ605",
+        "PAQ__PAQ620",
+        "PAQ__PAQ635",
+        "PAQ__PAQ650",
+        "PAQ__PAQ665",
+        "PAQ__PAD680",
+        "ALQ__ALQ111",
+        "ALQ__ALQ130",
+        "ALQ__ALQ142",
+        "ALQ__ALQ151",
+        "ALQ__ALQ170"
+      ],
+      "embedding_source": "sae",
+      "live_units": 8,
+      "mean_active_rate": 0.07474237556844257,
+      "cluster_k": 8,
+      "cluster_silhouette": 0.5495608448982239,
+      "cards": [
+        {
+          "cluster": 0,
+          "n": 10412,
+          "pct": 0.5784444444444444,
+          "top_positive_fields": {
+            "ALQ__ALQ151": 0.39558547735214233,
+            "PAQ__PAQ635": 0.38679081201553345,
+            "PAQ__PAQ605": 0.3780274987220764,
+            "PAQ__PAQ620": 0.26555538177490234,
+            "PAQ__PAQ650": 0.17314152419567108,
+            "PAQ__PAQ665": 0.16378292441368103,
+            "ALQ__ALQ111": 0.08288513123989105,
+            "PAQ__PAD680": -0.04167516902089119
+          },
+          "top_negative_fields": {
+            "ALQ__ALQ142": -0.378020703792572,
+            "ALQ__ALQ130": -0.20542138814926147,
+            "ALQ__ALQ170": -0.13536077737808228,
+            "PAQ__PAD680": -0.04167516902089119,
+            "ALQ__ALQ111": 0.08288513123989105,
+            "PAQ__PAQ665": 0.16378292441368103,
+            "PAQ__PAQ650": 0.17314152419567108,
+            "PAQ__PAQ620": 0.26555538177490234
+          }
+        },
+        {
+          "cluster": 1,
+          "n": 1553,
+          "pct": 0.08627777777777777,
+          "top_positive_fields": {
+            "ALQ__ALQ111": 0.2524554133415222,
+            "PAQ__PAQ605": 0.19216908514499664,
+            "ALQ__ALQ151": 0.15069934725761414,
+            "PAQ__PAQ620": -0.016484705731272697,
+            "PAQ__PAD680": -0.0836591124534607,
+            "ALQ__ALQ170": -0.09145527333021164,
+            "ALQ__ALQ130": -0.1823389232158661,
+            "ALQ__ALQ142": -0.26341813802719116
+          },
+          "top_negative_fields": {
+            "PAQ__PAQ635": -2.5923426151275635,
+            "PAQ__PAQ665": -0.5508488416671753,
+            "PAQ__PAQ650": -0.29268816113471985,
+            "ALQ__ALQ142": -0.26341813802719116,
+            "ALQ__ALQ130": -0.1823389232158661,
+            "ALQ__ALQ170": -0.09145527333021164,
+            "PAQ__PAD680": -0.0836591124534607,
+            "PAQ__PAQ620": -0.016484705731272697
+          }
+        },
+        {
+          "cluster": 2,
+          "n": 2049,
+          "pct": 0.11383333333333333,
+          "top_positive_fields": {
+            "ALQ__ALQ111": -0.07659256458282471,
+            "ALQ__ALQ151": -0.08413650095462799,
+            "ALQ__ALQ170": -0.09321877360343933,
+            "PAQ__PAD680": -0.12426412105560303,
+            "ALQ__ALQ142": -0.12537126243114471,
+            "ALQ__ALQ130": -0.17159509658813477,
+            "PAQ__PAQ635": -0.22095820307731628,
+            "PAQ__PAQ650": -0.6057504415512085
+          },
+          "top_negative_fields": {
+            "PAQ__PAQ605": -2.3451662063598633,
+            "PAQ__PAQ620": -1.5311399698257446,
+            "PAQ__PAQ665": -0.6099109053611755,
+            "PAQ__PAQ650": -0.6057504415512085,
+            "PAQ__PAQ635": -0.22095820307731628,
+            "ALQ__ALQ130": -0.17159509658813477,
+            "ALQ__ALQ142": -0.12537126243114471,
+            "PAQ__PAD680": -0.12426412105560303
+          }
+        },
+        {
+          "cluster": 3,
+          "n": 1521,
+          "pct": 0.0845,
+          "top_positive_fields": {
+            "PAQ__PAQ605": 0.31366875767707825,
+            "PAQ__PAQ635": 0.20267608761787415,
+            "PAQ__PAQ650": 0.20163479447364807,
+            "PAQ__PAQ665": 0.2000153660774231,
+            "PAQ__PAQ620": 0.16641944646835327,
+            "PAQ__PAD680": -0.027349289506673813,
+            "ALQ__ALQ130": -0.04458516463637352,
+            "ALQ__ALQ170": -0.058750979602336884
+          },
+          "top_negative_fields": {
+            "ALQ__ALQ151": -2.5298619270324707,
+            "ALQ__ALQ111": -0.28754422068595886,
+            "ALQ__ALQ142": -0.18389227986335754,
+            "ALQ__ALQ170": -0.058750979602336884,
+            "ALQ__ALQ130": -0.04458516463637352,
+            "PAQ__PAD680": -0.027349289506673813,
+            "PAQ__PAQ620": 0.16641944646835327,
+            "PAQ__PAQ665": 0.2000153660774231
+          }
+        },
+        {
+          "cluster": 4,
+          "n": 1598,
+          "pct": 0.08877777777777777,
+          "top_positive_fields": {
+            "ALQ__ALQ142": 2.6980202198028564,
+            "ALQ__ALQ130": 0.31984150409698486,
+            "PAQ__PAQ605": 0.22172316908836365,
+            "ALQ__ALQ151": 0.1795637011528015,
+            "PAQ__PAQ620": 0.16608764231204987,
+            "ALQ__ALQ170": 0.16308048367500305,
+            "PAQ__PAQ635": 0.13884040713310242,
+            "PAQ__PAQ665": 0.023410825058817863
+          },
+          "top_negative_fields": {
+            "ALQ__ALQ111": -0.28754422068595886,
+            "PAQ__PAQ650": -0.21461744606494904,
+            "PAQ__PAD680": -0.03839718922972679,
+            "PAQ__PAQ665": 0.023410825058817863,
+            "PAQ__PAQ635": 0.13884040713310242,
+            "ALQ__ALQ170": 0.16308048367500305,
+            "PAQ__PAQ620": 0.16608764231204987,
+            "ALQ__ALQ151": 0.1795637011528015
+          }
+        },
+        {
+          "cluster": 5,
+          "n": 161,
+          "pct": 0.008944444444444444,
+          "top_positive_fields": {
+            "PAQ__PAD680": 6.036890506744385,
+            "PAQ__PAQ635": 0.2757672071456909,
+            "ALQ__ALQ151": 0.21388068795204163,
+            "PAQ__PAQ650": 0.09858369827270508,
+            "PAQ__PAQ665": 0.09183008223772049,
+            "PAQ__PAQ620": 0.07756764441728592,
+            "ALQ__ALQ130": 0.07477960735559464,
+            "PAQ__PAQ605": 0.028453702107071877
+          },
+          "top_negative_fields": {
+            "ALQ__ALQ142": -0.09209460020065308,
+            "ALQ__ALQ170": -0.08963016420602798,
+            "ALQ__ALQ111": 0.01075802743434906,
+            "PAQ__PAQ605": 0.028453702107071877,
+            "ALQ__ALQ130": 0.07477960735559464,
+            "PAQ__PAQ620": 0.07756764441728592,
+            "PAQ__PAQ665": 0.09183008223772049,
+            "PAQ__PAQ650": 0.09858369827270508
+          }
+        },
+        {
+          "cluster": 6,
+          "n": 257,
+          "pct": 0.014277777777777778,
+          "top_positive_fields": {
+            "ALQ__ALQ170": 5.185240745544434,
+            "ALQ__ALQ130": 1.9084373712539673,
+            "ALQ__ALQ142": 0.5939045548439026,
+            "PAQ__PAQ665": -0.018460700288414955,
+            "PAQ__PAQ650": -0.06313216686248779,
+            "PAQ__PAD680": -0.06341271102428436,
+            "PAQ__PAQ620": -0.1118789091706276,
+            "PAQ__PAQ605": -0.15335144102573395
+          },
+          "top_negative_fields": {
+            "ALQ__ALQ151": -1.1525112390518188,
+            "ALQ__ALQ111": -0.28754422068595886,
+            "PAQ__PAQ635": -0.16962319612503052,
+            "PAQ__PAQ605": -0.15335144102573395,
+            "PAQ__PAQ620": -0.1118789091706276,
+            "PAQ__PAD680": -0.06341271102428436,
+            "PAQ__PAQ650": -0.06313216686248779,
+            "PAQ__PAQ665": -0.018460700288414955
+          }
+        },
+        {
+          "cluster": 7,
+          "n": 449,
+          "pct": 0.024944444444444446,
+          "top_positive_fields": {
+            "ALQ__ALQ130": 4.070862770080566,
+            "ALQ__ALQ142": 0.9629930257797241,
+            "ALQ__ALQ170": 0.5634595155715942,
+            "PAQ__PAQ665": 0.10733593255281448,
+            "PAQ__PAD680": -0.07622185349464417,
+            "PAQ__PAQ650": -0.1567859947681427,
+            "PAQ__PAQ635": -0.17718765139579773,
+            "PAQ__PAQ620": -0.23234513401985168
+          },
+          "top_negative_fields": {
+            "ALQ__ALQ151": -0.7967460751533508,
+            "PAQ__PAQ605": -0.5028697848320007,
+            "ALQ__ALQ111": -0.28754422068595886,
+            "PAQ__PAQ620": -0.23234513401985168,
+            "PAQ__PAQ635": -0.17718765139579773,
+            "PAQ__PAQ650": -0.1567859947681427,
+            "PAQ__PAD680": -0.07622185349464417,
+            "PAQ__PAQ665": 0.10733593255281448
+          }
+        }
+      ],
+      "plots": {
+        "umap_clusters": "outputs/nhanes_independent_blocks/activity_alcohol/umap_clusters.png",
+        "cluster_fields": "outputs/nhanes_independent_blocks/activity_alcohol/cluster_fields.png"
+      }
+    }
+  ]
+}

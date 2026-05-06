@@ -1,0 +1,201 @@
+{
+  "block": "blood_counts",
+  "name": "Blood counts",
+  "n_columns": 8,
+  "columns": [
+    "CBC__LBXWBCSI",
+    "CBC__LBXRBCSI",
+    "CBC__LBXHGB",
+    "CBC__LBXHCT",
+    "CBC__LBXPLTSI",
+    "CBC__LBXRDW",
+    "CBC__LBXLYPCT",
+    "CBC__LBXNEPCT"
+  ],
+  "embedding_source": "sae",
+  "live_units": 5,
+  "mean_active_rate": 0.11247861821519461,
+  "cluster_k": 7,
+  "cluster_silhouette": 0.2679719626903534,
+  "cards": [
+    {
+      "cluster": 0,
+      "n": 2091,
+      "pct": 0.11616666666666667,
+      "top_positive_fields": {
+        "CBC__LBXNEPCT": 0.5051580667495728,
+        "CBC__LBXRDW": 0.39761415123939514,
+        "CBC__LBXWBCSI": -0.03509178012609482,
+        "CBC__LBXLYPCT": -0.6188498735427856,
+        "CBC__LBXPLTSI": -0.6214319467544556,
+        "CBC__LBXHGB": -1.149657964706421,
+        "CBC__LBXHCT": -1.1884843111038208,
+        "CBC__LBXRBCSI": -1.239940881729126
+      },
+      "top_negative_fields": {
+        "CBC__LBXRBCSI": -1.239940881729126,
+        "CBC__LBXHCT": -1.1884843111038208,
+        "CBC__LBXHGB": -1.149657964706421,
+        "CBC__LBXPLTSI": -0.6214319467544556,
+        "CBC__LBXLYPCT": -0.6188498735427856,
+        "CBC__LBXWBCSI": -0.03509178012609482,
+        "CBC__LBXRDW": 0.39761415123939514,
+        "CBC__LBXNEPCT": 0.5051580667495728
+      }
+    },
+    {
+      "cluster": 1,
+      "n": 2082,
+      "pct": 0.11566666666666667,
+      "top_positive_fields": {
+        "CBC__LBXLYPCT": 1.3858941793441772,
+        "CBC__LBXRBCSI": 0.3811323344707489,
+        "CBC__LBXRDW": 0.32918795943260193,
+        "CBC__LBXHCT": 0.1602865755558014,
+        "CBC__LBXHGB": 0.07175635546445847,
+        "CBC__LBXWBCSI": -0.22808673977851868,
+        "CBC__LBXPLTSI": -0.2720410227775574,
+        "CBC__LBXNEPCT": -1.4108915328979492
+      },
+      "top_negative_fields": {
+        "CBC__LBXNEPCT": -1.4108915328979492,
+        "CBC__LBXPLTSI": -0.2720410227775574,
+        "CBC__LBXWBCSI": -0.22808673977851868,
+        "CBC__LBXHGB": 0.07175635546445847,
+        "CBC__LBXHCT": 0.1602865755558014,
+        "CBC__LBXRDW": 0.32918795943260193,
+        "CBC__LBXRBCSI": 0.3811323344707489,
+        "CBC__LBXLYPCT": 1.3858941793441772
+      }
+    },
+    {
+      "cluster": 2,
+      "n": 795,
+      "pct": 0.04416666666666667,
+      "top_positive_fields": {
+        "CBC__LBXRDW": 3.0204555988311768,
+        "CBC__LBXPLTSI": 0.9604783654212952,
+        "CBC__LBXNEPCT": 0.19148151576519012,
+        "CBC__LBXWBCSI": 0.09883777797222137,
+        "CBC__LBXLYPCT": -0.16664542257785797,
+        "CBC__LBXRBCSI": -0.24733567237854004,
+        "CBC__LBXHCT": -1.464556097984314,
+        "CBC__LBXHGB": -1.7002933025360107
+      },
+      "top_negative_fields": {
+        "CBC__LBXHGB": -1.7002933025360107,
+        "CBC__LBXHCT": -1.464556097984314,
+        "CBC__LBXRBCSI": -0.24733567237854004,
+        "CBC__LBXLYPCT": -0.16664542257785797,
+        "CBC__LBXWBCSI": 0.09883777797222137,
+        "CBC__LBXNEPCT": 0.19148151576519012,
+        "CBC__LBXPLTSI": 0.9604783654212952,
+        "CBC__LBXRDW": 3.0204555988311768
+      }
+    },
+    {
+      "cluster": 3,
+      "n": 2816,
+      "pct": 0.15644444444444444,
+      "top_positive_fields": {
+        "CBC__LBXHCT": 1.0763736963272095,
+        "CBC__LBXHGB": 1.0247467756271362,
+        "CBC__LBXRBCSI": 1.0003312826156616,
+        "CBC__LBXNEPCT": 0.8681806325912476,
+        "CBC__LBXWBCSI": 0.31044045090675354,
+        "CBC__LBXRDW": 0.028650877997279167,
+        "CBC__LBXPLTSI": 0.018397774547338486,
+        "CBC__LBXLYPCT": -0.82781583070755
+      },
+      "top_negative_fields": {
+        "CBC__LBXLYPCT": -0.82781583070755,
+        "CBC__LBXPLTSI": 0.018397774547338486,
+        "CBC__LBXRDW": 0.028650877997279167,
+        "CBC__LBXWBCSI": 0.31044045090675354,
+        "CBC__LBXNEPCT": 0.8681806325912476,
+        "CBC__LBXRBCSI": 1.0003312826156616,
+        "CBC__LBXHGB": 1.0247467756271362,
+        "CBC__LBXHCT": 1.0763736963272095
+      }
+    },
+    {
+      "cluster": 4,
+      "n": 8091,
+      "pct": 0.4495,
+      "top_positive_fields": {
+        "CBC__LBXHGB": 0.18323679268360138,
+        "CBC__LBXHCT": 0.14120988547801971,
+        "CBC__LBXRBCSI": 0.0021020269487053156,
+        "CBC__LBXNEPCT": -0.0015212378930300474,
+        "CBC__LBXLYPCT": -0.01231599785387516,
+        "CBC__LBXWBCSI": -0.14220695197582245,
+        "CBC__LBXPLTSI": -0.23472128808498383,
+        "CBC__LBXRDW": -0.4277000427246094
+      },
+      "top_negative_fields": {
+        "CBC__LBXRDW": -0.4277000427246094,
+        "CBC__LBXPLTSI": -0.23472128808498383,
+        "CBC__LBXWBCSI": -0.14220695197582245,
+        "CBC__LBXLYPCT": -0.01231599785387516,
+        "CBC__LBXNEPCT": -0.0015212378930300474,
+        "CBC__LBXRBCSI": 0.0021020269487053156,
+        "CBC__LBXHCT": 0.14120988547801971,
+        "CBC__LBXHGB": 0.18323679268360138
+      }
+    },
+    {
+      "cluster": 5,
+      "n": 2114,
+      "pct": 0.11744444444444445,
+      "top_positive_fields": {
+        "CBC__LBXPLTSI": 1.4015644788742065,
+        "CBC__LBXLYPCT": 0.42849162220954895,
+        "CBC__LBXWBCSI": 0.32231658697128296,
+        "CBC__LBXRDW": -0.256225049495697,
+        "CBC__LBXNEPCT": -0.30454373359680176,
+        "CBC__LBXHGB": -0.35297930240631104,
+        "CBC__LBXRBCSI": -0.3895237445831299,
+        "CBC__LBXHCT": -0.39950254559516907
+      },
+      "top_negative_fields": {
+        "CBC__LBXHCT": -0.39950254559516907,
+        "CBC__LBXRBCSI": -0.3895237445831299,
+        "CBC__LBXHGB": -0.35297930240631104,
+        "CBC__LBXNEPCT": -0.30454373359680176,
+        "CBC__LBXRDW": -0.256225049495697,
+        "CBC__LBXWBCSI": 0.32231658697128296,
+        "CBC__LBXLYPCT": 0.42849162220954895,
+        "CBC__LBXPLTSI": 1.4015644788742065
+      }
+    },
+    {
+      "cluster": 6,
+      "n": 11,
+      "pct": 0.0006111111111111111,
+      "top_positive_fields": {
+        "CBC__LBXLYPCT": 6.001192092895508,
+        "CBC__LBXWBCSI": 5.881476879119873,
+        "CBC__LBXRDW": 0.314299613237381,
+        "CBC__LBXHCT": -1.211180329322815,
+        "CBC__LBXPLTSI": -1.2147250175476074,
+        "CBC__LBXRBCSI": -1.332371711730957,
+        "CBC__LBXHGB": -1.4351022243499756,
+        "CBC__LBXNEPCT": -5.429083347320557
+      },
+      "top_negative_fields": {
+        "CBC__LBXNEPCT": -5.429083347320557,
+        "CBC__LBXHGB": -1.4351022243499756,
+        "CBC__LBXRBCSI": -1.332371711730957,
+        "CBC__LBXPLTSI": -1.2147250175476074,
+        "CBC__LBXHCT": -1.211180329322815,
+        "CBC__LBXRDW": 0.314299613237381,
+        "CBC__LBXWBCSI": 5.881476879119873,
+        "CBC__LBXLYPCT": 6.001192092895508
+      }
+    }
+  ],
+  "plots": {
+    "umap_clusters": "outputs/nhanes_independent_blocks/blood_counts/umap_clusters.png",
+    "cluster_fields": "outputs/nhanes_independent_blocks/blood_counts/cluster_fields.png"
+  }
+}

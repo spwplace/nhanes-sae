@@ -1,0 +1,105 @@
+{
+  "block": "blood_pressure",
+  "name": "Blood pressure",
+  "n_columns": 12,
+  "columns": [
+    "BPX__BPXSY1",
+    "BPX__BPXSY2",
+    "BPX__BPXSY3",
+    "BPX__BPXDI1",
+    "BPX__BPXDI2",
+    "BPX__BPXDI3",
+    "BPXO__BPXOSY1",
+    "BPXO__BPXOSY2",
+    "BPXO__BPXOSY3",
+    "BPXO__BPXODI1",
+    "BPXO__BPXODI2",
+    "BPXO__BPXODI3"
+  ],
+  "embedding_source": "sae",
+  "live_units": 5,
+  "mean_active_rate": 0.0783055717802161,
+  "cluster_k": 3,
+  "cluster_silhouette": 0.4668654203414917,
+  "cards": [
+    {
+      "cluster": 0,
+      "n": 14683,
+      "pct": 0.8157222222222222,
+      "top_positive_fields": {
+        "BPX__BPXDI3": -0.14378765225410461,
+        "BPX__BPXDI1": -0.14741036295890808,
+        "BPX__BPXDI2": -0.15631917119026184,
+        "BPXO__BPXODI3": -0.17008213698863983,
+        "BPXO__BPXODI2": -0.1711130142211914,
+        "BPXO__BPXODI1": -0.17379054427146912,
+        "BPXO__BPXOSY3": -0.2699393033981323,
+        "BPXO__BPXOSY1": -0.27054497599601746
+      },
+      "top_negative_fields": {
+        "BPX__BPXSY3": -0.3319956958293915,
+        "BPX__BPXSY2": -0.32874390482902527,
+        "BPX__BPXSY1": -0.31571856141090393,
+        "BPXO__BPXOSY2": -0.2722611427307129,
+        "BPXO__BPXOSY1": -0.27054497599601746,
+        "BPXO__BPXOSY3": -0.2699393033981323,
+        "BPXO__BPXODI1": -0.17379054427146912,
+        "BPXO__BPXODI2": -0.1711130142211914
+      }
+    },
+    {
+      "cluster": 1,
+      "n": 3281,
+      "pct": 0.1822777777777778,
+      "top_positive_fields": {
+        "BPX__BPXSY3": 1.4831271171569824,
+        "BPX__BPXSY2": 1.4687273502349854,
+        "BPX__BPXSY1": 1.4058443307876587,
+        "BPXO__BPXOSY2": 1.206590175628662,
+        "BPXO__BPXOSY1": 1.202837586402893,
+        "BPXO__BPXOSY3": 1.196840524673462,
+        "BPXO__BPXODI1": 0.7747241854667664,
+        "BPXO__BPXODI2": 0.76240473985672
+      },
+      "top_negative_fields": {
+        "BPX__BPXDI1": 0.6586938500404358,
+        "BPX__BPXDI3": 0.6815065741539001,
+        "BPX__BPXDI2": 0.7446597814559937,
+        "BPXO__BPXODI3": 0.7581336498260498,
+        "BPXO__BPXODI2": 0.76240473985672,
+        "BPXO__BPXODI1": 0.7747241854667664,
+        "BPXO__BPXOSY3": 1.196840524673462,
+        "BPXO__BPXOSY1": 1.202837586402893
+      }
+    },
+    {
+      "cluster": 2,
+      "n": 36,
+      "pct": 0.002,
+      "top_positive_fields": {
+        "BPXO__BPXOSY2": 1.077437400817871,
+        "BPXO__BPXOSY3": 1.0190327167510986,
+        "BPXO__BPXOSY1": 0.7194863557815552,
+        "BPX__BPXSY1": 0.6422263383865356,
+        "BPXO__BPXODI2": 0.30562567710876465,
+        "BPXO__BPXODI1": 0.2749088406562805,
+        "BPXO__BPXODI3": 0.2744366526603699,
+        "BPX__BPXSY3": 0.2375725358724594
+      },
+      "top_negative_fields": {
+        "BPX__BPXDI2": -4.110956192016602,
+        "BPX__BPXDI3": -3.4663596153259277,
+        "BPX__BPXDI1": 0.09032682329416275,
+        "BPX__BPXSY2": 0.2236749678850174,
+        "BPX__BPXSY3": 0.2375725358724594,
+        "BPXO__BPXODI3": 0.2744366526603699,
+        "BPXO__BPXODI1": 0.2749088406562805,
+        "BPXO__BPXODI2": 0.30562567710876465
+      }
+    }
+  ],
+  "plots": {
+    "umap_clusters": "outputs/nhanes_independent_blocks/blood_pressure/umap_clusters.png",
+    "cluster_fields": "outputs/nhanes_independent_blocks/blood_pressure/cluster_fields.png"
+  }
+}

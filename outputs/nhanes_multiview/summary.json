@@ -1,0 +1,411 @@
+{
+  "args": {
+    "input": "data/nhanes/processed/nhanes_phenome_raw.parquet",
+    "hidden_per_block": 32,
+    "steps": 2200,
+    "batch_size": 768,
+    "lr": 0.012,
+    "l1": 0.002,
+    "umap_sample": 18000,
+    "seed": 101,
+    "out_dir": "outputs/nhanes_multiview"
+  },
+  "n_participants": 23969,
+  "n_blocks": 11,
+  "embedding_dim": 57,
+  "cluster_k": 10,
+  "cluster_silhouette": 0.2720431983470917,
+  "blocks": [
+    {
+      "block": "body_size",
+      "n_columns": 6,
+      "hidden": 18,
+      "live_units": 1,
+      "mean_active_rate": 0.024413478520867234,
+      "columns": [
+        "BMX__BMXBMI",
+        "BMX__BMXWT",
+        "BMX__BMXWAIST",
+        "BMX__BMXHIP",
+        "BMX__BMXARMC",
+        "BMX__BMXHT"
+      ]
+    },
+    {
+      "block": "blood_pressure",
+      "n_columns": 12,
+      "hidden": 32,
+      "live_units": 1,
+      "mean_active_rate": 0.026543399808085448,
+      "columns": [
+        "BPX__BPXSY1",
+        "BPX__BPXSY2",
+        "BPX__BPXSY3",
+        "BPX__BPXDI1",
+        "BPX__BPXDI2",
+        "BPX__BPXDI3",
+        "BPXO__BPXOSY1",
+        "BPXO__BPXOSY2",
+        "BPXO__BPXOSY3",
+        "BPXO__BPXODI1",
+        "BPXO__BPXODI2",
+        "BPXO__BPXODI3"
+      ]
+    },
+    {
+      "block": "lipids_glucose",
+      "n_columns": 7,
+      "hidden": 21,
+      "live_units": 1,
+      "mean_active_rate": 0.014196909102829251,
+      "columns": [
+        "TCHOL__LBXTC",
+        "HDL__LBDHDD",
+        "TRIGLY__LBXTR",
+        "TRIGLY__LBDLDL",
+        "GLU__LBXGLU",
+        "GHB__LBXGH",
+        "BIOPRO__LBXSGL"
+      ]
+    },
+    {
+      "block": "renal_liver",
+      "n_columns": 8,
+      "hidden": 24,
+      "live_units": 2,
+      "mean_active_rate": 0.044708790521089746,
+      "columns": [
+        "BIOPRO__LBXSCR",
+        "BIOPRO__LBXSBU",
+        "BIOPRO__LBXSAL",
+        "BIOPRO__LBXSAPSI",
+        "BIOPRO__LBXSASSI",
+        "BIOPRO__LBXSATSI",
+        "BIOPRO__LBXSGTSI",
+        "BIOPRO__LBXSUA"
+      ]
+    },
+    {
+      "block": "blood_counts",
+      "n_columns": 8,
+      "hidden": 24,
+      "live_units": 1,
+      "mean_active_rate": 0.031031401671603596,
+      "columns": [
+        "CBC__LBXWBCSI",
+        "CBC__LBXRBCSI",
+        "CBC__LBXHGB",
+        "CBC__LBXHCT",
+        "CBC__LBXPLTSI",
+        "CBC__LBXRDW",
+        "CBC__LBXLYPCT",
+        "CBC__LBXNEPCT"
+      ]
+    },
+    {
+      "block": "diabetes_history",
+      "n_columns": 6,
+      "hidden": 18,
+      "live_units": 18,
+      "mean_active_rate": 0.0,
+      "columns": [
+        "DIQ__DIQ010",
+        "DIQ__DIQ050",
+        "DIQ__DIQ070",
+        "DIQ__DIQ160",
+        "DIQ__DIQ170",
+        "DIQ__DIQ180"
+      ]
+    },
+    {
+      "block": "cardio_history",
+      "n_columns": 9,
+      "hidden": 27,
+      "live_units": 2,
+      "mean_active_rate": 0.012783487313088048,
+      "columns": [
+        "BPQ__BPQ020",
+        "BPQ__BPQ030",
+        "BPQ__BPQ040A",
+        "BPQ__BPQ050A",
+        "MCQ__MCQ160B",
+        "MCQ__MCQ160C",
+        "MCQ__MCQ160D",
+        "MCQ__MCQ160E",
+        "MCQ__MCQ160F"
+      ]
+    },
+    {
+      "block": "resp_smoking",
+      "n_columns": 9,
+      "hidden": 27,
+      "live_units": 27,
+      "mean_active_rate": 0.0,
+      "columns": [
+        "SMQ__SMQ020",
+        "SMQ__SMQ040",
+        "SMQ__SMQ890",
+        "SMQ__SMQ900",
+        "SMQ__SMQ910",
+        "MCQ__MCQ010",
+        "MCQ__MCQ160G",
+        "MCQ__MCQ160K",
+        "MCQ__MCQ160O"
+      ]
+    },
+    {
+      "block": "mood_sleep",
+      "n_columns": 12,
+      "hidden": 32,
+      "live_units": 1,
+      "mean_active_rate": 0.0165043910884893,
+      "columns": [
+        "DPQ__DPQ010",
+        "DPQ__DPQ020",
+        "DPQ__DPQ030",
+        "DPQ__DPQ040",
+        "DPQ__DPQ050",
+        "DPQ__DPQ060",
+        "DPQ__DPQ070",
+        "DPQ__DPQ080",
+        "DPQ__DPQ090",
+        "DPQ__DPQ100",
+        "SLQ__SLD012",
+        "SLQ__SLQ050"
+      ]
+    },
+    {
+      "block": "utilization_meds",
+      "n_columns": 7,
+      "hidden": 21,
+      "live_units": 1,
+      "mean_active_rate": 0.016173668766601305,
+      "columns": [
+        "RXQ_RX__RXDUSE",
+        "RXQ_RX__RXDCOUNT",
+        "RXQ_RX__RXQSEEN",
+        "RXQ_RX__RXDDAYS",
+        "HSQ__HSD010",
+        "HSQ__HSQ500",
+        "HSQ__HSQ510"
+      ]
+    },
+    {
+      "block": "activity_alcohol",
+      "n_columns": 11,
+      "hidden": 32,
+      "live_units": 2,
+      "mean_active_rate": 0.020585182944636824,
+      "columns": [
+        "PAQ__PAQ605",
+        "PAQ__PAQ620",
+        "PAQ__PAQ635",
+        "PAQ__PAQ650",
+        "PAQ__PAQ665",
+        "PAQ__PAD680",
+        "ALQ__ALQ111",
+        "ALQ__ALQ130",
+        "ALQ__ALQ142",
+        "ALQ__ALQ151",
+        "ALQ__ALQ170"
+      ]
+    }
+  ],
+  "cluster_cards": [
+    {
+      "cluster": 0,
+      "name": "Cardio history",
+      "n": 9947,
+      "pct": 0.5526111111111112,
+      "block_z": {
+        "body_size": -0.3656054735183716,
+        "blood_pressure": -0.08951488137245178,
+        "lipids_glucose": -0.1471223384141922,
+        "renal_liver": -0.23363405466079712,
+        "blood_counts": -0.04232398048043251,
+        "diabetes_history": 0.2461797297000885,
+        "cardio_history": 0.28970611095428467,
+        "resp_smoking": 0.23993328213691711,
+        "mood_sleep": -0.3499842882156372,
+        "utilization_meds": -0.1630123108625412,
+        "activity_alcohol": -0.014346704818308353
+      }
+    },
+    {
+      "cluster": 1,
+      "name": "Activity/alcohol",
+      "n": 949,
+      "pct": 0.05272222222222222,
+      "block_z": {
+        "body_size": -0.01378064975142479,
+        "blood_pressure": 0.12712305784225464,
+        "lipids_glucose": -0.14282986521720886,
+        "renal_liver": 0.0819859728217125,
+        "blood_counts": 0.3343174457550049,
+        "diabetes_history": 0.341818630695343,
+        "cardio_history": 0.29824501276016235,
+        "resp_smoking": -0.35219430923461914,
+        "mood_sleep": 0.12213198095560074,
+        "utilization_meds": -0.08669592440128326,
+        "activity_alcohol": 0.806070864200592
+      }
+    },
+    {
+      "cluster": 2,
+      "name": "Mood/sleep",
+      "n": 1496,
+      "pct": 0.08311111111111111,
+      "block_z": {
+        "body_size": -0.08931592106819153,
+        "blood_pressure": 0.01269102469086647,
+        "lipids_glucose": -0.08200985193252563,
+        "renal_liver": -0.3123074769973755,
+        "blood_counts": 0.11698196828365326,
+        "diabetes_history": -0.10975442081689835,
+        "cardio_history": -0.0065538049675524235,
+        "resp_smoking": -0.31358224153518677,
+        "mood_sleep": 2.2380077838897705,
+        "utilization_meds": 0.08060476928949356,
+        "activity_alcohol": -0.09804482012987137
+      }
+    },
+    {
+      "cluster": 3,
+      "name": "Body size",
+      "n": 1846,
+      "pct": 0.10255555555555555,
+      "block_z": {
+        "body_size": 1.7669217586517334,
+        "blood_pressure": 0.22662179172039032,
+        "lipids_glucose": -0.12189040333032608,
+        "renal_liver": -0.04226098954677582,
+        "blood_counts": 0.34475356340408325,
+        "diabetes_history": -0.25363728404045105,
+        "cardio_history": 0.10968022793531418,
+        "resp_smoking": -0.10670044273138046,
+        "mood_sleep": -0.10329142957925797,
+        "utilization_meds": -0.08899635821580887,
+        "activity_alcohol": -0.09843946248292923
+      }
+    },
+    {
+      "cluster": 4,
+      "name": "Utilization/meds",
+      "n": 1333,
+      "pct": 0.07405555555555556,
+      "block_z": {
+        "body_size": 0.017570193856954575,
+        "blood_pressure": 0.1871645301580429,
+        "lipids_glucose": -0.1337359994649887,
+        "renal_liver": 0.0956643745303154,
+        "blood_counts": -0.057406991720199585,
+        "diabetes_history": -0.4425227642059326,
+        "cardio_history": -2.3307621479034424,
+        "resp_smoking": -0.5083166360855103,
+        "mood_sleep": -0.12266816198825836,
+        "utilization_meds": 0.40474000573158264,
+        "activity_alcohol": -0.21831046044826508
+      }
+    },
+    {
+      "cluster": 5,
+      "name": "Cardio history",
+      "n": 293,
+      "pct": 0.016277777777777776,
+      "block_z": {
+        "body_size": 0.16038168966770172,
+        "blood_pressure": 0.11174044013023376,
+        "lipids_glucose": 0.09194742143154144,
+        "renal_liver": 0.12495772540569305,
+        "blood_counts": 0.27483275532722473,
+        "diabetes_history": -0.18174482882022858,
+        "cardio_history": 1.6985962390899658,
+        "resp_smoking": -0.6012640595436096,
+        "mood_sleep": 0.14215992391109467,
+        "utilization_meds": 0.03360140323638916,
+        "activity_alcohol": -0.41780105233192444
+      }
+    },
+    {
+      "cluster": 6,
+      "name": "Activity/alcohol + Mood/sleep",
+      "n": 144,
+      "pct": 0.008,
+      "block_z": {
+        "body_size": -0.06969007849693298,
+        "blood_pressure": 0.35839685797691345,
+        "lipids_glucose": -0.012507175095379353,
+        "renal_liver": -0.227878600358963,
+        "blood_counts": -0.2748676836490631,
+        "diabetes_history": -0.18246133625507355,
+        "cardio_history": -0.30539023876190186,
+        "resp_smoking": 0.1936332881450653,
+        "mood_sleep": 0.46269384026527405,
+        "utilization_meds": 0.2924343943595886,
+        "activity_alcohol": 1.7507078647613525
+      }
+    },
+    {
+      "cluster": 7,
+      "name": "Lipids/glucose + Body size",
+      "n": 675,
+      "pct": 0.0375,
+      "block_z": {
+        "body_size": 0.5580381155014038,
+        "blood_pressure": -0.10761658102273941,
+        "lipids_glucose": 2.8863420486450195,
+        "renal_liver": 0.4705387353897095,
+        "blood_counts": 0.3007234036922455,
+        "diabetes_history": -1.2845914363861084,
+        "cardio_history": -0.4276130795478821,
+        "resp_smoking": -0.3957898020744324,
+        "mood_sleep": 0.15650790929794312,
+        "utilization_meds": 0.2826813757419586,
+        "activity_alcohol": -0.2072046846151352
+      }
+    },
+    {
+      "cluster": 8,
+      "name": "Utilization/meds + Renal/liver",
+      "n": 834,
+      "pct": 0.04633333333333333,
+      "block_z": {
+        "body_size": 0.061853405088186264,
+        "blood_pressure": -0.06069177761673927,
+        "lipids_glucose": 0.03275351598858833,
+        "renal_liver": 1.13470458984375,
+        "blood_counts": -1.2167093753814697,
+        "diabetes_history": -0.6991695165634155,
+        "cardio_history": -0.5707138180732727,
+        "resp_smoking": -0.3112605810165405,
+        "mood_sleep": 0.07795733213424683,
+        "utilization_meds": 1.1916987895965576,
+        "activity_alcohol": 0.0065596625208854675
+      }
+    },
+    {
+      "cluster": 9,
+      "name": "Renal/liver",
+      "n": 483,
+      "pct": 0.026833333333333334,
+      "block_z": {
+        "body_size": 0.06831303238868713,
+        "blood_pressure": 0.25228554010391235,
+        "lipids_glucose": 0.2571449279785156,
+        "renal_liver": 2.8904824256896973,
+        "blood_counts": 0.2890992760658264,
+        "diabetes_history": -0.04371371120214462,
+        "cardio_history": 0.12505392730236053,
+        "resp_smoking": -0.06971734762191772,
+        "mood_sleep": 0.1916840672492981,
+        "utilization_meds": -0.059420935809612274,
+        "activity_alcohol": 0.003838161239400506
+      }
+    }
+  ],
+  "plots": {
+    "umap_clusters": "outputs/nhanes_multiview/umap_clusters.png",
+    "multiview_panel": "outputs/nhanes_multiview/multiview_panel.png",
+    "cluster_archetypes": "outputs/nhanes_multiview/cluster_archetypes.png"
+  }
+}

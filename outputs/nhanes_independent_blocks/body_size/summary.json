@@ -1,0 +1,87 @@
+{
+  "block": "body_size",
+  "name": "Body size",
+  "n_columns": 6,
+  "columns": [
+    "BMX__BMXBMI",
+    "BMX__BMXWT",
+    "BMX__BMXWAIST",
+    "BMX__BMXHIP",
+    "BMX__BMXARMC",
+    "BMX__BMXHT"
+  ],
+  "embedding_source": "direct_fields",
+  "live_units": 2,
+  "mean_active_rate": 0.03757631384983382,
+  "cluster_k": 3,
+  "cluster_silhouette": 0.3374967873096466,
+  "cards": [
+    {
+      "cluster": 0,
+      "n": 5297,
+      "pct": 0.2942777777777778,
+      "top_positive_fields": {
+        "BMX__BMXHT": -0.3823610842227936,
+        "BMX__BMXHIP": -0.88869309425354,
+        "BMX__BMXBMI": -0.9264184236526489,
+        "BMX__BMXWT": -0.9876755475997925,
+        "BMX__BMXARMC": -1.0173957347869873,
+        "BMX__BMXWAIST": -1.0183727741241455
+      },
+      "top_negative_fields": {
+        "BMX__BMXWAIST": -1.0183727741241455,
+        "BMX__BMXARMC": -1.0173957347869873,
+        "BMX__BMXWT": -0.9876755475997925,
+        "BMX__BMXBMI": -0.9264184236526489,
+        "BMX__BMXHIP": -0.88869309425354,
+        "BMX__BMXHT": -0.3823610842227936
+      }
+    },
+    {
+      "cluster": 1,
+      "n": 9828,
+      "pct": 0.546,
+      "top_positive_fields": {
+        "BMX__BMXHT": 0.12020624428987503,
+        "BMX__BMXARMC": 0.10220199823379517,
+        "BMX__BMXWAIST": 0.0973866656422615,
+        "BMX__BMXWT": 0.04709732159972191,
+        "BMX__BMXBMI": 0.011094732210040092,
+        "BMX__BMXHIP": -0.010128210298717022
+      },
+      "top_negative_fields": {
+        "BMX__BMXHIP": -0.010128210298717022,
+        "BMX__BMXBMI": 0.011094732210040092,
+        "BMX__BMXWT": 0.04709732159972191,
+        "BMX__BMXWAIST": 0.0973866656422615,
+        "BMX__BMXARMC": 0.10220199823379517,
+        "BMX__BMXHT": 0.12020624428987503
+      }
+    },
+    {
+      "cluster": 2,
+      "n": 2875,
+      "pct": 0.1597222222222222,
+      "top_positive_fields": {
+        "BMX__BMXHIP": 1.6719818115234375,
+        "BMX__BMXBMI": 1.6689388751983643,
+        "BMX__BMXWT": 1.6587287187576294,
+        "BMX__BMXWAIST": 1.5433753728866577,
+        "BMX__BMXARMC": 1.5251144170761108,
+        "BMX__BMXHT": 0.29355815052986145
+      },
+      "top_negative_fields": {
+        "BMX__BMXHT": 0.29355815052986145,
+        "BMX__BMXARMC": 1.5251144170761108,
+        "BMX__BMXWAIST": 1.5433753728866577,
+        "BMX__BMXWT": 1.6587287187576294,
+        "BMX__BMXBMI": 1.6689388751983643,
+        "BMX__BMXHIP": 1.6719818115234375
+      }
+    }
+  ],
+  "plots": {
+    "umap_clusters": "outputs/nhanes_independent_blocks/body_size/umap_clusters.png",
+    "cluster_fields": "outputs/nhanes_independent_blocks/body_size/cluster_fields.png"
+  }
+}

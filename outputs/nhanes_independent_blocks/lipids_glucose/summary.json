@@ -1,0 +1,94 @@
+{
+  "block": "lipids_glucose",
+  "name": "Lipids/glucose",
+  "n_columns": 7,
+  "columns": [
+    "TCHOL__LBXTC",
+    "HDL__LBDHDD",
+    "TRIGLY__LBXTR",
+    "TRIGLY__LBDLDL",
+    "GLU__LBXGLU",
+    "GHB__LBXGH",
+    "BIOPRO__LBXSGL"
+  ],
+  "embedding_source": "sae",
+  "live_units": 5,
+  "mean_active_rate": 0.09105809289379733,
+  "cluster_k": 3,
+  "cluster_silhouette": 0.5925048589706421,
+  "cards": [
+    {
+      "cluster": 0,
+      "n": 16377,
+      "pct": 0.9098333333333334,
+      "top_positive_fields": {
+        "HDL__LBDHDD": 0.06028897315263748,
+        "TRIGLY__LBDLDL": 0.0138487434014678,
+        "TCHOL__LBXTC": 0.0023728548549115658,
+        "TRIGLY__LBXTR": -0.08743325620889664,
+        "GLU__LBXGLU": -0.1960778385400772,
+        "GHB__LBXGH": -0.21448072791099548,
+        "BIOPRO__LBXSGL": -0.22552621364593506
+      },
+      "top_negative_fields": {
+        "BIOPRO__LBXSGL": -0.22552621364593506,
+        "GHB__LBXGH": -0.21448072791099548,
+        "GLU__LBXGLU": -0.1960778385400772,
+        "TRIGLY__LBXTR": -0.08743325620889664,
+        "TCHOL__LBXTC": 0.0023728548549115658,
+        "TRIGLY__LBDLDL": 0.0138487434014678,
+        "HDL__LBDHDD": 0.06028897315263748
+      }
+    },
+    {
+      "cluster": 1,
+      "n": 1539,
+      "pct": 0.0855,
+      "top_positive_fields": {
+        "BIOPRO__LBXSGL": 2.1842129230499268,
+        "GHB__LBXGH": 2.15494704246521,
+        "GLU__LBXGLU": 1.8042176961898804,
+        "TRIGLY__LBXTR": 0.937188982963562,
+        "TCHOL__LBXTC": -0.036849070340394974,
+        "TRIGLY__LBDLDL": -0.15994350612163544,
+        "HDL__LBDHDD": -0.6154916882514954
+      },
+      "top_negative_fields": {
+        "HDL__LBDHDD": -0.6154916882514954,
+        "TRIGLY__LBDLDL": -0.15994350612163544,
+        "TCHOL__LBXTC": -0.036849070340394974,
+        "TRIGLY__LBXTR": 0.937188982963562,
+        "GLU__LBXGLU": 1.8042176961898804,
+        "GHB__LBXGH": 2.15494704246521,
+        "BIOPRO__LBXSGL": 2.1842129230499268
+      }
+    },
+    {
+      "cluster": 2,
+      "n": 84,
+      "pct": 0.004666666666666667,
+      "top_positive_fields": {
+        "GLU__LBXGLU": 5.172327995300293,
+        "BIOPRO__LBXSGL": 3.9516549110412598,
+        "GHB__LBXGH": 2.3343725204467773,
+        "TRIGLY__LBDLDL": 0.230383038520813,
+        "TCHOL__LBXTC": 0.2125055342912674,
+        "TRIGLY__LBXTR": -0.12427885085344315,
+        "HDL__LBDHDD": -0.4775094985961914
+      },
+      "top_negative_fields": {
+        "HDL__LBDHDD": -0.4775094985961914,
+        "TRIGLY__LBXTR": -0.12427885085344315,
+        "TCHOL__LBXTC": 0.2125055342912674,
+        "TRIGLY__LBDLDL": 0.230383038520813,
+        "GHB__LBXGH": 2.3343725204467773,
+        "BIOPRO__LBXSGL": 3.9516549110412598,
+        "GLU__LBXGLU": 5.172327995300293
+      }
+    }
+  ],
+  "plots": {
+    "umap_clusters": "outputs/nhanes_independent_blocks/lipids_glucose/umap_clusters.png",
+    "cluster_fields": "outputs/nhanes_independent_blocks/lipids_glucose/cluster_fields.png"
+  }
+}
