@@ -1,0 +1,713 @@
+{
+  "args": {
+    "n_samples": 8000,
+    "hidden": 64,
+    "steps": 1400,
+    "batch_size": 256,
+    "lr": 0.018,
+    "l1": 0.006,
+    "seed": 11
+  },
+  "fields": [
+    "height_cm",
+    "bmi",
+    "waist_hip_ratio",
+    "systolic_bp",
+    "diastolic_bp",
+    "ldl",
+    "hdl",
+    "triglycerides",
+    "hba1c",
+    "fasting_glucose",
+    "creatinine",
+    "egfr",
+    "crp",
+    "alt",
+    "ast",
+    "ggt",
+    "fev1",
+    "pack_years",
+    "sleep_hours",
+    "cognitive_score",
+    "diabetes_dx",
+    "hypertension_dx",
+    "cad_dx",
+    "heart_failure_dx",
+    "ckd_dx",
+    "copd_dx",
+    "asthma_dx",
+    "alzheimers_dx",
+    "depression_dx",
+    "anxiety_dx",
+    "autoimmune_dx",
+    "chronic_pain_dx",
+    "fall_history",
+    "statin_rx",
+    "antihypertensive_rx",
+    "metformin_rx",
+    "insulin_rx",
+    "inhaler_rx",
+    "antidepressant_rx",
+    "opioid_rx",
+    "steroid_rx",
+    "hospital_admissions",
+    "outpatient_visits",
+    "procedure_count",
+    "medication_count",
+    "missingness_burden"
+  ],
+  "latent_names": [
+    "adiposity_metabolic",
+    "cardiovascular",
+    "renal_impairment",
+    "inflammation_autoimmune",
+    "neurocognitive_frailty",
+    "respiratory_smoking",
+    "mental_health_pain_sleep",
+    "healthcare_utilization"
+  ],
+  "final_loss": 0.5244230628013611,
+  "mean_active_rate": 0.11895703125,
+  "cards": [
+    {
+      "unit": 15,
+      "latent": "adiposity_metabolic",
+      "latent_correlation": -0.7656923532485962,
+      "active_rate": 0.468375,
+      "top_fields": [
+        {
+          "field": "waist_hip_ratio",
+          "correlation": -0.7371298670768738
+        },
+        {
+          "field": "bmi",
+          "correlation": -0.6962133646011353
+        },
+        {
+          "field": "triglycerides",
+          "correlation": -0.6889647841453552
+        },
+        {
+          "field": "fasting_glucose",
+          "correlation": -0.6671279072761536
+        },
+        {
+          "field": "hba1c",
+          "correlation": -0.6643834710121155
+        },
+        {
+          "field": "alt",
+          "correlation": -0.5877361297607422
+        },
+        {
+          "field": "ggt",
+          "correlation": -0.5741763710975647
+        },
+        {
+          "field": "hdl",
+          "correlation": 0.5259052515029907
+        }
+      ]
+    },
+    {
+      "unit": 62,
+      "latent": "adiposity_metabolic",
+      "latent_correlation": 0.7656228542327881,
+      "active_rate": 0.466125,
+      "top_fields": [
+        {
+          "field": "waist_hip_ratio",
+          "correlation": 0.7311875820159912
+        },
+        {
+          "field": "bmi",
+          "correlation": 0.6823102235794067
+        },
+        {
+          "field": "triglycerides",
+          "correlation": 0.6792625784873962
+        },
+        {
+          "field": "hba1c",
+          "correlation": 0.6670136451721191
+        },
+        {
+          "field": "fasting_glucose",
+          "correlation": 0.6635253429412842
+        },
+        {
+          "field": "alt",
+          "correlation": 0.6003985404968262
+        },
+        {
+          "field": "ggt",
+          "correlation": 0.5755094885826111
+        },
+        {
+          "field": "hdl",
+          "correlation": -0.5339896082878113
+        }
+      ]
+    },
+    {
+      "unit": 53,
+      "latent": "renal_impairment",
+      "latent_correlation": 0.7107450366020203,
+      "active_rate": 0.688125,
+      "top_fields": [
+        {
+          "field": "egfr",
+          "correlation": -0.7349539995193481
+        },
+        {
+          "field": "ckd_dx",
+          "correlation": 0.7170976400375366
+        },
+        {
+          "field": "creatinine",
+          "correlation": 0.685192883014679
+        },
+        {
+          "field": "heart_failure_dx",
+          "correlation": 0.3550679683685303
+        },
+        {
+          "field": "alt",
+          "correlation": -0.2031867802143097
+        },
+        {
+          "field": "fasting_glucose",
+          "correlation": -0.18273283541202545
+        },
+        {
+          "field": "ast",
+          "correlation": -0.17803475260734558
+        },
+        {
+          "field": "fev1",
+          "correlation": -0.17587882280349731
+        }
+      ]
+    },
+    {
+      "unit": 50,
+      "latent": "respiratory_smoking",
+      "latent_correlation": 0.572223424911499,
+      "active_rate": 0.657,
+      "top_fields": [
+        {
+          "field": "pack_years",
+          "correlation": 0.5623411536216736
+        },
+        {
+          "field": "copd_dx",
+          "correlation": 0.5235185623168945
+        },
+        {
+          "field": "asthma_dx",
+          "correlation": 0.49669045209884644
+        },
+        {
+          "field": "ggt",
+          "correlation": 0.48847201466560364
+        },
+        {
+          "field": "hdl",
+          "correlation": -0.4244872033596039
+        },
+        {
+          "field": "inhaler_rx",
+          "correlation": 0.4013279974460602
+        },
+        {
+          "field": "fev1",
+          "correlation": -0.39909499883651733
+        },
+        {
+          "field": "crp",
+          "correlation": 0.38314512372016907
+        }
+      ]
+    },
+    {
+      "unit": 59,
+      "latent": "inflammation_autoimmune",
+      "latent_correlation": 0.5544091463088989,
+      "active_rate": 0.63125,
+      "top_fields": [
+        {
+          "field": "autoimmune_dx",
+          "correlation": 0.6316300630569458
+        },
+        {
+          "field": "crp",
+          "correlation": 0.6176044940948486
+        },
+        {
+          "field": "ast",
+          "correlation": 0.4925749897956848
+        },
+        {
+          "field": "alt",
+          "correlation": 0.40512433648109436
+        },
+        {
+          "field": "antihypertensive_rx",
+          "correlation": -0.2039051204919815
+        },
+        {
+          "field": "hospital_admissions",
+          "correlation": 0.19636549055576324
+        },
+        {
+          "field": "outpatient_visits",
+          "correlation": 0.18491874635219574
+        },
+        {
+          "field": "medication_count",
+          "correlation": -0.1823556274175644
+        }
+      ]
+    },
+    {
+      "unit": 34,
+      "latent": "mental_health_pain_sleep",
+      "latent_correlation": 0.5353161692619324,
+      "active_rate": 0.58975,
+      "top_fields": [
+        {
+          "field": "depression_dx",
+          "correlation": 0.8023405075073242
+        },
+        {
+          "field": "antidepressant_rx",
+          "correlation": 0.5426828861236572
+        },
+        {
+          "field": "anxiety_dx",
+          "correlation": 0.42398810386657715
+        },
+        {
+          "field": "sleep_hours",
+          "correlation": -0.3683919608592987
+        },
+        {
+          "field": "chronic_pain_dx",
+          "correlation": 0.3650358319282532
+        },
+        {
+          "field": "outpatient_visits",
+          "correlation": 0.21317143738269806
+        },
+        {
+          "field": "missingness_burden",
+          "correlation": -0.187387615442276
+        },
+        {
+          "field": "medication_count",
+          "correlation": 0.12447193264961243
+        }
+      ]
+    },
+    {
+      "unit": 20,
+      "latent": "cardiovascular",
+      "latent_correlation": 0.47705307602882385,
+      "active_rate": 0.70725,
+      "top_fields": [
+        {
+          "field": "procedure_count",
+          "correlation": 0.5043394565582275
+        },
+        {
+          "field": "hospital_admissions",
+          "correlation": 0.4543447494506836
+        },
+        {
+          "field": "statin_rx",
+          "correlation": 0.4323941469192505
+        },
+        {
+          "field": "missingness_burden",
+          "correlation": 0.3941713571548462
+        },
+        {
+          "field": "fasting_glucose",
+          "correlation": -0.36231863498687744
+        },
+        {
+          "field": "bmi",
+          "correlation": -0.3619774580001831
+        },
+        {
+          "field": "medication_count",
+          "correlation": 0.3490283191204071
+        },
+        {
+          "field": "outpatient_visits",
+          "correlation": 0.3385237753391266
+        }
+      ]
+    },
+    {
+      "unit": 54,
+      "latent": "neurocognitive_frailty",
+      "latent_correlation": 0.4661974608898163,
+      "active_rate": 0.60775,
+      "top_fields": [
+        {
+          "field": "fall_history",
+          "correlation": 0.553901195526123
+        },
+        {
+          "field": "cognitive_score",
+          "correlation": -0.5002723932266235
+        },
+        {
+          "field": "antihypertensive_rx",
+          "correlation": 0.4184364974498749
+        },
+        {
+          "field": "alzheimers_dx",
+          "correlation": 0.3846836984157562
+        },
+        {
+          "field": "medication_count",
+          "correlation": 0.17409250140190125
+        },
+        {
+          "field": "hypertension_dx",
+          "correlation": 0.1713544726371765
+        },
+        {
+          "field": "heart_failure_dx",
+          "correlation": -0.16397540271282196
+        },
+        {
+          "field": "hospital_admissions",
+          "correlation": 0.16026057302951813
+        }
+      ]
+    },
+    {
+      "unit": 12,
+      "latent": "neurocognitive_frailty",
+      "latent_correlation": 0.43649500608444214,
+      "active_rate": 0.667125,
+      "top_fields": [
+        {
+          "field": "alzheimers_dx",
+          "correlation": 0.556334912776947
+        },
+        {
+          "field": "cognitive_score",
+          "correlation": -0.5146340131759644
+        },
+        {
+          "field": "fev1",
+          "correlation": -0.41005346179008484
+        },
+        {
+          "field": "copd_dx",
+          "correlation": 0.3745741546154022
+        },
+        {
+          "field": "pack_years",
+          "correlation": 0.3086964786052704
+        },
+        {
+          "field": "fall_history",
+          "correlation": 0.29394713044166565
+        },
+        {
+          "field": "ast",
+          "correlation": -0.2673753499984741
+        },
+        {
+          "field": "crp",
+          "correlation": -0.25285619497299194
+        }
+      ]
+    },
+    {
+      "unit": 33,
+      "latent": "healthcare_utilization",
+      "latent_correlation": 0.2970442771911621,
+      "active_rate": 0.54525,
+      "top_fields": [
+        {
+          "field": "insulin_rx",
+          "correlation": 0.8027135133743286
+        },
+        {
+          "field": "diabetes_dx",
+          "correlation": 0.4513832628726959
+        },
+        {
+          "field": "medication_count",
+          "correlation": 0.39704373478889465
+        },
+        {
+          "field": "metformin_rx",
+          "correlation": 0.38689571619033813
+        },
+        {
+          "field": "missingness_burden",
+          "correlation": 0.25879165530204773
+        },
+        {
+          "field": "fasting_glucose",
+          "correlation": 0.2438725382089615
+        },
+        {
+          "field": "outpatient_visits",
+          "correlation": 0.24365279078483582
+        },
+        {
+          "field": "bmi",
+          "correlation": 0.24074599146842957
+        }
+      ]
+    },
+    {
+      "unit": 52,
+      "latent": "mental_health_pain_sleep",
+      "latent_correlation": 0.24333903193473816,
+      "active_rate": 0.60375,
+      "top_fields": [
+        {
+          "field": "anxiety_dx",
+          "correlation": 0.579778790473938
+        },
+        {
+          "field": "missingness_burden",
+          "correlation": -0.3182571232318878
+        },
+        {
+          "field": "autoimmune_dx",
+          "correlation": 0.31319478154182434
+        },
+        {
+          "field": "cad_dx",
+          "correlation": 0.22580572962760925
+        },
+        {
+          "field": "hypertension_dx",
+          "correlation": 0.19120682775974274
+        },
+        {
+          "field": "egfr",
+          "correlation": 0.17353907227516174
+        },
+        {
+          "field": "antihypertensive_rx",
+          "correlation": 0.17198725044727325
+        },
+        {
+          "field": "sleep_hours",
+          "correlation": -0.1642870455980301
+        }
+      ]
+    },
+    {
+      "unit": 3,
+      "latent": "healthcare_utilization",
+      "latent_correlation": 0.2350056767463684,
+      "active_rate": 0.277875,
+      "top_fields": [
+        {
+          "field": "opioid_rx",
+          "correlation": 0.9789410829544067
+        },
+        {
+          "field": "chronic_pain_dx",
+          "correlation": 0.3698183000087738
+        },
+        {
+          "field": "medication_count",
+          "correlation": 0.2566510736942291
+        },
+        {
+          "field": "outpatient_visits",
+          "correlation": 0.19690069556236267
+        },
+        {
+          "field": "missingness_burden",
+          "correlation": 0.1424458920955658
+        },
+        {
+          "field": "hospital_admissions",
+          "correlation": 0.09289666265249252
+        },
+        {
+          "field": "procedure_count",
+          "correlation": 0.08579479157924652
+        },
+        {
+          "field": "crp",
+          "correlation": 0.06808474659919739
+        }
+      ]
+    },
+    {
+      "unit": 45,
+      "latent": "inflammation_autoimmune",
+      "latent_correlation": 0.19092178344726562,
+      "active_rate": 0.1565,
+      "top_fields": [
+        {
+          "field": "crp",
+          "correlation": 0.32190534472465515
+        },
+        {
+          "field": "antidepressant_rx",
+          "correlation": 0.24467481672763824
+        },
+        {
+          "field": "missingness_burden",
+          "correlation": 0.21957705914974213
+        },
+        {
+          "field": "chronic_pain_dx",
+          "correlation": 0.20900462567806244
+        },
+        {
+          "field": "outpatient_visits",
+          "correlation": 0.18131868541240692
+        },
+        {
+          "field": "ast",
+          "correlation": 0.16307199001312256
+        },
+        {
+          "field": "medication_count",
+          "correlation": 0.1628543883562088
+        },
+        {
+          "field": "antihypertensive_rx",
+          "correlation": 0.14939986169338226
+        }
+      ]
+    },
+    {
+      "unit": 55,
+      "latent": "healthcare_utilization",
+      "latent_correlation": 0.16073419153690338,
+      "active_rate": 0.406375,
+      "top_fields": [
+        {
+          "field": "procedure_count",
+          "correlation": 0.3691301941871643
+        },
+        {
+          "field": "antidepressant_rx",
+          "correlation": 0.29325851798057556
+        },
+        {
+          "field": "anxiety_dx",
+          "correlation": 0.23929807543754578
+        },
+        {
+          "field": "autoimmune_dx",
+          "correlation": 0.21711505949497223
+        },
+        {
+          "field": "sleep_hours",
+          "correlation": 0.19338655471801758
+        },
+        {
+          "field": "missingness_burden",
+          "correlation": 0.1723785400390625
+        },
+        {
+          "field": "height_cm",
+          "correlation": -0.16910910606384277
+        },
+        {
+          "field": "chronic_pain_dx",
+          "correlation": -0.1360379457473755
+        }
+      ]
+    },
+    {
+      "unit": 57,
+      "latent": "healthcare_utilization",
+      "latent_correlation": 0.09553324431180954,
+      "active_rate": 0.008,
+      "top_fields": [
+        {
+          "field": "hospital_admissions",
+          "correlation": 0.26405879855155945
+        },
+        {
+          "field": "missingness_burden",
+          "correlation": 0.12195319682359695
+        },
+        {
+          "field": "procedure_count",
+          "correlation": 0.08958818018436432
+        },
+        {
+          "field": "diastolic_bp",
+          "correlation": 0.06409230083227158
+        },
+        {
+          "field": "opioid_rx",
+          "correlation": 0.059210196137428284
+        },
+        {
+          "field": "ldl",
+          "correlation": 0.05438724905252457
+        },
+        {
+          "field": "ckd_dx",
+          "correlation": 0.04226049780845642
+        },
+        {
+          "field": "fall_history",
+          "correlation": 0.041568636894226074
+        }
+      ]
+    },
+    {
+      "unit": 60,
+      "latent": "healthcare_utilization",
+      "latent_correlation": 0.06418918073177338,
+      "active_rate": 0.002125,
+      "top_fields": [
+        {
+          "field": "outpatient_visits",
+          "correlation": 0.07667820155620575
+        },
+        {
+          "field": "asthma_dx",
+          "correlation": 0.07337148487567902
+        },
+        {
+          "field": "chronic_pain_dx",
+          "correlation": 0.05175803229212761
+        },
+        {
+          "field": "missingness_burden",
+          "correlation": 0.05089029297232628
+        },
+        {
+          "field": "diastolic_bp",
+          "correlation": -0.041865091770887375
+        },
+        {
+          "field": "procedure_count",
+          "correlation": 0.03443090245127678
+        },
+        {
+          "field": "antihypertensive_rx",
+          "correlation": 0.02824721299111843
+        },
+        {
+          "field": "diabetes_dx",
+          "correlation": 0.02618204616010189
+        }
+      ]
+    }
+  ]
+}

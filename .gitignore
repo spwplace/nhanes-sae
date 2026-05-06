@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Public NHANES files are downloaded by scripts/download_nhanes.py.
+data/
+
+# Unrelated local artifacts from other work in this directory.
+screening-part3-rootfs/
+screening-part3-real-rootfs/
+

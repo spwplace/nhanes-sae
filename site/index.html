@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NHANES Phenome SAE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <p class="eyebrow">Public-use real phenome data</p>
+    <h1>Sparse autoencoder features from NHANES labs, traits, and questionnaires</h1>
+    <p class="lede">A real-data pilot using CDC public-use NHANES files. Features are interpreted by correlation with measured fields and coarse anchor groups, not as clinical diagnoses.</p>
+  </header>
+  <main>
+    <section class="metrics">
+      <div><span>final loss</span><b>0.3278</b></div>
+      <div><span>mean active rate</span><b>6.8%</b></div>
+      <div><span>participants</span><b>23969</b></div>
+      <div><span>model features</span><b>485</b></div>
+    </section>
+    <section class="plots">
+      <img src="../outputs/nhanes/loss.png" alt="Training loss plot">
+      <img src="../outputs/nhanes/anchor_heatmap.png" alt="Sparse unit by anchor group heatmap">
+      <img src="../outputs/nhanes/field_heatmap.png" alt="Sparse unit by NHANES field heatmap">
+    </section>
+    <section class="grid">
+      
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 18</h3>
+            <p>cardio history</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>-0.761</dd>
+            <dt>active</dt><dd>30.9%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>MCQ / MCQ160E</td><td>-0.64</td></tr><tr><td>MCQ / MCQ160B</td><td>-0.60</td></tr><tr><td>MCQ / MCQ160D</td><td>-0.60</td></tr><tr><td>MCQ / MCQ160C</td><td>-0.58</td></tr><tr><td>RXQ RX / RXDCOUNT</td><td>+0.55</td></tr><tr><td>MCQ / MCQ160O</td><td>-0.44</td></tr><tr><td>DIQ / DIQ050</td><td>-0.39</td></tr><tr><td>DIQ / DID040 / MISSING</td><td>-0.36</td></tr><tr><td>MCQ / MCQ366C</td><td>-0.36</td></tr><tr><td>MCQ / MCQ366D</td><td>-0.35</td></tr><tr><td>DIQ / DIQ010</td><td>-0.35</td></tr><tr><td>DIQ / DIQ180 / MISSING</td><td>+0.34</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 14</h3>
+            <p>adiposity body size</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>+0.745</dd>
+            <dt>active</dt><dd>58.7%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>BMX / BMXBMI</td><td>+0.76</td></tr><tr><td>BMX / BMXHIP</td><td>+0.72</td></tr><tr><td>BMX / BMXWT</td><td>+0.70</td></tr><tr><td>BMX / BMXARMC</td><td>+0.67</td></tr><tr><td>BMX / BMXWAIST</td><td>+0.67</td></tr><tr><td>MCQ / MCQ080</td><td>-0.59</td></tr><tr><td>MCQ / MCQ366A</td><td>-0.56</td></tr><tr><td>BPX / BPACSZ</td><td>+0.54</td></tr><tr><td>BPXO / BPAOCSZ</td><td>+0.53</td></tr><tr><td>MCQ / MCQ366D</td><td>-0.45</td></tr><tr><td>DEMO / AIALANGA / MISSING</td><td>-0.36</td></tr><tr><td>SLQ / SLQ050</td><td>-0.34</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 98</h3>
+            <p>mental health sleep</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>+0.691</dd>
+            <dt>active</dt><dd>23.3%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>DPQ / DPQ020</td><td>+0.68</td></tr><tr><td>DPQ / DPQ100</td><td>+0.65</td></tr><tr><td>DPQ / DPQ010</td><td>+0.64</td></tr><tr><td>DPQ / DPQ080</td><td>+0.61</td></tr><tr><td>DPQ / DPQ070</td><td>+0.60</td></tr><tr><td>DPQ / DPQ060</td><td>+0.59</td></tr><tr><td>DPQ / DPQ040</td><td>+0.53</td></tr><tr><td>DPQ / DPQ050</td><td>+0.53</td></tr><tr><td>DPQ / DPQ030</td><td>+0.51</td></tr><tr><td>DPQ / DPQ090</td><td>+0.39</td></tr><tr><td>HSQ / HSD010</td><td>+0.35</td></tr><tr><td>SLQ / SLQ050</td><td>-0.35</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 90</h3>
+            <p>blood pressure</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>+0.668</dd>
+            <dt>active</dt><dd>32.1%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>BPX / BPXML1</td><td>+0.75</td></tr><tr><td>BPX / BPXSY3</td><td>+0.75</td></tr><tr><td>BPX / BPXSY2</td><td>+0.74</td></tr><tr><td>BPX / BPXSY1</td><td>+0.71</td></tr><tr><td>BPXO / BPXOSY1</td><td>+0.70</td></tr><tr><td>BPXO / BPXOSY2</td><td>+0.69</td></tr><tr><td>BPXO / BPXOSY3</td><td>+0.69</td></tr><tr><td>BPXO / BPXODI1</td><td>+0.45</td></tr><tr><td>BPXO / BPXODI2</td><td>+0.44</td></tr><tr><td>BPXO / BPXODI3</td><td>+0.44</td></tr><tr><td>BPXO / BPAOMNTS / MISSING</td><td>-0.38</td></tr><tr><td>BPQ / BPQ040A / MISSING</td><td>-0.38</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 55</h3>
+            <p>respiratory smoking</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>-0.555</dd>
+            <dt>active</dt><dd>39.6%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>MCQ / MCQ160O</td><td>-0.62</td></tr><tr><td>MCQ / MCQ160G</td><td>-0.56</td></tr><tr><td>SMQ / SMD030 / MISSING</td><td>-0.49</td></tr><tr><td>MCQ / MCQ160K</td><td>-0.45</td></tr><tr><td>DEMO / DMDMARTL / MISSING</td><td>-0.37</td></tr><tr><td>MCQ / MCQ520 / MISSING</td><td>-0.37</td></tr><tr><td>MCQ / MCQ160N / MISSING</td><td>-0.37</td></tr><tr><td>MCQ / MCQ160O / MISSING</td><td>-0.37</td></tr><tr><td>MCQ / MCQ160K / MISSING</td><td>-0.37</td></tr><tr><td>RXQ RX / RXQSEEN / MISSING</td><td>-0.37</td></tr><tr><td>RXQ RX / RXDDAYS / MISSING</td><td>-0.37</td></tr><tr><td>MCQ / MCQ300C / MISSING</td><td>-0.37</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 76</h3>
+            <p>diabetes</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>-0.490</dd>
+            <dt>active</dt><dd>46.3%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>BIOPRO / LBDSGLSI</td><td>+0.63</td></tr><tr><td>BIOPRO / LBXSGL</td><td>+0.63</td></tr><tr><td>GHB / LBXGH</td><td>+0.63</td></tr><tr><td>DIQ / DIQ050</td><td>-0.54</td></tr><tr><td>DIQ / DID040 / MISSING</td><td>-0.52</td></tr><tr><td>DIQ / DIQ160 / MISSING</td><td>+0.49</td></tr><tr><td>DIQ / DIQ180 / MISSING</td><td>+0.48</td></tr><tr><td>DIQ / DIQ010</td><td>-0.48</td></tr><tr><td>GLU / LBXGLU</td><td>+0.47</td></tr><tr><td>GLU / LBDGLUSI</td><td>+0.47</td></tr><tr><td>BIOPRO / LBXSGB</td><td>+0.47</td></tr><tr><td>BIOPRO / LBDSGBSI</td><td>+0.47</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 113</h3>
+            <p>lipids glucose</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>+0.481</dd>
+            <dt>active</dt><dd>42.2%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>GLU / LBDGLUSI</td><td>+0.78</td></tr><tr><td>GLU / LBXGLU</td><td>+0.78</td></tr><tr><td>BIOPRO / LBDSGLSI</td><td>+0.77</td></tr><tr><td>BIOPRO / LBXSGL</td><td>+0.77</td></tr><tr><td>GHB / LBXGH</td><td>+0.66</td></tr><tr><td>DIQ / DID040 / MISSING</td><td>-0.55</td></tr><tr><td>DIQ / DIQ160 / MISSING</td><td>+0.52</td></tr><tr><td>DIQ / DIQ180 / MISSING</td><td>+0.51</td></tr><tr><td>DIQ / DIQ010</td><td>-0.51</td></tr><tr><td>DIQ / DIQ070 / MISSING</td><td>-0.43</td></tr><tr><td>DIQ / DIQ050</td><td>-0.43</td></tr><tr><td>TRIGLY / LBXTR / MISSING</td><td>-0.39</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 111</h3>
+            <p>cardio history</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>-0.433</dd>
+            <dt>active</dt><dd>54.8%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>BIOPRO / LBXSBU</td><td>+0.56</td></tr><tr><td>BIOPRO / LBDSBUSI</td><td>+0.56</td></tr><tr><td>DEMO / RIDAGEYR</td><td>+0.51</td></tr><tr><td>BPQ / BPQ100D / MISSING</td><td>-0.48</td></tr><tr><td>RXQ RX / RXQSEEN / MISSING</td><td>-0.46</td></tr><tr><td>RXQ RX / RXDDAYS / MISSING</td><td>-0.46</td></tr><tr><td>BPQ / BPQ050A / MISSING</td><td>-0.46</td></tr><tr><td>BIOPRO / LBDSCRSI</td><td>+0.45</td></tr><tr><td>BIOPRO / LBXSCR</td><td>+0.45</td></tr><tr><td>BPX / BPXDI3</td><td>-0.45</td></tr><tr><td>BPQ / BPD035 / MISSING</td><td>-0.45</td></tr><tr><td>BPQ / BPQ040A / MISSING</td><td>-0.45</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 24</h3>
+            <p>blood counts</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>+0.389</dd>
+            <dt>active</dt><dd>35.3%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>DEMO / RIAGENDR</td><td>-0.53</td></tr><tr><td>CBC / LBXHCT</td><td>+0.51</td></tr><tr><td>CBC / LBXHGB</td><td>+0.51</td></tr><tr><td>BMX / BMXHT</td><td>+0.50</td></tr><tr><td>CBC / LBXRBCSI</td><td>+0.47</td></tr><tr><td>BMX / BMXLEG</td><td>+0.43</td></tr><tr><td>BMX / BMXARML</td><td>+0.41</td></tr><tr><td>SMQ / SMQ890</td><td>-0.36</td></tr><tr><td>BIOPRO / LBXSTB</td><td>+0.36</td></tr><tr><td>BIOPRO / LBDSTBSI</td><td>+0.36</td></tr><tr><td>BIOPRO / LBXSATSI</td><td>+0.34</td></tr><tr><td>BIOPRO / LBXSUA</td><td>+0.34</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 100</h3>
+            <p>lipids glucose</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>+0.355</dd>
+            <dt>active</dt><dd>30.1%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>TRIGLY / LBDLDLSI</td><td>+0.81</td></tr><tr><td>TRIGLY / LBDLDL</td><td>+0.81</td></tr><tr><td>TRIGLY / LBDLDLM</td><td>+0.81</td></tr><tr><td>TRIGLY / LBDLDMSI</td><td>+0.81</td></tr><tr><td>TRIGLY / LBDLDLN</td><td>+0.81</td></tr><tr><td>TRIGLY / LBDLDNSI</td><td>+0.81</td></tr><tr><td>BIOPRO / LBDSCHSI</td><td>+0.55</td></tr><tr><td>TCHOL / LBXTC</td><td>+0.55</td></tr><tr><td>TCHOL / LBDTCSI</td><td>+0.55</td></tr><tr><td>BIOPRO / LBXSCH</td><td>+0.55</td></tr><tr><td>TRIGLY / LBDLDNSI / MISSING</td><td>-0.53</td></tr><tr><td>TRIGLY / LBDLDLN / MISSING</td><td>-0.53</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 64</h3>
+            <p>renal liver biochem</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>+0.352</dd>
+            <dt>active</dt><dd>36.4%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>BIOPRO / LBXSBU</td><td>+0.50</td></tr><tr><td>BIOPRO / LBDSBUSI</td><td>+0.50</td></tr><tr><td>BIOPRO / LBDSCRSI</td><td>+0.47</td></tr><tr><td>BIOPRO / LBXSCR</td><td>+0.47</td></tr><tr><td>BIOPRO / LBXSOSSI</td><td>+0.39</td></tr><tr><td>BPX / BPAARM / MISSING</td><td>-0.38</td></tr><tr><td>BPX / BPACSZ / MISSING</td><td>-0.37</td></tr><tr><td>BPX / BPXPTY / MISSING</td><td>-0.36</td></tr><tr><td>BPX / BPXPULS / MISSING</td><td>-0.36</td></tr><tr><td>BPX / BPXPLS / MISSING</td><td>-0.36</td></tr><tr><td>MCQ / MCQ520 / MISSING</td><td>-0.36</td></tr><tr><td>DEMO / DMDMARTL / MISSING</td><td>-0.36</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 99</h3>
+            <p>renal liver biochem</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>+0.323</dd>
+            <dt>active</dt><dd>36.1%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>MCQ / MCQ560</td><td>-0.36</td></tr><tr><td>BIOPRO / LBXSGTSI</td><td>+0.34</td></tr><tr><td>MCQ / MCQ550</td><td>-0.33</td></tr><tr><td>BIOPRO / LBXSAPSI</td><td>+0.31</td></tr><tr><td>BIOPRO / LBXSASSI</td><td>+0.27</td></tr><tr><td>BMX / BMXLEG</td><td>-0.27</td></tr><tr><td>CBC / LBDNENO</td><td>+0.27</td></tr><tr><td>DIQ / DIQ070</td><td>+0.26</td></tr><tr><td>BIOPRO / LBXSATSI</td><td>+0.24</td></tr><tr><td>BMX / BMXHT</td><td>-0.24</td></tr><tr><td>DIQ / DIQ160</td><td>-0.24</td></tr><tr><td>BMX / BMXARML</td><td>-0.22</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 42</h3>
+            <p>lipids glucose</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>+0.317</dd>
+            <dt>active</dt><dd>27.9%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>BIOPRO / LBDSTRSI</td><td>+0.65</td></tr><tr><td>BIOPRO / LBXSTR</td><td>+0.65</td></tr><tr><td>TCHOL / LBXTC</td><td>+0.53</td></tr><tr><td>TCHOL / LBDTCSI</td><td>+0.53</td></tr><tr><td>BIOPRO / LBXSCH</td><td>+0.52</td></tr><tr><td>BIOPRO / LBDSCHSI</td><td>+0.52</td></tr><tr><td>TRIGLY / LBDLDLM / MISSING</td><td>+0.27</td></tr><tr><td>TRIGLY / LBDLDLSI / MISSING</td><td>+0.27</td></tr><tr><td>TRIGLY / LBDLDL / MISSING</td><td>+0.27</td></tr><tr><td>TRIGLY / LBDLDMSI / MISSING</td><td>+0.27</td></tr><tr><td>BIOPRO / LBXSCLSI</td><td>-0.25</td></tr><tr><td>TRIGLY / LBDTRSI</td><td>+0.24</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 21</h3>
+            <p>adiposity body size</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>-0.316</dd>
+            <dt>active</dt><dd>44.0%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>RXQ RX / RXDUSE</td><td>+0.61</td></tr><tr><td>DEMO / DMDHRAGZ</td><td>-0.59</td></tr><tr><td>BPQ / BPQ060 / MISSING</td><td>-0.50</td></tr><tr><td>BPQ / BPQ060</td><td>+0.49</td></tr><tr><td>DIQ / DIQ170 / MISSING</td><td>-0.49</td></tr><tr><td>DIQ / DIQ172 / MISSING</td><td>-0.48</td></tr><tr><td>DEMO / RIDAGEYR</td><td>-0.47</td></tr><tr><td>MCQ / MCQ366B</td><td>+0.46</td></tr><tr><td>MCQ / OSQ230 / MISSING</td><td>+0.44</td></tr><tr><td>MCQ / MCQ371C</td><td>+0.44</td></tr><tr><td>DEMO / DMDHHSZE</td><td>-0.44</td></tr><tr><td>DEMO / AIALANGA / MISSING</td><td>-0.42</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 62</h3>
+            <p>renal liver biochem</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>+0.300</dd>
+            <dt>active</dt><dd>30.0%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>BIOPRO / LBXSBU</td><td>+0.43</td></tr><tr><td>BIOPRO / LBDSBUSI</td><td>+0.43</td></tr><tr><td>HDL / LBDHDDSI</td><td>+0.39</td></tr><tr><td>HDL / LBDHDD</td><td>+0.39</td></tr><tr><td>BIOPRO / LBDSCRSI</td><td>+0.32</td></tr><tr><td>BIOPRO / LBXSCR</td><td>+0.32</td></tr><tr><td>BIOPRO / LBXSUA</td><td>+0.28</td></tr><tr><td>BIOPRO / LBDSUASI</td><td>+0.28</td></tr><tr><td>BIOPRO / LBXSOSSI</td><td>+0.28</td></tr><tr><td>TRIGLY / LBXTR / MISSING</td><td>-0.23</td></tr><tr><td>BIOPRO / LBXSCA</td><td>+0.22</td></tr><tr><td>BIOPRO / LBDSCASI</td><td>+0.21</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 85</h3>
+            <p>mental health sleep</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>+0.263</dd>
+            <dt>active</dt><dd>15.4%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>DPQ / DPQ090</td><td>+0.62</td></tr><tr><td>HSQ / HSQ571</td><td>-0.44</td></tr><tr><td>DPQ / DPQ060</td><td>+0.28</td></tr><tr><td>DPQ / DPQ020</td><td>+0.27</td></tr><tr><td>DPQ / DPQ100</td><td>+0.26</td></tr><tr><td>DPQ / DPQ070</td><td>+0.25</td></tr><tr><td>DPQ / DPQ010</td><td>+0.21</td></tr><tr><td>DPQ / DPQ080</td><td>+0.19</td></tr><tr><td>DPQ / DPQ030</td><td>+0.17</td></tr><tr><td>DPQ / DPQ100 / MISSING</td><td>-0.16</td></tr><tr><td>DPQ / DPQ040</td><td>+0.16</td></tr><tr><td>ALQ / ALQ170</td><td>+0.15</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 49</h3>
+            <p>general health utilization</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>+0.209</dd>
+            <dt>active</dt><dd>34.4%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>BMX / BMDSTATS</td><td>+0.57</td></tr><tr><td>DEMO / SIAPROXY</td><td>-0.53</td></tr><tr><td>DEMO / MIAPROXY</td><td>-0.36</td></tr><tr><td>BPXO / BPXOSY2 / MISSING</td><td>+0.33</td></tr><tr><td>BPXO / BPXODI2 / MISSING</td><td>+0.33</td></tr><tr><td>BPXO / BPXODI3 / MISSING</td><td>+0.33</td></tr><tr><td>BPXO / BPXOSY3 / MISSING</td><td>+0.33</td></tr><tr><td>BPXO / BPXODI1 / MISSING</td><td>+0.33</td></tr><tr><td>BPXO / BPXOSY1 / MISSING</td><td>+0.33</td></tr><tr><td>BPXO / BPAOCSZ / MISSING</td><td>+0.32</td></tr><tr><td>BMX / BMXWAIST / MISSING</td><td>+0.31</td></tr><tr><td>DPQ / DPQ050 / MISSING</td><td>+0.30</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 03</h3>
+            <p>adiposity body size</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>+0.200</dd>
+            <dt>active</dt><dd>39.2%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>MCQ / MCQ550</td><td>-0.39</td></tr><tr><td>MCQ / MCQ560</td><td>-0.37</td></tr><tr><td>BPX / BPXDI3</td><td>-0.33</td></tr><tr><td>BPX / BPXDI2</td><td>-0.33</td></tr><tr><td>BPX / BPXDI1</td><td>-0.32</td></tr><tr><td>DEMO / INDFMIN2</td><td>+0.25</td></tr><tr><td>BMX / BMXHIP</td><td>+0.24</td></tr><tr><td>DEMO / INDHHIN2</td><td>+0.24</td></tr><tr><td>MCQ / MCQ160G</td><td>-0.23</td></tr><tr><td>ALQ / ALQ111</td><td>+0.23</td></tr><tr><td>BMX / BMXBMI</td><td>+0.23</td></tr><tr><td>MCQ / MCQ092</td><td>-0.20</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 82</h3>
+            <p>mental health sleep</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>-0.196</dd>
+            <dt>active</dt><dd>28.4%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>TCHOL / LBXTC / MISSING</td><td>+0.96</td></tr><tr><td>HDL / LBDHDD / MISSING</td><td>+0.96</td></tr><tr><td>HDL / LBDHDDSI / MISSING</td><td>+0.96</td></tr><tr><td>TCHOL / LBDTCSI / MISSING</td><td>+0.96</td></tr><tr><td>BIOPRO / LBXSNASI / MISSING</td><td>+0.96</td></tr><tr><td>BIOPRO / LBDSALSI / MISSING</td><td>+0.96</td></tr><tr><td>BIOPRO / LBXSAL / MISSING</td><td>+0.96</td></tr><tr><td>GHB / LBXGH / MISSING</td><td>+0.96</td></tr><tr><td>BIOPRO / LBXSIR / MISSING</td><td>+0.96</td></tr><tr><td>BIOPRO / LBDSIRSI / MISSING</td><td>+0.96</td></tr><tr><td>BIOPRO / LBDSTPSI / MISSING</td><td>+0.96</td></tr><tr><td>BIOPRO / LBXSGB / MISSING</td><td>+0.96</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 26</h3>
+            <p>renal liver biochem</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>+0.182</dd>
+            <dt>active</dt><dd>25.9%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>BIOPRO / LBDSGBSI</td><td>+0.38</td></tr><tr><td>BIOPRO / LBXSGB</td><td>+0.38</td></tr><tr><td>BIOPRO / LBXSGTSI</td><td>+0.36</td></tr><tr><td>BIOPRO / LBXSASSI</td><td>+0.33</td></tr><tr><td>CBC / LBXNEPCT</td><td>-0.31</td></tr><tr><td>CBC / LBXLYPCT</td><td>+0.25</td></tr><tr><td>CBC / LBDNENO</td><td>-0.24</td></tr><tr><td>CBC / LBXMOPCT</td><td>+0.24</td></tr><tr><td>BIOPRO / LBXSTP</td><td>+0.23</td></tr><tr><td>BIOPRO / LBDSTPSI</td><td>+0.23</td></tr><tr><td>BIOPRO / LBXSOSSI</td><td>-0.22</td></tr><tr><td>CBC / LBXMCVSI</td><td>+0.20</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 02</h3>
+            <p>respiratory smoking</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>-0.167</dd>
+            <dt>active</dt><dd>2.7%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>MCQ / MCQ160G</td><td>-0.19</td></tr><tr><td>BMX / BMDSTATS</td><td>+0.16</td></tr><tr><td>MCQ / MCQ160K</td><td>-0.14</td></tr><tr><td>MCQ / MCQ160O</td><td>-0.14</td></tr><tr><td>DPQ / DPQ070</td><td>+0.12</td></tr><tr><td>MCQ / MCQ053</td><td>-0.12</td></tr><tr><td>SMQ / SMQ900</td><td>-0.11</td></tr><tr><td>BIOPRO / LBXSOSSI</td><td>-0.10</td></tr><tr><td>BIOPRO / LBXSCLSI</td><td>-0.10</td></tr><tr><td>BIOPRO / LBXSNASI</td><td>-0.10</td></tr><tr><td>MCQ / MCQ160D</td><td>-0.10</td></tr><tr><td>ALQ / ALQ151</td><td>-0.09</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 91</h3>
+            <p>diabetes</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>+0.142</dd>
+            <dt>active</dt><dd>34.9%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>PAQ / PAD810Q / MISSING</td><td>-0.96</td></tr><tr><td>PAQ / PAQ650 / MISSING</td><td>+0.96</td></tr><tr><td>DEMO / SIALANG / MISSING</td><td>+0.96</td></tr><tr><td>DEMO / SIAPROXY / MISSING</td><td>+0.96</td></tr><tr><td>DEMO / SIAINTRP / MISSING</td><td>+0.96</td></tr><tr><td>DEMO / DMDHHSZA / MISSING</td><td>+0.96</td></tr><tr><td>DEMO / DMDHHSZB / MISSING</td><td>+0.96</td></tr><tr><td>DEMO / DMDHHSZE / MISSING</td><td>+0.96</td></tr><tr><td>PAQ / PAQ635 / MISSING</td><td>+0.96</td></tr><tr><td>PAQ / PAQ665 / MISSING</td><td>+0.96</td></tr><tr><td>SMQ / SMQ900 / MISSING</td><td>+0.96</td></tr><tr><td>SMQ / SMQ910 / MISSING</td><td>+0.96</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 69</h3>
+            <p>adiposity body size</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>-0.138</dd>
+            <dt>active</dt><dd>10.6%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>DEMO / SIAINTRP</td><td>-0.84</td></tr><tr><td>DEMO / FIAINTRP</td><td>-0.78</td></tr><tr><td>DEMO / MIAINTRP</td><td>-0.69</td></tr><tr><td>DEMO / RIDRETH3</td><td>+0.42</td></tr><tr><td>DEMO / DMDBORN4</td><td>+0.38</td></tr><tr><td>DEMO / DMDCITZN</td><td>+0.30</td></tr><tr><td>DEMO / RIDRETH1</td><td>+0.28</td></tr><tr><td>DEMO / AIALANGA</td><td>+0.25</td></tr><tr><td>BMX / BMXARML</td><td>-0.17</td></tr><tr><td>PAQ / PAQ635</td><td>-0.16</td></tr><tr><td>DEMO / DMDHSEDZ / MISSING</td><td>-0.15</td></tr><tr><td>BMX / BMXWT</td><td>-0.15</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+
+        <article class="feature">
+          <div class="feature-head">
+            <h3>Unit 81</h3>
+            <p>cardio history</p>
+          </div>
+          <dl class="stats">
+            <dt>anchor r</dt><dd>-0.131</dd>
+            <dt>active</dt><dd>39.6%</dd>
+          </dl>
+          <table>
+            <thead><tr><th>Top NHANES field</th><th>r</th></tr></thead>
+            <tbody>
+              <tr><td>DEMO / INDHHIN2</td><td>+0.43</td></tr><tr><td>DEMO / INDFMIN2</td><td>+0.43</td></tr><tr><td>BPXO / BPXOPLS1</td><td>+0.39</td></tr><tr><td>BPXO / BPXOPLS2</td><td>+0.39</td></tr><tr><td>BPXO / BPXOPLS3</td><td>+0.38</td></tr><tr><td>BPX / BPXPLS</td><td>+0.31</td></tr><tr><td>DEMO / DMDHSEDZ / MISSING</td><td>-0.30</td></tr><tr><td>BPXO / BPAOMNTS / MISSING</td><td>-0.28</td></tr><tr><td>DEMO / INDFMPIR</td><td>+0.27</td></tr><tr><td>DEMO / MIAPROXY / MISSING</td><td>-0.26</td></tr><tr><td>DEMO / MIAINTRP / MISSING</td><td>-0.26</td></tr><tr><td>DEMO / MIALANG / MISSING</td><td>-0.26</td></tr>
+            </tbody>
+          </table>
+        </article>
+        
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,1382 @@
+{
+  "source": "nhanes",
+  "args": {
+    "input": "data/nhanes/processed/nhanes_phenome_raw.parquet",
+    "hidden": 128,
+    "steps": 2200,
+    "batch_size": 512,
+    "lr": 0.014,
+    "l1": 0.006,
+    "min_nonmissing": 0.25,
+    "max_cols": 1000,
+    "seed": 23
+  },
+  "n_participants": 23969,
+  "n_features": 485,
+  "n_observed_fields": 249,
+  "final_loss": 0.32783591747283936,
+  "mean_active_rate": 0.06821832366807126,
+  "anchor_names": [
+    "adiposity_body_size",
+    "blood_pressure",
+    "lipids_glucose",
+    "renal_liver_biochem",
+    "blood_counts",
+    "diabetes",
+    "cardio_history",
+    "respiratory_smoking",
+    "mental_health_sleep",
+    "general_health_utilization"
+  ],
+  "cards": [
+    {
+      "unit": 18,
+      "anchor": "cardio_history",
+      "anchor_correlation": -0.7611262798309326,
+      "active_rate": 0.30939964120322083,
+      "top_fields": [
+        {
+          "field": "MCQ__MCQ160E",
+          "correlation": -0.6397389769554138
+        },
+        {
+          "field": "MCQ__MCQ160B",
+          "correlation": -0.6047050952911377
+        },
+        {
+          "field": "MCQ__MCQ160D",
+          "correlation": -0.5971528887748718
+        },
+        {
+          "field": "MCQ__MCQ160C",
+          "correlation": -0.5840036273002625
+        },
+        {
+          "field": "RXQ_RX__RXDCOUNT",
+          "correlation": 0.5466253757476807
+        },
+        {
+          "field": "MCQ__MCQ160O",
+          "correlation": -0.4414355456829071
+        },
+        {
+          "field": "DIQ__DIQ050",
+          "correlation": -0.3858296573162079
+        },
+        {
+          "field": "DIQ__DID040__MISSING",
+          "correlation": -0.36207273602485657
+        },
+        {
+          "field": "MCQ__MCQ366C",
+          "correlation": -0.35881784558296204
+        },
+        {
+          "field": "MCQ__MCQ366D",
+          "correlation": -0.3477061092853546
+        },
+        {
+          "field": "DIQ__DIQ010",
+          "correlation": -0.34599611163139343
+        },
+        {
+          "field": "DIQ__DIQ180__MISSING",
+          "correlation": 0.34496426582336426
+        }
+      ]
+    },
+    {
+      "unit": 14,
+      "anchor": "adiposity_body_size",
+      "anchor_correlation": 0.7450592517852783,
+      "active_rate": 0.5870499395051942,
+      "top_fields": [
+        {
+          "field": "BMX__BMXBMI",
+          "correlation": 0.7600046396255493
+        },
+        {
+          "field": "BMX__BMXHIP",
+          "correlation": 0.7195149064064026
+        },
+        {
+          "field": "BMX__BMXWT",
+          "correlation": 0.6962555646896362
+        },
+        {
+          "field": "BMX__BMXARMC",
+          "correlation": 0.6700467467308044
+        },
+        {
+          "field": "BMX__BMXWAIST",
+          "correlation": 0.66946941614151
+        },
+        {
+          "field": "MCQ__MCQ080",
+          "correlation": -0.5869681239128113
+        },
+        {
+          "field": "MCQ__MCQ366A",
+          "correlation": -0.5589842200279236
+        },
+        {
+          "field": "BPX__BPACSZ",
+          "correlation": 0.5441882014274597
+        },
+        {
+          "field": "BPXO__BPAOCSZ",
+          "correlation": 0.5296398401260376
+        },
+        {
+          "field": "MCQ__MCQ366D",
+          "correlation": -0.44515323638916016
+        },
+        {
+          "field": "DEMO__AIALANGA__MISSING",
+          "correlation": -0.3596165180206299
+        },
+        {
+          "field": "SLQ__SLQ050",
+          "correlation": -0.3383443355560303
+        }
+      ]
+    },
+    {
+      "unit": 98,
+      "anchor": "mental_health_sleep",
+      "anchor_correlation": 0.6914670467376709,
+      "active_rate": 0.23275898034961826,
+      "top_fields": [
+        {
+          "field": "DPQ__DPQ020",
+          "correlation": 0.6803364157676697
+        },
+        {
+          "field": "DPQ__DPQ100",
+          "correlation": 0.6454838514328003
+        },
+        {
+          "field": "DPQ__DPQ010",
+          "correlation": 0.6353573799133301
+        },
+        {
+          "field": "DPQ__DPQ080",
+          "correlation": 0.6057385206222534
+        },
+        {
+          "field": "DPQ__DPQ070",
+          "correlation": 0.600973904132843
+        },
+        {
+          "field": "DPQ__DPQ060",
+          "correlation": 0.592052698135376
+        },
+        {
+          "field": "DPQ__DPQ040",
+          "correlation": 0.5266212821006775
+        },
+        {
+          "field": "DPQ__DPQ050",
+          "correlation": 0.5261781811714172
+        },
+        {
+          "field": "DPQ__DPQ030",
+          "correlation": 0.5067404508590698
+        },
+        {
+          "field": "DPQ__DPQ090",
+          "correlation": 0.394008070230484
+        },
+        {
+          "field": "HSQ__HSD010",
+          "correlation": 0.34935104846954346
+        },
+        {
+          "field": "SLQ__SLQ050",
+          "correlation": -0.3484724760055542
+        }
+      ]
+    },
+    {
+      "unit": 90,
+      "anchor": "blood_pressure",
+      "anchor_correlation": 0.6683713793754578,
+      "active_rate": 0.3210396762484876,
+      "top_fields": [
+        {
+          "field": "BPX__BPXML1",
+          "correlation": 0.7542557120323181
+        },
+        {
+          "field": "BPX__BPXSY3",
+          "correlation": 0.7496498823165894
+        },
+        {
+          "field": "BPX__BPXSY2",
+          "correlation": 0.7378297448158264
+        },
+        {
+          "field": "BPX__BPXSY1",
+          "correlation": 0.7101591229438782
+        },
+        {
+          "field": "BPXO__BPXOSY1",
+          "correlation": 0.6960186958312988
+        },
+        {
+          "field": "BPXO__BPXOSY2",
+          "correlation": 0.6934993863105774
+        },
+        {
+          "field": "BPXO__BPXOSY3",
+          "correlation": 0.6856142282485962
+        },
+        {
+          "field": "BPXO__BPXODI1",
+          "correlation": 0.45116397738456726
+        },
+        {
+          "field": "BPXO__BPXODI2",
+          "correlation": 0.4443223774433136
+        },
+        {
+          "field": "BPXO__BPXODI3",
+          "correlation": 0.43508288264274597
+        },
+        {
+          "field": "BPXO__BPAOMNTS__MISSING",
+          "correlation": -0.377777099609375
+        },
+        {
+          "field": "BPQ__BPQ040A__MISSING",
+          "correlation": -0.3768235743045807
+        }
+      ]
+    },
+    {
+      "unit": 55,
+      "anchor": "respiratory_smoking",
+      "anchor_correlation": -0.5551068782806396,
+      "active_rate": 0.3961783970962493,
+      "top_fields": [
+        {
+          "field": "MCQ__MCQ160O",
+          "correlation": -0.6218621730804443
+        },
+        {
+          "field": "MCQ__MCQ160G",
+          "correlation": -0.5585042834281921
+        },
+        {
+          "field": "SMQ__SMD030__MISSING",
+          "correlation": -0.4881882965564728
+        },
+        {
+          "field": "MCQ__MCQ160K",
+          "correlation": -0.453705370426178
+        },
+        {
+          "field": "DEMO__DMDMARTL__MISSING",
+          "correlation": -0.37415024638175964
+        },
+        {
+          "field": "MCQ__MCQ520__MISSING",
+          "correlation": -0.373811274766922
+        },
+        {
+          "field": "MCQ__MCQ160N__MISSING",
+          "correlation": -0.37364399433135986
+        },
+        {
+          "field": "MCQ__MCQ160O__MISSING",
+          "correlation": -0.3729858100414276
+        },
+        {
+          "field": "MCQ__MCQ160K__MISSING",
+          "correlation": -0.3719630539417267
+        },
+        {
+          "field": "RXQ_RX__RXQSEEN__MISSING",
+          "correlation": -0.37053361535072327
+        },
+        {
+          "field": "RXQ_RX__RXDDAYS__MISSING",
+          "correlation": -0.37036365270614624
+        },
+        {
+          "field": "MCQ__MCQ300C__MISSING",
+          "correlation": -0.3670353591442108
+        }
+      ]
+    },
+    {
+      "unit": 76,
+      "anchor": "diabetes",
+      "anchor_correlation": -0.4902554750442505,
+      "active_rate": 0.46280612457757936,
+      "top_fields": [
+        {
+          "field": "BIOPRO__LBDSGLSI",
+          "correlation": 0.6344438791275024
+        },
+        {
+          "field": "BIOPRO__LBXSGL",
+          "correlation": 0.6322737336158752
+        },
+        {
+          "field": "GHB__LBXGH",
+          "correlation": 0.6294842958450317
+        },
+        {
+          "field": "DIQ__DIQ050",
+          "correlation": -0.5359691381454468
+        },
+        {
+          "field": "DIQ__DID040__MISSING",
+          "correlation": -0.5192790031433105
+        },
+        {
+          "field": "DIQ__DIQ160__MISSING",
+          "correlation": 0.48520535230636597
+        },
+        {
+          "field": "DIQ__DIQ180__MISSING",
+          "correlation": 0.48360714316368103
+        },
+        {
+          "field": "DIQ__DIQ010",
+          "correlation": -0.4817625880241394
+        },
+        {
+          "field": "GLU__LBXGLU",
+          "correlation": 0.47041282057762146
+        },
+        {
+          "field": "GLU__LBDGLUSI",
+          "correlation": 0.4703124165534973
+        },
+        {
+          "field": "BIOPRO__LBXSGB",
+          "correlation": 0.4676343500614166
+        },
+        {
+          "field": "BIOPRO__LBDSGBSI",
+          "correlation": 0.4676343500614166
+        }
+      ]
+    },
+    {
+      "unit": 113,
+      "anchor": "lipids_glucose",
+      "anchor_correlation": 0.481240451335907,
+      "active_rate": 0.42187825941841545,
+      "top_fields": [
+        {
+          "field": "GLU__LBDGLUSI",
+          "correlation": 0.7810949683189392
+        },
+        {
+          "field": "GLU__LBXGLU",
+          "correlation": 0.780773401260376
+        },
+        {
+          "field": "BIOPRO__LBDSGLSI",
+          "correlation": 0.7681528925895691
+        },
+        {
+          "field": "BIOPRO__LBXSGL",
+          "correlation": 0.7668598890304565
+        },
+        {
+          "field": "GHB__LBXGH",
+          "correlation": 0.6635565757751465
+        },
+        {
+          "field": "DIQ__DID040__MISSING",
+          "correlation": -0.5469043254852295
+        },
+        {
+          "field": "DIQ__DIQ160__MISSING",
+          "correlation": 0.5159035325050354
+        },
+        {
+          "field": "DIQ__DIQ180__MISSING",
+          "correlation": 0.5125746726989746
+        },
+        {
+          "field": "DIQ__DIQ010",
+          "correlation": -0.5070970058441162
+        },
+        {
+          "field": "DIQ__DIQ070__MISSING",
+          "correlation": -0.4312165379524231
+        },
+        {
+          "field": "DIQ__DIQ050",
+          "correlation": -0.4272025525569916
+        },
+        {
+          "field": "TRIGLY__LBXTR__MISSING",
+          "correlation": -0.3929837942123413
+        }
+      ]
+    },
+    {
+      "unit": 111,
+      "anchor": "cardio_history",
+      "anchor_correlation": -0.4329809248447418,
+      "active_rate": 0.5484167049105094,
+      "top_fields": [
+        {
+          "field": "BIOPRO__LBXSBU",
+          "correlation": 0.5600652694702148
+        },
+        {
+          "field": "BIOPRO__LBDSBUSI",
+          "correlation": 0.5598511695861816
+        },
+        {
+          "field": "DEMO__RIDAGEYR",
+          "correlation": 0.5084512829780579
+        },
+        {
+          "field": "BPQ__BPQ100D__MISSING",
+          "correlation": -0.47582176327705383
+        },
+        {
+          "field": "RXQ_RX__RXQSEEN__MISSING",
+          "correlation": -0.4562057852745056
+        },
+        {
+          "field": "RXQ_RX__RXDDAYS__MISSING",
+          "correlation": -0.4559735059738159
+        },
+        {
+          "field": "BPQ__BPQ050A__MISSING",
+          "correlation": -0.45576250553131104
+        },
+        {
+          "field": "BIOPRO__LBDSCRSI",
+          "correlation": 0.45449578762054443
+        },
+        {
+          "field": "BIOPRO__LBXSCR",
+          "correlation": 0.4544907510280609
+        },
+        {
+          "field": "BPX__BPXDI3",
+          "correlation": -0.4535306692123413
+        },
+        {
+          "field": "BPQ__BPD035__MISSING",
+          "correlation": -0.4535271227359772
+        },
+        {
+          "field": "BPQ__BPQ040A__MISSING",
+          "correlation": -0.4528268277645111
+        }
+      ]
+    },
+    {
+      "unit": 24,
+      "anchor": "blood_counts",
+      "anchor_correlation": 0.3892316520214081,
+      "active_rate": 0.35283073970545287,
+      "top_fields": [
+        {
+          "field": "DEMO__RIAGENDR",
+          "correlation": -0.5276116132736206
+        },
+        {
+          "field": "CBC__LBXHCT",
+          "correlation": 0.5140251517295837
+        },
+        {
+          "field": "CBC__LBXHGB",
+          "correlation": 0.5121431350708008
+        },
+        {
+          "field": "BMX__BMXHT",
+          "correlation": 0.4992908835411072
+        },
+        {
+          "field": "CBC__LBXRBCSI",
+          "correlation": 0.4702169597148895
+        },
+        {
+          "field": "BMX__BMXLEG",
+          "correlation": 0.43446916341781616
+        },
+        {
+          "field": "BMX__BMXARML",
+          "correlation": 0.40768471360206604
+        },
+        {
+          "field": "SMQ__SMQ890",
+          "correlation": -0.3604358732700348
+        },
+        {
+          "field": "BIOPRO__LBXSTB",
+          "correlation": 0.35682061314582825
+        },
+        {
+          "field": "BIOPRO__LBDSTBSI",
+          "correlation": 0.35526713728904724
+        },
+        {
+          "field": "BIOPRO__LBXSATSI",
+          "correlation": 0.3448869287967682
+        },
+        {
+          "field": "BIOPRO__LBXSUA",
+          "correlation": 0.3353269100189209
+        }
+      ]
+    },
+    {
+      "unit": 100,
+      "anchor": "lipids_glucose",
+      "anchor_correlation": 0.3549712598323822,
+      "active_rate": 0.3014727356168384,
+      "top_fields": [
+        {
+          "field": "TRIGLY__LBDLDLSI",
+          "correlation": 0.8141542673110962
+        },
+        {
+          "field": "TRIGLY__LBDLDL",
+          "correlation": 0.8141235113143921
+        },
+        {
+          "field": "TRIGLY__LBDLDLM",
+          "correlation": 0.8117188811302185
+        },
+        {
+          "field": "TRIGLY__LBDLDMSI",
+          "correlation": 0.8116947412490845
+        },
+        {
+          "field": "TRIGLY__LBDLDLN",
+          "correlation": 0.8090564608573914
+        },
+        {
+          "field": "TRIGLY__LBDLDNSI",
+          "correlation": 0.8089949488639832
+        },
+        {
+          "field": "BIOPRO__LBDSCHSI",
+          "correlation": 0.5468942523002625
+        },
+        {
+          "field": "TCHOL__LBXTC",
+          "correlation": 0.5468325018882751
+        },
+        {
+          "field": "TCHOL__LBDTCSI",
+          "correlation": 0.5467721819877625
+        },
+        {
+          "field": "BIOPRO__LBXSCH",
+          "correlation": 0.5464137196540833
+        },
+        {
+          "field": "TRIGLY__LBDLDNSI__MISSING",
+          "correlation": -0.5311647653579712
+        },
+        {
+          "field": "TRIGLY__LBDLDLN__MISSING",
+          "correlation": -0.5311647653579712
+        }
+      ]
+    },
+    {
+      "unit": 64,
+      "anchor": "renal_liver_biochem",
+      "anchor_correlation": 0.35216715931892395,
+      "active_rate": 0.3641787308606951,
+      "top_fields": [
+        {
+          "field": "BIOPRO__LBXSBU",
+          "correlation": 0.49651452898979187
+        },
+        {
+          "field": "BIOPRO__LBDSBUSI",
+          "correlation": 0.49631133675575256
+        },
+        {
+          "field": "BIOPRO__LBDSCRSI",
+          "correlation": 0.47415080666542053
+        },
+        {
+          "field": "BIOPRO__LBXSCR",
+          "correlation": 0.47415027022361755
+        },
+        {
+          "field": "BIOPRO__LBXSOSSI",
+          "correlation": 0.39346498250961304
+        },
+        {
+          "field": "BPX__BPAARM__MISSING",
+          "correlation": -0.37691688537597656
+        },
+        {
+          "field": "BPX__BPACSZ__MISSING",
+          "correlation": -0.3737398386001587
+        },
+        {
+          "field": "BPX__BPXPTY__MISSING",
+          "correlation": -0.3649750053882599
+        },
+        {
+          "field": "BPX__BPXPULS__MISSING",
+          "correlation": -0.3649750053882599
+        },
+        {
+          "field": "BPX__BPXPLS__MISSING",
+          "correlation": -0.3649750053882599
+        },
+        {
+          "field": "MCQ__MCQ520__MISSING",
+          "correlation": -0.3640563488006592
+        },
+        {
+          "field": "DEMO__DMDMARTL__MISSING",
+          "correlation": -0.3636898100376129
+        }
+      ]
+    },
+    {
+      "unit": 99,
+      "anchor": "renal_liver_biochem",
+      "anchor_correlation": 0.32320499420166016,
+      "active_rate": 0.36071592473611747,
+      "top_fields": [
+        {
+          "field": "MCQ__MCQ560",
+          "correlation": -0.36097222566604614
+        },
+        {
+          "field": "BIOPRO__LBXSGTSI",
+          "correlation": 0.3393566608428955
+        },
+        {
+          "field": "MCQ__MCQ550",
+          "correlation": -0.3302379250526428
+        },
+        {
+          "field": "BIOPRO__LBXSAPSI",
+          "correlation": 0.3120916187763214
+        },
+        {
+          "field": "BIOPRO__LBXSASSI",
+          "correlation": 0.2708486020565033
+        },
+        {
+          "field": "BMX__BMXLEG",
+          "correlation": -0.26628828048706055
+        },
+        {
+          "field": "CBC__LBDNENO",
+          "correlation": 0.2661801278591156
+        },
+        {
+          "field": "DIQ__DIQ070",
+          "correlation": 0.25738805532455444
+        },
+        {
+          "field": "BIOPRO__LBXSATSI",
+          "correlation": 0.24492308497428894
+        },
+        {
+          "field": "BMX__BMXHT",
+          "correlation": -0.24141639471054077
+        },
+        {
+          "field": "DIQ__DIQ160",
+          "correlation": -0.23616951704025269
+        },
+        {
+          "field": "BMX__BMXARML",
+          "correlation": -0.21832865476608276
+        }
+      ]
+    },
+    {
+      "unit": 42,
+      "anchor": "lipids_glucose",
+      "anchor_correlation": 0.31652340292930603,
+      "active_rate": 0.27894363552922524,
+      "top_fields": [
+        {
+          "field": "BIOPRO__LBDSTRSI",
+          "correlation": 0.6476724743843079
+        },
+        {
+          "field": "BIOPRO__LBXSTR",
+          "correlation": 0.6476213335990906
+        },
+        {
+          "field": "TCHOL__LBXTC",
+          "correlation": 0.5252127647399902
+        },
+        {
+          "field": "TCHOL__LBDTCSI",
+          "correlation": 0.5251083970069885
+        },
+        {
+          "field": "BIOPRO__LBXSCH",
+          "correlation": 0.5245426893234253
+        },
+        {
+          "field": "BIOPRO__LBDSCHSI",
+          "correlation": 0.5244198441505432
+        },
+        {
+          "field": "TRIGLY__LBDLDLM__MISSING",
+          "correlation": 0.26743006706237793
+        },
+        {
+          "field": "TRIGLY__LBDLDLSI__MISSING",
+          "correlation": 0.26743006706237793
+        },
+        {
+          "field": "TRIGLY__LBDLDL__MISSING",
+          "correlation": 0.26743006706237793
+        },
+        {
+          "field": "TRIGLY__LBDLDMSI__MISSING",
+          "correlation": 0.26743006706237793
+        },
+        {
+          "field": "BIOPRO__LBXSCLSI",
+          "correlation": -0.24882973730564117
+        },
+        {
+          "field": "TRIGLY__LBDTRSI",
+          "correlation": 0.24317261576652527
+        }
+      ]
+    },
+    {
+      "unit": 21,
+      "anchor": "adiposity_body_size",
+      "anchor_correlation": -0.31604912877082825,
+      "active_rate": 0.4398598189327882,
+      "top_fields": [
+        {
+          "field": "RXQ_RX__RXDUSE",
+          "correlation": 0.6098811626434326
+        },
+        {
+          "field": "DEMO__DMDHRAGZ",
+          "correlation": -0.5893766283988953
+        },
+        {
+          "field": "BPQ__BPQ060__MISSING",
+          "correlation": -0.4964432418346405
+        },
+        {
+          "field": "BPQ__BPQ060",
+          "correlation": 0.48843663930892944
+        },
+        {
+          "field": "DIQ__DIQ170__MISSING",
+          "correlation": -0.4853987991809845
+        },
+        {
+          "field": "DIQ__DIQ172__MISSING",
+          "correlation": -0.48462098836898804
+        },
+        {
+          "field": "DEMO__RIDAGEYR",
+          "correlation": -0.4716215431690216
+        },
+        {
+          "field": "MCQ__MCQ366B",
+          "correlation": 0.45692557096481323
+        },
+        {
+          "field": "MCQ__OSQ230__MISSING",
+          "correlation": 0.4378342032432556
+        },
+        {
+          "field": "MCQ__MCQ371C",
+          "correlation": 0.43718820810317993
+        },
+        {
+          "field": "DEMO__DMDHHSZE",
+          "correlation": -0.4359739422798157
+        },
+        {
+          "field": "DEMO__AIALANGA__MISSING",
+          "correlation": -0.4204959273338318
+        }
+      ]
+    },
+    {
+      "unit": 62,
+      "anchor": "renal_liver_biochem",
+      "anchor_correlation": 0.29972198605537415,
+      "active_rate": 0.30009595727815097,
+      "top_fields": [
+        {
+          "field": "BIOPRO__LBXSBU",
+          "correlation": 0.4264141321182251
+        },
+        {
+          "field": "BIOPRO__LBDSBUSI",
+          "correlation": 0.42632603645324707
+        },
+        {
+          "field": "HDL__LBDHDDSI",
+          "correlation": 0.3904520869255066
+        },
+        {
+          "field": "HDL__LBDHDD",
+          "correlation": 0.3897706866264343
+        },
+        {
+          "field": "BIOPRO__LBDSCRSI",
+          "correlation": 0.32394513487815857
+        },
+        {
+          "field": "BIOPRO__LBXSCR",
+          "correlation": 0.3239419162273407
+        },
+        {
+          "field": "BIOPRO__LBXSUA",
+          "correlation": 0.2823377847671509
+        },
+        {
+          "field": "BIOPRO__LBDSUASI",
+          "correlation": 0.2823203206062317
+        },
+        {
+          "field": "BIOPRO__LBXSOSSI",
+          "correlation": 0.2811321020126343
+        },
+        {
+          "field": "TRIGLY__LBXTR__MISSING",
+          "correlation": -0.22790414094924927
+        },
+        {
+          "field": "BIOPRO__LBXSCA",
+          "correlation": 0.22300584614276886
+        },
+        {
+          "field": "BIOPRO__LBDSCASI",
+          "correlation": 0.21490539610385895
+        }
+      ]
+    },
+    {
+      "unit": 85,
+      "anchor": "mental_health_sleep",
+      "anchor_correlation": 0.26306411623954773,
+      "active_rate": 0.15357336559722976,
+      "top_fields": [
+        {
+          "field": "DPQ__DPQ090",
+          "correlation": 0.6243651509284973
+        },
+        {
+          "field": "HSQ__HSQ571",
+          "correlation": -0.4355965256690979
+        },
+        {
+          "field": "DPQ__DPQ060",
+          "correlation": 0.27546435594558716
+        },
+        {
+          "field": "DPQ__DPQ020",
+          "correlation": 0.2655652165412903
+        },
+        {
+          "field": "DPQ__DPQ100",
+          "correlation": 0.26043465733528137
+        },
+        {
+          "field": "DPQ__DPQ070",
+          "correlation": 0.24659575521945953
+        },
+        {
+          "field": "DPQ__DPQ010",
+          "correlation": 0.20801128447055817
+        },
+        {
+          "field": "DPQ__DPQ080",
+          "correlation": 0.18510611355304718
+        },
+        {
+          "field": "DPQ__DPQ030",
+          "correlation": 0.17348740994930267
+        },
+        {
+          "field": "DPQ__DPQ100__MISSING",
+          "correlation": -0.15795424580574036
+        },
+        {
+          "field": "DPQ__DPQ040",
+          "correlation": 0.15680885314941406
+        },
+        {
+          "field": "ALQ__ALQ170",
+          "correlation": 0.14991387724876404
+        }
+      ]
+    },
+    {
+      "unit": 49,
+      "anchor": "general_health_utilization",
+      "anchor_correlation": 0.20911291241645813,
+      "active_rate": 0.34436146689473907,
+      "top_fields": [
+        {
+          "field": "BMX__BMDSTATS",
+          "correlation": 0.5667981505393982
+        },
+        {
+          "field": "DEMO__SIAPROXY",
+          "correlation": -0.5310036540031433
+        },
+        {
+          "field": "DEMO__MIAPROXY",
+          "correlation": -0.36420196294784546
+        },
+        {
+          "field": "BPXO__BPXOSY2__MISSING",
+          "correlation": 0.3267674744129181
+        },
+        {
+          "field": "BPXO__BPXODI2__MISSING",
+          "correlation": 0.3267674744129181
+        },
+        {
+          "field": "BPXO__BPXODI3__MISSING",
+          "correlation": 0.3263695240020752
+        },
+        {
+          "field": "BPXO__BPXOSY3__MISSING",
+          "correlation": 0.3263695240020752
+        },
+        {
+          "field": "BPXO__BPXODI1__MISSING",
+          "correlation": 0.3252236545085907
+        },
+        {
+          "field": "BPXO__BPXOSY1__MISSING",
+          "correlation": 0.3252236545085907
+        },
+        {
+          "field": "BPXO__BPAOCSZ__MISSING",
+          "correlation": 0.32480719685554504
+        },
+        {
+          "field": "BMX__BMXWAIST__MISSING",
+          "correlation": 0.31383752822875977
+        },
+        {
+          "field": "DPQ__DPQ050__MISSING",
+          "correlation": 0.30079248547554016
+        }
+      ]
+    },
+    {
+      "unit": 3,
+      "anchor": "adiposity_body_size",
+      "anchor_correlation": 0.19972261786460876,
+      "active_rate": 0.39158913596729106,
+      "top_fields": [
+        {
+          "field": "MCQ__MCQ550",
+          "correlation": -0.3894193470478058
+        },
+        {
+          "field": "MCQ__MCQ560",
+          "correlation": -0.365873783826828
+        },
+        {
+          "field": "BPX__BPXDI3",
+          "correlation": -0.32996633648872375
+        },
+        {
+          "field": "BPX__BPXDI2",
+          "correlation": -0.3253912031650543
+        },
+        {
+          "field": "BPX__BPXDI1",
+          "correlation": -0.3191778361797333
+        },
+        {
+          "field": "DEMO__INDFMIN2",
+          "correlation": 0.24590328335762024
+        },
+        {
+          "field": "BMX__BMXHIP",
+          "correlation": 0.2376057654619217
+        },
+        {
+          "field": "DEMO__INDHHIN2",
+          "correlation": 0.23533906042575836
+        },
+        {
+          "field": "MCQ__MCQ160G",
+          "correlation": -0.23254168033599854
+        },
+        {
+          "field": "ALQ__ALQ111",
+          "correlation": 0.23189818859100342
+        },
+        {
+          "field": "BMX__BMXBMI",
+          "correlation": 0.23164749145507812
+        },
+        {
+          "field": "MCQ__MCQ092",
+          "correlation": -0.20476441085338593
+        }
+      ]
+    },
+    {
+      "unit": 82,
+      "anchor": "mental_health_sleep",
+      "anchor_correlation": -0.19558215141296387,
+      "active_rate": 0.2838666611039259,
+      "top_fields": [
+        {
+          "field": "TCHOL__LBXTC__MISSING",
+          "correlation": 0.9601391553878784
+        },
+        {
+          "field": "HDL__LBDHDD__MISSING",
+          "correlation": 0.9601391553878784
+        },
+        {
+          "field": "HDL__LBDHDDSI__MISSING",
+          "correlation": 0.9601391553878784
+        },
+        {
+          "field": "TCHOL__LBDTCSI__MISSING",
+          "correlation": 0.9601391553878784
+        },
+        {
+          "field": "BIOPRO__LBXSNASI__MISSING",
+          "correlation": 0.9594801664352417
+        },
+        {
+          "field": "BIOPRO__LBDSALSI__MISSING",
+          "correlation": 0.9594801664352417
+        },
+        {
+          "field": "BIOPRO__LBXSAL__MISSING",
+          "correlation": 0.9594801664352417
+        },
+        {
+          "field": "GHB__LBXGH__MISSING",
+          "correlation": 0.9590805172920227
+        },
+        {
+          "field": "BIOPRO__LBXSIR__MISSING",
+          "correlation": 0.9588865041732788
+        },
+        {
+          "field": "BIOPRO__LBDSIRSI__MISSING",
+          "correlation": 0.9588865041732788
+        },
+        {
+          "field": "BIOPRO__LBDSTPSI__MISSING",
+          "correlation": 0.9585530757904053
+        },
+        {
+          "field": "BIOPRO__LBXSGB__MISSING",
+          "correlation": 0.9585530757904053
+        }
+      ]
+    },
+    {
+      "unit": 26,
+      "anchor": "renal_liver_biochem",
+      "anchor_correlation": 0.18150120973587036,
+      "active_rate": 0.25933497434185826,
+      "top_fields": [
+        {
+          "field": "BIOPRO__LBDSGBSI",
+          "correlation": 0.3809652030467987
+        },
+        {
+          "field": "BIOPRO__LBXSGB",
+          "correlation": 0.3809652030467987
+        },
+        {
+          "field": "BIOPRO__LBXSGTSI",
+          "correlation": 0.364502876996994
+        },
+        {
+          "field": "BIOPRO__LBXSASSI",
+          "correlation": 0.32950326800346375
+        },
+        {
+          "field": "CBC__LBXNEPCT",
+          "correlation": -0.3124971091747284
+        },
+        {
+          "field": "CBC__LBXLYPCT",
+          "correlation": 0.25361496210098267
+        },
+        {
+          "field": "CBC__LBDNENO",
+          "correlation": -0.24466034770011902
+        },
+        {
+          "field": "CBC__LBXMOPCT",
+          "correlation": 0.23985573649406433
+        },
+        {
+          "field": "BIOPRO__LBXSTP",
+          "correlation": 0.22948682308197021
+        },
+        {
+          "field": "BIOPRO__LBDSTPSI",
+          "correlation": 0.22948682308197021
+        },
+        {
+          "field": "BIOPRO__LBXSOSSI",
+          "correlation": -0.22351853549480438
+        },
+        {
+          "field": "CBC__LBXMCVSI",
+          "correlation": 0.19977335631847382
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "anchor": "respiratory_smoking",
+      "anchor_correlation": -0.16658137738704681,
+      "active_rate": 0.026701155659393384,
+      "top_fields": [
+        {
+          "field": "MCQ__MCQ160G",
+          "correlation": -0.18788015842437744
+        },
+        {
+          "field": "BMX__BMDSTATS",
+          "correlation": 0.16348953545093536
+        },
+        {
+          "field": "MCQ__MCQ160K",
+          "correlation": -0.1402147114276886
+        },
+        {
+          "field": "MCQ__MCQ160O",
+          "correlation": -0.13554245233535767
+        },
+        {
+          "field": "DPQ__DPQ070",
+          "correlation": 0.12070133537054062
+        },
+        {
+          "field": "MCQ__MCQ053",
+          "correlation": -0.11986622959375381
+        },
+        {
+          "field": "SMQ__SMQ900",
+          "correlation": -0.11038525402545929
+        },
+        {
+          "field": "BIOPRO__LBXSOSSI",
+          "correlation": -0.104829803109169
+        },
+        {
+          "field": "BIOPRO__LBXSCLSI",
+          "correlation": -0.10345261543989182
+        },
+        {
+          "field": "BIOPRO__LBXSNASI",
+          "correlation": -0.10162555426359177
+        },
+        {
+          "field": "MCQ__MCQ160D",
+          "correlation": -0.09787563234567642
+        },
+        {
+          "field": "ALQ__ALQ151",
+          "correlation": -0.09464767575263977
+        }
+      ]
+    },
+    {
+      "unit": 91,
+      "anchor": "diabetes",
+      "anchor_correlation": 0.1415284126996994,
+      "active_rate": 0.3491593308022863,
+      "top_fields": [
+        {
+          "field": "PAQ__PAD810Q__MISSING",
+          "correlation": -0.9627574682235718
+        },
+        {
+          "field": "PAQ__PAQ650__MISSING",
+          "correlation": 0.9624306559562683
+        },
+        {
+          "field": "DEMO__SIALANG__MISSING",
+          "correlation": 0.9624306559562683
+        },
+        {
+          "field": "DEMO__SIAPROXY__MISSING",
+          "correlation": 0.9624306559562683
+        },
+        {
+          "field": "DEMO__SIAINTRP__MISSING",
+          "correlation": 0.9624306559562683
+        },
+        {
+          "field": "DEMO__DMDHHSZA__MISSING",
+          "correlation": 0.9624306559562683
+        },
+        {
+          "field": "DEMO__DMDHHSZB__MISSING",
+          "correlation": 0.9624306559562683
+        },
+        {
+          "field": "DEMO__DMDHHSZE__MISSING",
+          "correlation": 0.9624306559562683
+        },
+        {
+          "field": "PAQ__PAQ635__MISSING",
+          "correlation": 0.9624306559562683
+        },
+        {
+          "field": "PAQ__PAQ665__MISSING",
+          "correlation": 0.9624306559562683
+        },
+        {
+          "field": "SMQ__SMQ900__MISSING",
+          "correlation": 0.9623011350631714
+        },
+        {
+          "field": "SMQ__SMQ910__MISSING",
+          "correlation": 0.9623011350631714
+        }
+      ]
+    },
+    {
+      "unit": 69,
+      "anchor": "adiposity_body_size",
+      "anchor_correlation": -0.13846538960933685,
+      "active_rate": 0.10580332930034628,
+      "top_fields": [
+        {
+          "field": "DEMO__SIAINTRP",
+          "correlation": -0.8408015966415405
+        },
+        {
+          "field": "DEMO__FIAINTRP",
+          "correlation": -0.7804341316223145
+        },
+        {
+          "field": "DEMO__MIAINTRP",
+          "correlation": -0.6893651485443115
+        },
+        {
+          "field": "DEMO__RIDRETH3",
+          "correlation": 0.4177967607975006
+        },
+        {
+          "field": "DEMO__DMDBORN4",
+          "correlation": 0.37585198879241943
+        },
+        {
+          "field": "DEMO__DMDCITZN",
+          "correlation": 0.2971964180469513
+        },
+        {
+          "field": "DEMO__RIDRETH1",
+          "correlation": 0.28171056509017944
+        },
+        {
+          "field": "DEMO__AIALANGA",
+          "correlation": 0.2507009208202362
+        },
+        {
+          "field": "BMX__BMXARML",
+          "correlation": -0.16542157530784607
+        },
+        {
+          "field": "PAQ__PAQ635",
+          "correlation": -0.1609867811203003
+        },
+        {
+          "field": "DEMO__DMDHSEDZ__MISSING",
+          "correlation": -0.15292038023471832
+        },
+        {
+          "field": "BMX__BMXWT",
+          "correlation": -0.14999963343143463
+        }
+      ]
+    },
+    {
+      "unit": 81,
+      "anchor": "cardio_history",
+      "anchor_correlation": -0.1308344155550003,
+      "active_rate": 0.39638699987483833,
+      "top_fields": [
+        {
+          "field": "DEMO__INDHHIN2",
+          "correlation": 0.43185630440711975
+        },
+        {
+          "field": "DEMO__INDFMIN2",
+          "correlation": 0.4301047623157501
+        },
+        {
+          "field": "BPXO__BPXOPLS1",
+          "correlation": 0.3934640884399414
+        },
+        {
+          "field": "BPXO__BPXOPLS2",
+          "correlation": 0.3884298503398895
+        },
+        {
+          "field": "BPXO__BPXOPLS3",
+          "correlation": 0.37901031970977783
+        },
+        {
+          "field": "BPX__BPXPLS",
+          "correlation": 0.30603212118148804
+        },
+        {
+          "field": "DEMO__DMDHSEDZ__MISSING",
+          "correlation": -0.2989654839038849
+        },
+        {
+          "field": "BPXO__BPAOMNTS__MISSING",
+          "correlation": -0.2762390971183777
+        },
+        {
+          "field": "DEMO__INDFMPIR",
+          "correlation": 0.2698448896408081
+        },
+        {
+          "field": "DEMO__MIAPROXY__MISSING",
+          "correlation": -0.2598411440849304
+        },
+        {
+          "field": "DEMO__MIAINTRP__MISSING",
+          "correlation": -0.2598411440849304
+        },
+        {
+          "field": "DEMO__MIALANG__MISSING",
+          "correlation": -0.2598411440849304
+        }
+      ]
+    }
+  ],
+  "plots": {
+    "loss": "outputs/nhanes/loss.png",
+    "anchor_heatmap": "outputs/nhanes/anchor_heatmap.png",
+    "field_heatmap": "outputs/nhanes/field_heatmap.png"
+  }
+}
